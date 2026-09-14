@@ -25,6 +25,8 @@ Photography niche: `references/photography-sourcing.md` holds the stage 1 sourci
 
 Tooling: `references/monetise-stack.md` records what each Monetise tool takes and returns, and which parts of it this skill already covers.
 
+Outreach: `references/outreach.md` holds the stage 3 method, message structure and follow-up rule.
+
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
