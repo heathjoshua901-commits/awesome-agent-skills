@@ -16,6 +16,7 @@ and photography, which is why photography became the niche.
 |---|---|
 | Finance ledger | https://claude.ai/code/artifact/01c7de1c-82ce-484a-8255-6d161092ea1e |
 | Pricing audit, built for the Rhea Whitney approach | https://claude.ai/code/artifact/20b78698-0bd4-4262-8e82-d3e66bbfecf5 |
+| Niche register, private, holds the prospecting list kept off this repo | https://claude.ai/code/artifact/f755ee23-4524-4496-9bdf-c16326d82d09 |
 
 The ledger is connected to its shared database and holds the settings, one
 example creator, one example sale and two example expense rows. Split is set to
