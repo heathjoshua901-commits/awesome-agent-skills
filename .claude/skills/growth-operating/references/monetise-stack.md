@@ -148,6 +148,49 @@ of how the text got there.
 Fill it only by pasting words a real customer actually wrote, or leave it empty.
 If the create-or-improve action has ever been used on this field, clear it.
 
+#### Product/Service fields
+
+Recorded from the live editor. All twelve fields are now captured.
+
+| Field | What it asks for |
+|---|---|
+| The Problem | The main problem the audience faces, one pain at a time |
+| The Solution | How the product resolves it |
+| The Offer | What is actually being sold |
+| Keywords | Terms attached to the product |
+
+The Problem field frames the pain as an "Enemy" and calls it the foundation of
+all communication. That matches Gate 2's first line in intent. It differs in
+sourcing: the field does not say where the problem should come from, while the
+gate requires it in the audience's own words, taken from real comments, and
+explicitly not from the creator's framing.
+
+A proprietary framework named D.O.R.E.S. is offered for qualifying a problem
+statement, along with an agent called Unique Problem Mechanism that does not
+appear in the favourites view. Its definitions are course material and are
+deliberately not reproduced here. The structural point is enough: the tool
+expects a problem statement to be tested against fixed criteria before it is
+trusted, which is the same instinct the gates encode.
+
+#### The complete map against Gate 2
+
+| Gate 2 line | DNA field |
+|---|---|
+| Problem | Product → The Problem |
+| Promise | Product → The Solution |
+| Proof | Personality → Credentials, and Audience → Testimonials |
+| Delivery format | Product → The Offer |
+| Price | Product → The Offer |
+| **Why now** | **nothing** |
+
+Eleven distinct fields across three modules, and not one of them asks why the
+buyer should act this month rather than bookmark the page. Urgency is the line
+that most often decides whether an offer converts, and the system has no slot
+for it at all.
+
+Keep Gate 2's sixth line. When feeding this tool, carry "why now" into The Offer
+by hand, because nothing in the interface will prompt for it.
+
 #### Mechanics worth keeping
 
 - Unlimited instances of each type, mixed freely at run time. Personality A with
