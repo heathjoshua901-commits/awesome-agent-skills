@@ -399,6 +399,26 @@ The lesson for using it: this tool earns its price on creators whose
 monetisation path is **not** obvious. On an openly productised coach it
 restates the obvious. Screen the non-obvious creators with it.
 
+### Third run, and the tool states its own limit
+
+Run on a photography business coach with 2,000 followers. Sample: 12 posts, 1
+reel.
+
+Inside one theme the tool wrote that "the sample does not include engagement
+data for comparing performance". **It declares the gap itself.** That confirms
+from the vendor's own output what the first two runs only implied: no engagement
+signal, no comments, no way to score audience trust. Honest tooling, and a hard
+boundary on what it can be used for.
+
+This run also **named no existing product**, unlike the two before it. Its
+themes describe what the creator *could* sell rather than what they do sell. On
+a 2,000-follower account that calls itself a business coach, that is the shape
+of a creator with expertise and an audience who has not yet built anything,
+which is the route-one profile.
+
+Treat a verdict with no named product as a positive signal, not an empty result.
+It is the tool saying the shelf is bare.
+
 ### The follower band is unvalidated
 
 Two runs so far: 824,000 and 4,000. The 5,000 to 300,000 band in the sourcing
