@@ -419,6 +419,42 @@ which is the route-one profile.
 Treat a verdict with no named product as a positive signal, not an empty result.
 It is the tool saying the shelf is bare.
 
+### Four runs compared
+
+| Handle | Followers | Sample | Existing product named |
+|---|---|---|---|
+| `@lifethroughoptics_` | 824,000 | 12 posts, 5 reels | A creator academy |
+| `@rheawhitney` | 19,000 | 12 posts, 5 reels | A directly promoted training |
+| `@buildaphotobusiness` | 4,000 | 12 posts, 2 reels | Real estate photography programmes |
+| `@photography_business_coach` | 2,000 | 12 posts, 1 reel | None found |
+
+Three of four are productised. Product presence does not track audience size in
+this sample: the 824,000 and 4,000 accounts both sell, the 2,000 one does not.
+
+The post sample is fixed at twelve. Reel count varies with what the account has.
+
+**The tool is reliable at this job.** Four accurate niche characterisations, and
+existing products surfaced wherever they exist. That is a proven screening
+capability, whatever else remains unproven.
+
+### The subscription question resolves differently per route
+
+The tool has been tested on productised coaches only. What that proves depends
+entirely on which route is being run.
+
+**Route two, scaling a product that already exists.** The tool is proven at
+exactly this job: identify the creator, characterise the offer, name what they
+already sell, and rate which theme carries the most commercial weight. Four for
+four. On this route the tool earns its price and no further test is needed.
+
+**Route one, building for a creator with nothing.** Untested. Every run so far
+described a creator whose monetisation was already obvious from their bio. The
+deciding test is a working photographer who teaches nothing and sells nothing,
+and it has not been run.
+
+So the route decision comes first, and the subscription decision follows from
+it. They are not independent questions.
+
 ### The follower band is unvalidated
 
 Two runs so far: 824,000 and 4,000. The 5,000 to 300,000 band in the sourcing
