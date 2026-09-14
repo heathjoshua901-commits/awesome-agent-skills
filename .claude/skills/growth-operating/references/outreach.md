@@ -37,6 +37,40 @@ work is already done and they can see it.
 
 Two minutes to generate, ten minutes to check. The check is not optional.
 
+## Route two: the creator already sells something
+
+The principle holds but the asset changes. Do **not** build a competing product
+or a lead magnet that duplicates what they teach. That reads as "your thing is
+not good enough", which ends the conversation.
+
+Build **the free step in front of their paid thing.** A short guide that makes
+someone want the training they already sell, and that ends by pointing at it.
+Additive, not competitive, and it demonstrates in one move that you understand
+their business rather than just their content.
+
+### Establish the baseline first
+
+You cannot pitch a lift without knowing what it lifts from. Before writing:
+
+| Find | Where |
+|---|---|
+| What they sell, exactly | Bio link, link tree, their site |
+| The price | Checkout or sales page |
+| How they sell it | Is there a free step, an email capture, a sequence, or only posts? |
+| What it covers | Sales page curriculum or module list |
+
+That last one decides what your free guide can say without overlapping.
+
+The baseline is also the number your share gets measured against, so it is
+commercial groundwork, not research.
+
+### Do not send if
+
+- They already have a lead magnet in front of the product. The observation
+  collapses and you look like you did not check.
+- You cannot name the price. You do not understand the business yet.
+- Your guide covers the same ground as their paid product.
+
 ## Channel
 
 | Channel | When |
