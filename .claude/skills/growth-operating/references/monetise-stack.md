@@ -77,17 +77,61 @@ than one creator is in play: creator, then niche, then offer.
 
 ---
 
-## Funnel builder
+## SalesFunnels.com — funnel mapping
+
+**Stage served:** between 5 (offer design) and 7 (launch assets).
+
+A drafting table, not a host. It maps sales pages, order bumps, upsells and
+split-test variants onto a blueprint board, holds swipe files against them, and
+the plan is then handed to whoever builds the pages. It does not publish pages
+and it does not take payments.
+
+| Takes | Returns |
+|---|---|
+| The funnel's intended structure: which pages exist, what each sells, where bumps and upsells sit | A blueprint board with swipe files attached, to hand to a builder |
+
+### Where it belongs in the sequence
+
+1. Gate 2 produces the offer: problem, promise, proof, format, price, why now.
+2. **The map turns that single offer into a page-by-page structure.**
+3. Ghostwriter OS writes the copy for each box on the map.
+4. A page builder publishes them.
+5. Whop takes the payment and splits it.
+
+Step 2 is the one this tool owns. Skipping it is why launches end up as a single
+page with no considered path through them.
+
+### What replicates without it
+
+A funnel map is a structure document: the pages in order, the job of each, and
+the offer attached to each. That can be written here directly, and rendered as a
+diagram when a picture helps. What does not replicate is the drag-and-drop
+board, which is a comfort rather than a capability.
+
+### The deal-terms gap this exposes
+
+Order bumps and upsells are additional revenue on the same customer. **Your
+50/50 split does not currently say whether it covers them.** A creator who
+agreed to half of a 199 core offer may not expect to receive half of a 97 upsell
+they did nothing to sell, or may assume they do. Both readings are reasonable,
+which is exactly why it has to be written down before launch.
+
+Add to the deal terms checklist: does the split apply to the core offer only, or
+to every product sold through the funnel, including bumps, upsells and
+downsells?
+
+---
+
+## Page builder and checkout
 
 **Stage served:** 7 (launch assets).
 
-**Name unconfirmed.** Reported in this session as "SalesFunnel.com". Independent
-write-ups of Monetise name the bundled funnel builder as Flozy Pro. Confirm
-inside the platform before relying on either name.
+Independent write-ups name Flozy Pro as the builder bundled with Monetise.
+Unconfirmed against the platform itself.
 
-### The rule that matters, whatever the tool is called
+### The rule that matters, whatever the builder is called
 
-A funnel builder hosts pages and, in most cases, wants to host checkout too.
+A page builder hosts pages and, in most cases, wants to host checkout too.
 Checkout is the part that must not move.
 
 Whop was chosen for one reason: its revenue split pays you and the creator
@@ -96,17 +140,21 @@ about who owes whom. That split only fires on a Whop transaction.
 
 **So: the funnel sells, Whop takes the money.**
 
-| Funnel builder does | Whop does |
+| Page builder does | Whop does |
 |---|---|
 | Landing page, opt-in, video sales letter, upsell pages, thank-you page | Checkout, payment, membership access, delivery, revenue split |
 
-Every buy button in the funnel points at the Whop checkout. If the funnel's own
+Every buy button in the funnel points at the Whop checkout. If the builder's own
 checkout is used instead, the split does not fire, the creator has to be paid by
 hand, and payment resistance comes straight back.
+
+**Check before committing to any builder:** can a button point at an external
+checkout URL? A builder that forces its own checkout is unusable here, however
+good its pages are.
 
 ### Consequence for deal terms
 
 The deal terms checklist asks who owns the sales page copy. Add to it: who owns
-the funnel account, and what happens to the live pages if either side leaves. A
+the builder account, and what happens to the live pages if either side leaves. A
 funnel hosted on the operator's account is leverage; one hosted on the creator's
 is not. Decide it before launch, not after.
