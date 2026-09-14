@@ -74,3 +74,39 @@ saves clicks in a graphical tool and has no meaning in a conversation.
 Instances are named by combination, for example `CEO Profile | B2B Sales` or
 `[Weight Loss] Women 40+`. The same convention suits memo filenames once more
 than one creator is in play: creator, then niche, then offer.
+
+---
+
+## Funnel builder
+
+**Stage served:** 7 (launch assets).
+
+**Name unconfirmed.** Reported in this session as "SalesFunnel.com". Independent
+write-ups of Monetise name the bundled funnel builder as Flozy Pro. Confirm
+inside the platform before relying on either name.
+
+### The rule that matters, whatever the tool is called
+
+A funnel builder hosts pages and, in most cases, wants to host checkout too.
+Checkout is the part that must not move.
+
+Whop was chosen for one reason: its revenue split pays you and the creator
+automatically from the same transaction, which removes the awkward conversation
+about who owes whom. That split only fires on a Whop transaction.
+
+**So: the funnel sells, Whop takes the money.**
+
+| Funnel builder does | Whop does |
+|---|---|
+| Landing page, opt-in, video sales letter, upsell pages, thank-you page | Checkout, payment, membership access, delivery, revenue split |
+
+Every buy button in the funnel points at the Whop checkout. If the funnel's own
+checkout is used instead, the split does not fire, the creator has to be paid by
+hand, and payment resistance comes straight back.
+
+### Consequence for deal terms
+
+The deal terms checklist asks who owns the sales page copy. Add to it: who owns
+the funnel account, and what happens to the live pages if either side leaves. A
+funnel hosted on the operator's account is leverage; one hosted on the creator's
+is not. Decide it before launch, not after.
