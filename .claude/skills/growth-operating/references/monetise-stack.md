@@ -304,6 +304,55 @@ one.
 
 ---
 
+## Synthesise AI
+
+**Stage served:** 5 (offer design), and it reaches back into 2 (vetting).
+
+Another separate product, at `app.synthesise.ai`. Work is organised under
+**Offers**, each holding a sequence of steps. The interface carries an explicit
+**Growth Operator path**, so this business model is a first-class mode rather
+than an improvised use of a general tool.
+
+### It reads creator platforms directly
+
+The first step of the offer flow, "Discover Your Unique Value Zone", accepts any
+one of three inputs:
+
+| Input | What it does with it |
+|---|---|
+| Creator's Instagram handle | Reads their profile and reels to capture their real voice |
+| Creator's YouTube channel | Reads their recent videos to capture their real voice |
+| Creator's DNA, as an exported PDF | Imports a Campaign DNA from Ghostwriter OS |
+
+**This is the one capability in the stack that cannot be replicated here.**
+Instagram, YouTube and TikTok serve nothing to an unauthenticated fetch, which
+is what ended the first photography sweep. A tool that ingests a handle and
+returns an analysis of that creator's actual output closes exactly that gap.
+
+Everything else documented in this file is a context system, a mapping board, or
+a copy generator, all of which have equivalents here. This does not.
+
+### Where it fits the gates
+
+Gate 1 scores a creator on six signals, four of which need platform data. This
+tool supplies the creator-side half: voice, subject matter, cadence as evidenced
+by what they actually publish.
+
+**Open question, unresolved:** whether it reads audience *comments* or only the
+creator's own output. The interface says profile, reels and recent videos, all
+of which are the creator talking. Audience trust and engagement quality are
+scored from what commenters say, and nothing here promises that. If it does not
+read comments, the hardest evidence in Gate 1 is still a manual job.
+
+### Interconnect with Ghostwriter OS
+
+The step header reads "Export the creator's DNA, then upload the PDF here",
+which matches the download control on each Ghostwriter OS DNA page. The two
+products exchange a Campaign DNA as a PDF. Whichever tool produced it, the DNA
+is the shared unit of context across the stack.
+
+---
+
 ## SalesFunnels.com — funnel mapping
 
 **Stage served:** between 5 (offer design) and 7 (launch assets).
