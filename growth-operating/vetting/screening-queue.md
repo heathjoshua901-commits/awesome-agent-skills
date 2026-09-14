@@ -53,7 +53,7 @@ rather than building a new one.
 
 | Handle | Existing product |
 |---|---|
-| `@rheawhitney` | A directly promoted training, pricing specialism |
+| `@rheawhitney` | **Far more productised than the screen showed.** PhotoBomb Academy platform, "From Hobbyist to Pro 2.0" five-week live coaching (covers pricing with confidence), one-to-one PhotoBomb Training, a podcast, PPA instructor, international speaker, six figures. The screen reported only "a directly promoted training" |
 | `@buildaphotobusiness` | Real estate photography programmes |
 | Karl Taylor | Commercial photography education, 25 years |
 | `@colette.peri` | Udemy and Skillshare classes, her own course platform, an eight-part career course and a signature brand course. **Use as market proof, not as a prospect** |

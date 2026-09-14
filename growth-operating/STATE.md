@@ -69,13 +69,26 @@ Nothing has been sent. No creator has been signed. No revenue exists.
 Six creators screened, all failed. Four already productised, two with audiences
 that do not pay to learn. Details in `vetting/screening-queue.md`.
 
-**The current candidate is `@rheawhitney`.** Nineteen thousand followers, a
-data-driven pricing specialism, one directly promoted training. The only free
-asset she has ever offered was a workbook at a webinar about a year ago, which
-ran once and stopped.
+**The current candidate is `@rheawhitney`, and the picture changed on 14 Sept.**
+Nineteen thousand followers, but far more established than that implies: the
+PhotoBomb Academy platform, a five-week live coaching programme called From
+Hobbyist to Pro 2.0 that explicitly covers pricing, one-to-one training, a
+podcast, instructor status with Professional Photographers of America,
+international speaking, and six figures inside ten years.
 
-The outreach angle: she built a free step once and switched it off. The pricing
-audit is the evergreen version of it.
+The platform screen reported only "a directly promoted training", so it
+under-read her substantially. Second confirmed under-read by that tool.
+
+**The outreach premise needs rework.** It was built on "nothing free sits in
+front of the training". She runs a podcast, which is permanent free
+top-of-funnel, so that line is probably false. The surviving angle is narrower:
+a podcast builds audience but captures no email addresses, so the gap may be an
+opt-in asset between the podcast and the academy. That has to be verified on her
+site before anything is sent.
+
+**Open vetting question:** she may be too established. An academy, a cohort
+programme, a podcast and PPA status usually means a team or at least an
+assistant, and somebody may already own this work.
 
 ## Immediate next actions
 
