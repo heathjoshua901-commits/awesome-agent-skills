@@ -48,8 +48,37 @@ Three independent module types. Each holds four fields.
 | Audience | Who is being spoken to: ideal customer, beliefs, pain points |
 | Product | What is being offered: offer, problem solved, solution |
 
-**Field names are not recorded.** Four per module, twelve in total. Capture them
-before access ends; without them this cannot be rebuilt like for like.
+#### Personality fields
+
+Recorded from the live editor. The other two modules hold four fields each and
+are still uncaptured.
+
+| Field | What it asks for |
+|---|---|
+| Author Biography | Yourself and the company, with at least three main achievements: client numbers, accomplishments, awards, appearances |
+| Author/Brand Voice | How the brand sounds |
+| Credentials, Proof and Evidences | The proof behind the claims |
+| Banned Words and Phrases | Words the output must never use |
+
+Two of these are worth carrying over regardless of the software.
+
+**Credentials, Proof and Evidences** is Gate 2's proof line under another name.
+A creator with nothing to put in this field has no offer, and the gate already
+says so.
+
+**Banned Words and Phrases** has no equivalent in the gates and should. Every
+creator has words that do not sound like them, and a list of those is faster to
+apply than a description of their voice. Collect it during the first call.
+
+#### The trap this module sets
+
+The Personality module asks for "your business or brand identity", so the
+obvious move is to fill it with your own. For a growth operating campaign that
+is the wrong answer. The audience is buying from the creator, and the copy is
+published under their name. Personality belongs to them.
+
+Keep a separate Personality for your own consultancy if you market it. Never let
+that one be the default when writing campaign copy for a creator.
 
 #### Mechanics worth keeping
 
