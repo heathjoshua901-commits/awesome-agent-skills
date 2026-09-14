@@ -7,15 +7,16 @@ Last updated: 14 September 2026.
 ## The business
 
 Josh builds and markets a digital product that a creator promotes. Revenue is
-split through Whop. Josh's background is systems consultancy, marketing, finance
-and photography, which is why photography became the niche.
+split through Whop. Josh's background is systems consultancy for companies
+(analysing a business's systems and rebuilding them), plus marketing, finance and
+business management. He also knows photography well.
 
 ## Live assets
 
 | Asset | Where |
 |---|---|
 | Finance ledger | https://claude.ai/code/artifact/01c7de1c-82ce-484a-8255-6d161092ea1e |
-| Pricing audit, built for the Rhea Whitney approach | https://claude.ai/code/artifact/20b78698-0bd4-4262-8e82-d3e66bbfecf5 |
+| Pricing audit, unbranded, built for a capacity-constrained service business | https://claude.ai/code/artifact/20b78698-0bd4-4262-8e82-d3e66bbfecf5 |
 | Niche register, private, holds the prospecting list kept off this repo | https://claude.ai/code/artifact/f755ee23-4524-4496-9bdf-c16326d82d09 |
 
 The ledger is connected to its shared database and holds the settings, one
@@ -23,7 +24,11 @@ example creator, one example sale and two example expense rows. Split is set to
 50/50 on both the default and the example creator.
 
 The pricing audit is unbranded and its call to action points at a placeholder.
-It must not carry a creator's name until that creator agrees.
+It must not carry a creator's name until that creator agrees. **It was built for
+photography but the maths is niche-agnostic**: target take-home, tax, costs and
+capacity produce a required price per session. It transfers unchanged to any
+capacity-constrained service business, which is worth weighing in the niche
+choice. Only the "stops underexposed" framing is photography-specific.
 
 ## Decisions made
 
@@ -69,59 +74,51 @@ Josh regardless of which tools he keeps.
 
 Nothing has been sent. No creator has been signed. No revenue exists.
 
-Six creators screened, all failed. Four already productised, two with audiences
-that do not pay to learn. Details in `vetting/screening-queue.md`.
+**The photography niche was retired on 14 September.** Six creators screened,
+none passed. The full record, the tiering and the vetting memos are in
+`growth-operating/archive/photography/`, which has a README explaining the
+retirement and what survived into the live skill.
 
-**The current candidate is `@rheawhitney`, and the picture changed on 14 Sept.**
-Nineteen thousand followers, but far more established than that implies: the
-PhotoBomb Academy platform, a five-week live coaching programme called From
-Hobbyist to Pro 2.0 that explicitly covers pricing, one-to-one training, a
-podcast, instructor status with Professional Photographers of America,
-international speaking, and six figures inside ten years.
+`@rheawhitney` was the standing candidate and is archived with the rest. If the
+niche is ever revisited, that is where to restart.
 
-The platform screen reported only "a directly promoted training", so it
-under-read her substantially. Second confirmed under-read by that tool.
+## The niche switch, 14 September
 
-**The outreach premise needs rework.** It was built on "nothing free sits in
-front of the training". She runs a podcast, which is permanent free
-top-of-funnel, so that line is probably false. The surviving angle is narrower:
-a podcast builds audience but captures no email addresses, so the gap may be an
-opt-in asset between the podcast and the academy. That has to be verified on her
-site before anything is sent.
+**Decided: switch. Niche to be chosen by Josh.**
 
-**Open vetting question:** she may be too established. An academy, a cohort
-programme, a podcast and PPA status usually means a team or at least an
-assistant, and somebody may already own this work.
+The reasoning. The programme's prospecting material selects niches on **demand**:
+an audience that arrives already carrying a problem it wants gone. Photography
+appears nowhere in it, under any heading. Photography was chosen on **Josh's
+expertise** instead, and six screens with no pass is what that difference looks
+like in practice.
 
-## The niche question, opened 14 September
+The replacement must be chosen on demand, not on familiarity, or the same error
+repeats. Three constraints on the choice, in this order:
 
-The programme's own prospecting material selects niches on **demand**: an
-audience that arrives already carrying a problem it wants gone. Photography
-appears nowhere in it, under any heading, and the near neighbours are not near.
-Photography was selected on **Josh's expertise** instead, and the screening
-record is what that difference looks like in practice: six screened, none passed,
-two failed specifically because the audience admired the work rather than buying
-an outcome.
+1. **Does the audience arrive with a problem it wants gone?** Non-negotiable.
+   Interest is not intent.
+2. **Can it be screened from outside?** Josh's screening surface is Instagram.
+   Niches whose creators live on Facebook, LinkedIn or YouTube screen far more
+   slowly, because Gate 1 needs comment sections.
+3. **Does Josh's background let him build the offer?** Third, not first. This is
+   the constraint that went first last time.
 
-Against the same criterion, Josh's systems-consultancy and finance background
-maps hardest onto owner-operated service businesses (trades, clinics, gyms,
-staffing, logistics) and onto consulting and agency growth. Those audiences
-arrive with a revenue or systems problem and a documented habit of paying to fix
-it.
+The full niche list is in the private register artifact above. The entries
+flagged "fit" there map to systems consultancy, finance and business management.
 
-**Not decided.** The photography pipeline has real work in it, and switching
-discards the sourcing reference and the vetting queue. Recorded so the decision
-gets made deliberately rather than by drift.
+**Carried forward regardless of niche:** the two gates, the outreach method, the
+productised-peer sourcing rule, the tier-before-scoring rule, the 8-point
+pre-screen cap, and the pricing-audit maths.
 
 ## Immediate next actions
 
-1. Confirm the webinar workbook is not still linked anywhere permanent. If it is,
-   the outreach message's second paragraph is wrong and needs rewriting.
-2. Establish her baseline: training name, price, what it covers, how she sells it.
-3. Put her training name and link into the pricing audit, swap the accent token
-   to her brand colour, then share the artifact.
-4. Send the outreach message. The draft and its rules are in
-   `references/outreach.md`.
+1. **Josh chooses the niche.** Nothing below can start until then.
+2. Fill the per-niche tiering section at the end of `references/sourcing.md`:
+   Tier A / B / C for the new niche, its price points, its niche-specific red
+   flags.
+3. Build a fresh screening queue of handles in the new niche.
+4. Decide whether the pricing audit is reusable as the new niche's lead magnet or
+   whether a different asset is needed.
 5. Once a payout exists, reconcile it against the ledger and settle the gross or
    net question above.
 
@@ -134,3 +131,6 @@ gets made deliberately rather than by drift.
 - Every generated document gets read end to end before it leaves Josh's hands.
   The Monetise generator leaks template markers and duplicate pull quotes into
   otherwise finished output.
+- The platform analysis has under-read a creator's product range twice. A named
+  product is reliable when it appears; its absence proves nothing. Always search
+  the creator's name by hand before outreach.

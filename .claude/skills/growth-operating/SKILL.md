@@ -21,7 +21,7 @@ The tools do not decide anything. Two gates do: **is this creator worth building
 
 Never move a creator from stage 2 to 3 without a written vetting memo. Never move from stage 4 to 5 without signed terms.
 
-Photography niche: `references/photography-sourcing.md` holds the stage 1 sourcing spec and pre-screen.
+Sourcing: `references/sourcing.md` holds the stage 1 method, the audience tiering, the pre-screen bar and what Claude cannot see.
 
 Tooling: `references/monetise-stack.md` records what each Monetise tool takes and returns, and which parts of it this skill already covers.
 
