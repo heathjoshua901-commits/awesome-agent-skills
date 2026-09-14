@@ -82,9 +82,45 @@ retirement and what survived into the live skill.
 `@rheawhitney` was the standing candidate and is archived with the rest. If the
 niche is ever revisited, that is where to restart.
 
-## The niche switch, 14 September
+## The niche, chosen 14 September
 
-**Decided: switch. Niche to be chosen by Josh.**
+**Owner-operated local service businesses: salons, spas, med spas, barbershops,
+gyms and studios.**
+
+The partner is an **educator whose audience is owners**, not the businesses
+themselves. Route two throughout: every Tier A candidate already sells something,
+which is the point — demand is proven by revenue before a message is sent.
+
+Why it won:
+
+| Criterion | How it scored |
+|---|---|
+| Audience arrives with a problem | Yes. Pricing, staffing, retention, utilisation. Owners with a P&L |
+| Screenable from outside | Very. These businesses live on Instagram, the only surface Josh can read |
+| Josh's background | Systems and finance are the substance of what these coaches teach |
+| Existing asset reuse | The pricing audit's maths transfers: chairs and rooms are capacity, same arithmetic |
+
+Market evidence gathered 14 September: roughly $300/month memberships, £1,500
+six-session blocks, twelve-month mentorships for owners past $200k revenue.
+Multiple established incumbents, which proves the market rather than blocking it.
+
+Tiering, red flags and the compliance note are in `references/sourcing.md`. The
+handle list is in `vetting/screening-queue.md`.
+
+**Two rules that bite in this niche specifically:**
+
+1. **Income claims.** This is a wealth-pillar niche. One coach on the list
+   advertises "add $10–50K/month while working less". Check organic content
+   before committing, because those claims become part of the offer being scaled.
+2. **Consumer-facing accounts are Tier C.** A salon posting transformations is
+   advertising to clients. Those are the biggest accounts in the niche and the
+   expensive mistake — the exact parallel of the photography portfolio trap.
+
+### Superseded reasoning, kept
+
+Photography was chosen on Josh's expertise rather than on demand. It appears
+nowhere in the programme's prospecting material, and six screens produced no
+pass. Full record in `growth-operating/archive/photography/`.
 
 The reasoning. The programme's prospecting material selects niches on **demand**:
 an audience that arrives already carrying a problem it wants gone. Photography
@@ -112,14 +148,18 @@ pre-screen cap, and the pricing-audit maths.
 
 ## Immediate next actions
 
-1. **Josh chooses the niche.** Nothing below can start until then.
-2. Fill the per-niche tiering section at the end of `references/sourcing.md`:
-   Tier A / B / C for the new niche, its price points, its niche-specific red
-   flags.
-3. Build a fresh screening queue of handles in the new niche.
-4. Decide whether the pricing audit is reusable as the new niche's lead magnet or
-   whether a different asset is needed.
-5. Once a payout exists, reconcile it against the ledger and settle the gross or
+1. **Screen Priority 1 in `vetting/screening-queue.md`**, six handles, about ten
+   minutes each. Instagram only — Claude cannot see it. Josh runs these and pastes
+   or screenshots what he finds.
+2. Write a pre-screen memo per screened creator into `growth-operating/vetting/`.
+   No memo, no outreach. Standing rule.
+3. For the first creator that clears 5/8: establish the baseline — what they
+   sell, the price, how they sell it, what it covers.
+4. Rebuild the pricing audit for that creator's world. Three changes are already
+   specified in `references/sourcing.md`: capacity becomes chairs or rooms,
+   add a utilisation rate, and replace the photography-native framing.
+5. Send the outreach. Method and message structure in `references/outreach.md`.
+6. Once a payout exists, reconcile it against the ledger and settle the gross or
    net question above.
 
 ## Working notes

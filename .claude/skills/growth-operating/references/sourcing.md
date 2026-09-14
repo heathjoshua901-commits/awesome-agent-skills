@@ -109,10 +109,98 @@ the tool to confirm, never to clear. Before any outreach, search the creator's
 name directly for a sales page, a podcast, a course platform and any professional
 body listing.
 
-## Per-niche tiering
+## Per-niche tiering: owner-operated local service businesses
 
-Not yet filled. Once a niche is chosen, this section gets the Tier A / B / C
-split for that niche, its typical price points, and its niche-specific red flags.
+Chosen 14 September 2026. The niche is **the educators**, not the businesses.
+The partner is someone whose audience is salon, spa, med spa, barbershop, gym or
+studio *owners*. Their audience arrives with a revenue, pricing, staffing or
+retention problem and a documented habit of paying to fix it.
 
-Archived photography tiering, kept as a worked example of the format:
-`growth-operating/archive/photography/photography-sourcing.md`.
+This sits under the wealth pillar, so **the income-claims rule applies**. One
+coach found in the sweep advertises "add $10–50K/month while working less". If
+that claim is in the creator's organic content, it becomes part of the offer
+being scaled and substantiating it becomes the operator's problem too.
+
+### Tier A — source these
+
+Audience is owners with a P&L.
+
+- **Salon and spa business coaches.** Audience is owners, not stylists building a
+  personal clientele.
+- **Med spa and aesthetics business strategists.** Highest ticket in the niche;
+  audience is practice owners and injectors running a business.
+- **Barbershop business educators** aimed at shop owners rather than at barbers
+  improving their cutting.
+- **Gym and boutique studio business coaches**, including Pilates, yoga and
+  strength studio owners.
+
+Observed market, September 2026: roughly $300/month for a coaching membership,
+about £1,500 for a six-session block, and twelve-month mentorships pitched at
+owners already past $200k revenue. The market clears, repeatedly, at real
+tickets.
+
+### Tier B — conditional
+
+- **Coaches whose audience is solo operators**: booth renters, self-employed
+  stylists, independent PTs. They buy, but lower and less reliably. Shortlist only
+  with evidence of a $500+ product or an email list.
+- **Craft educators** teaching technique (colour, lashes, injecting, cutting).
+  The audience does buy, but it buys skill rather than business outcomes, so the
+  offer you would build is a different animal and the incumbents are entrenched.
+- **Educators attached to a software platform or a product distributor.** The real
+  monetisation may sit in the software or the product line, which complicates a
+  revenue split. Establish what actually earns before pitching.
+
+### Tier C — skip without scoring
+
+**Consumer-facing accounts.** A salon, spa or gym posting transformations,
+before-and-afters, interiors or availability is advertising to *clients*. Their
+followers want a treatment, not a business education. These are the biggest
+accounts in the niche and therefore the most tempting, which makes this the
+expensive mistake — the exact parallel of the photography portfolio trap.
+
+Also skip: product and retail brand accounts, salon interior and aesthetic
+inspiration accounts, and franchise recruitment accounts, where the "offer" is a
+franchise rather than a digital product.
+
+### Niche-specific red flags
+
+On top of the standing red flags in `SKILL.md`:
+
+- **Dual audience.** The account sells to consumers *and* to owners. Every asset
+  you build has to pick one, and the creator will resist narrowing.
+- **The coach is a front end for software or product distribution.** The split
+  gets argued about, because the coaching is a lead magnet for the real revenue.
+- **Franchise or licensing model.** Not a digital product; the split does not map.
+- **Med spa compliance.** The offer is business education to licensed
+  practitioners, which is clean. It stops being clean the moment it touches
+  clinical protocol, prescribing or scope of practice. Any offer that does needs
+  the creator's credentials behind it, and the health-pillar rule applies:
+  teach managing the business, never the medicine.
+
+### Why this niche screens fast
+
+These businesses live on Instagram, which is the only screening surface
+available. Coaches in the niche sit at roughly 6,000 to 12,000 followers — small
+enough that the creator still reads their own DMs, established enough to have a
+product to grow.
+
+### The lead magnet transfers
+
+The existing pricing audit's maths is target take-home, tax, costs and capacity
+producing a required price. That is exactly the arithmetic of a chair, a
+treatment room, a studio slot or a class. Pricing is the universal problem in
+this niche, so the asset carries over with three changes:
+
+1. Capacity becomes chairs or rooms × hours × days, not sessions.
+2. Add a **utilisation rate**. Gaps and no-shows are the defining cost here and
+   the photography version has no equivalent.
+3. Replace the "stops underexposed" framing, which is photography-native, with a
+   unit native to the new creator's world.
+
+Build it per creator after screening, never before. The standing rule in
+`references/outreach.md` still holds.
+
+### Worked example of this format
+
+The retired photography tiering: `growth-operating/archive/photography/photography-sourcing.md`.
