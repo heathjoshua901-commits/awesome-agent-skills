@@ -18,10 +18,22 @@ business management. He also knows photography well.
 | Finance ledger | https://claude.ai/code/artifact/01c7de1c-82ce-484a-8255-6d161092ea1e |
 | Pricing audit, unbranded, built for a capacity-constrained service business | https://claude.ai/code/artifact/20b78698-0bd4-4262-8e82-d3e66bbfecf5 |
 | Niche register, private, holds the prospecting list kept off this repo | https://claude.ai/code/artifact/f755ee23-4524-4496-9bdf-c16326d82d09 |
+| Prospect register, tracks each prospect's stage | https://claude.ai/code/artifact/1f142ee2-1e77-44e2-824d-4817bb57bdd2 |
 
 The ledger is connected to its shared database and holds the settings, one
 example creator, one example sale and two example expense rows. Split is set to
 50/50 on both the default and the example creator.
+
+The prospect register is connected to its own shared database, seeded with the
+eight real handles from `vetting/screening-queue.md`, all at stage Sourced. Its
+ten stages mirror the pipeline and the outreach rules: Sourced, Screening,
+Cleared, Contacted, Followed up, In conversation, Terms agreed, Live, Screened
+out, Dormant. **Cleared means the pre-screen memo exists** — the standing rule
+that no memo means no outreach is enforced by the stage order. Dormant is where a
+prospect goes after the one permitted follow-up, never a second one.
+
+A prospect that reaches Terms agreed becomes a creator row in the ledger. The two
+artifacts are deliberately separate: pipeline and money.
 
 The pricing audit is unbranded and its call to action points at a placeholder.
 It must not carry a creator's name until that creator agrees. **It was built for
