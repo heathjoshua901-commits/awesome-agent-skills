@@ -108,6 +108,46 @@ published under their name. Personality belongs to them.
 Keep a separate Personality for your own consultancy if you market it. Never let
 that one be the default when writing campaign copy for a creator.
 
+#### Audience fields
+
+Recorded from the live editor.
+
+| Field | What it asks for |
+|---|---|
+| Ideal Client Profile | The ideal client in detail: characteristics, pain points, desires |
+| The Persuasive Premise | The one belief that turns a prospect into a customer |
+| Testimonials | Customer testimonials |
+| Keywords | Terms the audience uses or searches |
+
+The Ideal Client Profile field states outright that it "fuels almost all
+agents". It is the highest-leverage field in the entire system, which makes it
+the most damaging one to invent.
+
+#### The generation loop
+
+Both Ideal Client Profile and The Persuasive Premise are field names **and**
+agent names. The workflow the tips describe is: run the agent, paste its output
+into the matching DNA field, and that field then becomes context for every
+other agent.
+
+Nothing external enters this loop. A generated persona becomes the evidence base
+for generated copy, which reads as confirmation that the persona was right.
+
+**The rule:** at least one field in Audience must contain something a real
+person actually said or did. Verbatim comments from the vetting memo, a
+transcript line from a discovery call, a support ticket. Without that, the loop
+is closed and the whole campaign is arguing with itself.
+
+#### Testimonials is not a writing field
+
+Every other field can hold a working hypothesis. This one cannot. A testimonial
+is a claim that a named customer said a specific thing. Auto-filled content here
+is a fabricated endorsement, and publishing it is a misrepresentation regardless
+of how the text got there.
+
+Fill it only by pasting words a real customer actually wrote, or leave it empty.
+If the create-or-improve action has ever been used on this field, clear it.
+
 #### Mechanics worth keeping
 
 - Unlimited instances of each type, mixed freely at run time. Personality A with
