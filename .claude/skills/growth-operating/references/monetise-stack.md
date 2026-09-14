@@ -313,6 +313,41 @@ Another separate product, at `app.synthesise.ai`. Work is organised under
 **Growth Operator path**, so this business model is a first-class mode rather
 than an improvised use of a general tool.
 
+### Entry point: three paths
+
+At `app.synthesise.ai/create` the tool opens on "What do you know, care about,
+or want to help people with?" with three routes out:
+
+| Path | What it does |
+|---|---|
+| Free text, the default | Builds an offer from **your own** expertise |
+| I'm building for someone else, badged **Growth Operator** | Builds the offer from **a creator's** expertise |
+| Trending offers | "Market-validated ideas, refreshed daily" |
+
+A fourth prompt at the foot offers to find a profitable product for you with no
+input at all.
+
+**The default is solo.** The product's centre of gravity is a person making a
+product from their own knowledge, which is the Monetise core promise. Growth
+operating is a supported side path, not the main road. Always enter through the
+Growth Operator card, or the offer gets built from the wrong person's expertise.
+
+### Trending offers: check the claim before trusting it
+
+"Market-validated" is a strong word and the interface does not say what validates
+them. Two possibilities with very different value:
+
+- **Real signal.** Drawn from what is actually selling, with a source, a figure
+  or a date attached per idea. That would be genuine buying-intent evidence,
+  which is the exact thing this pipeline is short of.
+- **Generated ideas with a confident label.** A list of plausible niches
+  refreshed on a schedule, which is the generation loop wearing a badge.
+
+**The test:** open one and look for its evidence. A source, a number, a date, a
+platform it was observed on. If each idea is only a title and a description, the
+validation claim is decoration and the ideas are worth no more than any other
+brainstorm.
+
 ### It reads creator platforms directly
 
 The first step of the offer flow, "Discover Your Unique Value Zone", accepts any
