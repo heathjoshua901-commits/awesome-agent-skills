@@ -437,6 +437,33 @@ The post sample is fixed at twelve. Reel count varies with what the account has.
 existing products surfaced wherever they exist. That is a proven screening
 capability, whatever else remains unproven.
 
+### The route-one test, and its result
+
+Run on an automotive photographer with 60,000 followers who sells nothing and
+teaches nothing. Sample: 12 posts, 1 reel.
+
+**It passes.** Three details in the output are anchored in that specific account
+and could not be pasted onto any other photographer: British colloquialisms
+noted in the voice profile, lower-carbon automotive development as a recurring
+subject, and conversations about builders, markets and marque histories. A
+generator produces themes. Those are observations.
+
+**It also declines to oversell.** The verdict says the audience promise is
+currently broad, that a product would need a more defined format than general
+car coverage, and that any offer must be narrowed to one clear audience and
+outcome. It named the difficulty rather than hiding it.
+
+So the tool is now proven on both routes: it characterises and finds existing
+products on productised creators, and it produces genuinely anchored analysis on
+creators with nothing to sell.
+
+**Separate the two verdicts.** The tool passed. The creator probably does not.
+Its own audience line reads "car enthusiasts, collectors, motorsport fans and
+automotive brands", which is four audiences, and enthusiast audiences consume
+rather than buy outcomes. That is the Tier C shape this skill's photography
+reference already warns about. A tool working correctly can still hand you a
+creator who fails Gate 1 on buying intent.
+
 ### The subscription question resolves differently per route
 
 The tool has been tested on productised coaches only. What that proves depends
