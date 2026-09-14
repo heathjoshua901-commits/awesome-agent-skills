@@ -17,7 +17,7 @@ them, but none appears to have productised it.
 | Handle | Why |
 |---|---|
 | `@amandacampeanu` | Commercial photographer who shares editing tips and behind-the-scenes |
-| `@so.daze` | **Top candidate.** Alina Golovlova, Prague, 111k followers. Brand work for Disney+, McDonald's, Golden Globes, Strathberry. No education product found by search. Business email in bio |
+| `@so.daze` | **Screened, likely fails.** 117k followers, commercial stop-motion. No product, but a "work with me" link: a service business selling time to brands. The analysis says her content reinforces her commercial service rather than proving an educational offer. Comments decide |
 | `@davidnewtonphotography` | Still life, beauty and luxury product |
 | `@danylchenkocom` | Food and product advertising |
 | `@weekendcreative` | Editorial product shoots |

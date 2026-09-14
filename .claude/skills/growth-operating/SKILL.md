@@ -45,6 +45,30 @@ partner. This is the only demand evidence available without reading comments,
 and it is stronger than a self-reported score because somebody is actually
 charging for it.
 
+**Match the audience, not the craft.** Two people can do identical work and have
+completely different followers. One posts to teach and attracts learners. The
+other posts a portfolio and attracts admirers and clients. Only the first has an
+audience you can sell a product to. Shared skill is not shared market.
+
+## "No product" has two causes, and only one is good
+
+Finding no product is not by itself a route-one signal. Work out which of these
+you are looking at before anything else.
+
+| Cause | What it looks like | Verdict |
+|---|---|---|
+| **Has not monetised the audience yet** | Teaching content, process explanations, answering questions publicly. Nothing for sale | The route-one profile. Proceed |
+| **Monetises through services instead** | A "work with me", "book me" or "enquiries" link. Portfolio posts. Client logos | Not an audience business. Their followers are admirers and prospective clients, not buyers of an outcome |
+
+A **"work with me" link is the tell for the second.** They already convert
+attention into money by selling their time, the audience was assembled to
+attract clients rather than students, and there is no established habit of that
+audience paying to learn anything.
+
+A service business can still become a good partner, because products scale where
+time does not. But it is a harder, longer conversation and the audience may not
+follow. Treat it as a different pitch, not the standard one.
+
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
