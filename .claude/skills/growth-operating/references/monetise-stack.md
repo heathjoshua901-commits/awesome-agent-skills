@@ -420,6 +420,29 @@ Used that way it belongs at **stage 2, vetting**, ahead of the offer work it was
 designed for. A sixty-second screen that prevents a wasted pitch is worth more
 than a generated offer.
 
+### Standalone pricing
+
+Published at `synthesise.ai/#pricing`: **$2,999, one-time**, for the entry tier,
+which includes unlimited credits, the unique value zone calculation and product
+charter generation.
+
+| | Price | Includes |
+|---|---|---|
+| Synthesise AI alone | $2,999 | This tool |
+| Monetise | $1,995 | This tool, Ghostwriter OS, the funnel mapper, ListKit, the course, the community |
+
+The bundle is a thousand dollars cheaper than its single most capable component.
+Buying this tool on its own is dominated by buying the bundle, so "refund and
+subscribe to just the good tool" is not an available strategy.
+
+[Likely] The standalone price exists mainly to anchor the bundle rather than to
+sell many copies at that figure. That does not change the conclusion, because
+the published price is what an outside buyer would actually pay.
+
+**Check before relying on bundle access:** whether the Monetise-bundled
+Synthesise AI is perpetual or expires with the programme, and whether its credit
+allowance matches the standalone tier.
+
 ### Interconnect with Ghostwriter OS
 
 The step header reads "Export the creator's DNA, then upload the PDF here",
