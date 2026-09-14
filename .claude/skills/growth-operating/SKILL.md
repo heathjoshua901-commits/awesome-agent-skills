@@ -21,6 +21,8 @@ The tools do not decide anything. Two gates do: **is this creator worth building
 
 Never move a creator from stage 2 to 3 without a written vetting memo. Never move from stage 4 to 5 without signed terms.
 
+Photography niche: `references/photography-sourcing.md` holds the stage 1 sourcing spec and pre-screen.
+
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
