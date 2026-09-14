@@ -343,10 +343,60 @@ them. Two possibilities with very different value:
 - **Generated ideas with a confident label.** A list of plausible niches
   refreshed on a schedule, which is the generation loop wearing a badge.
 
-**The test:** open one and look for its evidence. A source, a number, a date, a
-platform it was observed on. If each idea is only a title and a description, the
-validation claim is decoration and the ideas are worth no more than any other
-brainstorm.
+**Tested, and the claim does not hold.** A trending card shows a headline score
+out of ten. Opening it reveals the components under a heading the tool writes
+itself: **SELF-REPORTED SCORES.** Pain, worsening, purchasing power and speed,
+each scored by the model. The rationale line reads "Candidate 9 wins", so it
+generated a set of candidates and ranked them against each other.
+
+No source, no figure, no platform, no date. "Market-validated" on the entry
+screen is contradicted by "self-reported" in the detail view of the same
+feature.
+
+The tool is being honest and the label above it is not. Treat trending offers as
+a structured brainstorm with confidence attached, which is the generation loop
+again. It does **not** supply the buying-intent evidence this pipeline lacks,
+and the demand-first pipeline inversion it seemed to offer is not available.
+
+### Build modes and output quality
+
+Each trending offer opens into two modes:
+
+| Mode | Time | Output |
+|---|---|---|
+| Guided | 10 to 15 minutes | Refine the value zone, build the charter, ship the full product |
+| Fast Mode | about 2 minutes | One-shot lead magnet from the niche |
+
+**Fast Mode measured:** 2,401 words, 5 chapters, 20 pages, 1 minute 16 seconds,
+delivered as a designed PDF with a generated cover, a tuned colour palette and a
+table of contents.
+
+**The content is genuinely good.** It carries real domain knowledge rather than
+filler: checking kick and bass together in mono, shifting a hat pattern by an
+eighth note, testing three tempos once and committing. It teaches through
+contrast, for example that a reference track is an arrangement map rather than a
+quality judgement, which is the actual psychological problem the niche has.
+
+**Defects that need a human pass before publishing:**
+
+- Unrendered template markers leak into the body text, `[KEY CHECKPOINT]` and
+  `[DECISION POINT]` appearing mid-sentence
+- A broken glyph in a comparison box header
+- One pull quote repeated three times across the document
+- A two-column comparison table whose columns contain identical text, so it
+  conveys nothing
+
+None is hard to fix. All would embarrass you if sent to a creator unedited.
+
+### The real use for this output
+
+The lead magnet was built for a niche with no creator attached, so it is a demo,
+not a deliverable. Its value is as a **pitch asset**. On an outreach call you can
+say you will produce a complete, designed lead magnet in under two minutes, and
+then show one. That is concrete proof of capability at the exact moment a
+creator is deciding whether you are serious.
+
+Keep one polished example per niche for this purpose.
 
 ### It reads creator platforms directly
 
