@@ -128,9 +128,13 @@ Gate 1's Engagement quality signal readable from outside without guessing.
 
 ## Sourcing method: the productised peer
 
-Search only surfaces creators who already sell, because selling is what
+**Web** search only surfaces creators who already sell, because selling is what
 generates the pages a search index can find. That looks like a dead end for
 finding creators with nothing built. It is not, if you invert it.
+
+(Platform search behaves differently — it indexes content rather than sales
+pages. See "Searching on Instagram" in `references/sourcing.md`. Use the peer
+method when working from the web, and when you want an incumbent's competitors.)
 
 1. Find a creator in the niche who **has** productised successfully.
 2. Treat them as market research, not as a prospect. Their existing product is

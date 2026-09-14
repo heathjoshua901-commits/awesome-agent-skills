@@ -69,10 +69,18 @@ twelve-month mentorships for owners past $200k revenue.
 
 ## Sourcing job before screening
 
-The list below came from one search sweep, which clustered small. **Find micro
-accounts (10k–100k) in this niche before working the list**, using the productised
-peer method: take an incumbent from the market-proof table, find who else teaches
-the same audience, and check their size.
+The list below came from one web search sweep, which clustered small. **Find micro
+accounts (10k–100k) in this niche before working the list.**
+
+Do it in the Instagram app, using the three search shapes and the ready-made query
+set in `references/sourcing.md`. Note the accounts that recur across more than one
+query. Keep the owner's question, not the customer's — "how to price salon
+services" returns coaches, "how to get balayage to last" returns salons
+advertising to clients.
+
+The productised peer method still applies when working from the web: take an
+incumbent from the market-proof table and find who else teaches the same
+audience.
 
 ## What to record per screen
 

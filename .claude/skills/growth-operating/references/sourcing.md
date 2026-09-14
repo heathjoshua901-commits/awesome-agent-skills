@@ -15,6 +15,65 @@ Find candidates by searching the platform the creator posts on, then push the
 record into ListKit for contact data and pipeline tracking. Treat it as a CRM,
 not as a source.
 
+## Searching on Instagram
+
+Three ways to search, and they return structurally different populations. Run all
+three; they are not substitutes.
+
+| # | Query shape | Example | What comes back |
+|---|---|---|---|
+| 1 | **"How to" + the audience's question** | "how to make money on Airbnb" | Creators whose content is framed around answering a problem |
+| 2 | **The niche itself** | "salon business coach" | Creators who self-describe with that label |
+| 3 | **The niche + "tips"** | "salon owner tips" | Between the two |
+
+**Do this on the phone.** The app's search returns account and Reel results the
+desktop site does not, and screening continues in the same place — which matters
+because screenshots are how platform evidence reaches Claude anyway.
+
+### Why search 1 is the valuable one
+
+Search 2 finds people who have already positioned themselves as educators, which
+biases hard toward the already-productised. Search 1 finds people by **the
+question their content answers**, which is a direct read on whether they speak to
+a problem — the thing Gate 1's Buying intent signal is trying to measure and
+usually cannot see.
+
+### The Tier C trap lives inside search 1
+
+The "how to" has to be **the owner's question, not the customer's.** These return
+completely different populations:
+
+| Query | Returns | Tier |
+|---|---|---|
+| "how to price salon services" | Coaches teaching owners | A |
+| "how to get balayage to last" | Salons advertising to clients | C |
+
+Both are "how to" searches in the same niche. One is the prospect list and the
+other is the trap already recorded above. Write the query from the owner's side
+of the counter.
+
+### Query set for this niche
+
+Run each on the phone, note the accounts that recur across more than one query.
+
+**Search 1 — the owner's question**
+
+- how to price salon services · how to stop salon no shows · how to hire stylists
+- how to get more med spa clients · how to grow my med spa
+- how to fill my gym · how to retain gym members · how to price personal training
+- how to run a barbershop · how to get more barber clients
+
+**Search 2 — the niche**
+
+- salon business coach · salon owner coach · med spa business coach ·
+  med spa consultant · gym owner coach · fitness business mentor ·
+  barbershop business coach · studio owner coach
+
+**Search 3 — niche plus tips**
+
+- salon business tips · salon owner tips · med spa marketing tips ·
+  gym owner tips · barbershop business tips
+
 ## Read the tier, then ignore it
 
 | Tier | Followers | Use |
