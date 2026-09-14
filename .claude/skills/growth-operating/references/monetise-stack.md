@@ -9,15 +9,36 @@ serves. Stage numbers refer to the table in `SKILL.md`.
 
 ---
 
-## Ghostwriter OS — Campaign DNA
+## Ghostwriter OS
 
 **Stages served:** 3 (outreach) and 7 (launch assets).
 
-Campaign DNA is reusable context fed to the copy agents, so the same brand,
-audience and offer facts are not retyped per run. It is a context-management
-layer, not a generator.
+**A third-party product, not built by Monetise.** It runs at
+`dashboard.ghostwriteros.ai` with its own version numbers per agent and its own
+release cadence. Interface strings appear in Portuguese behind the English
+labels, so it is likely a Brazilian or Latin American SaaS that Monetise
+bundles. Two consequences: it is probably purchasable on its own, and whether a
+Monetise refund ends access to it is a separate question that has to be asked
+directly.
 
-### Structure
+### Navigation
+
+| Section | What it holds |
+|---|---|
+| DNAs | Campaign DNA context modules |
+| Projects | Marked beta |
+| Agents | Single-purpose generators, individually versioned |
+| Flows | Multi-step chains of agents |
+| Images | Image generation |
+| Archive | Past output |
+| Instructions | Product documentation |
+
+### Campaign DNA
+
+Reusable context fed to the agents, so the same brand, audience and offer facts
+are not retyped per run. A context-management layer, not a generator.
+
+#### Structure
 
 Three independent module types. Each holds four fields.
 
@@ -30,7 +51,7 @@ Three independent module types. Each holds four fields.
 **Field names are not recorded.** Four per module, twelve in total. Capture them
 before access ends; without them this cannot be rebuilt like for like.
 
-### Mechanics worth keeping
+#### Mechanics worth keeping
 
 - Unlimited instances of each type, mixed freely at run time. Personality A with
   Audience B and Product C is a valid combination.
@@ -40,7 +61,7 @@ before access ends; without them this cannot be rebuilt like for like.
   confirmed. Auto-filled content stays flagged until a human opens it.
 - A "create or improve" action drafts a field from whatever is already filled in.
 
-### How it maps onto this pipeline
+#### How it maps onto this pipeline
 
 The three modules correspond almost exactly to artefacts the growth-operating
 gates already produce. That correspondence is why the tool is replaceable here.
@@ -56,7 +77,7 @@ while the gates require evidence for every line. Filling Audience from a vetting
 memo is strictly better than filling it from imagination, because the memo cites
 real comments from real people.
 
-### What replicates without the software
+#### What replicates without the software
 
 - **Reusable context.** This repository is the equivalent. The skill and its
   references load automatically in every session; vetting memos live in
@@ -69,11 +90,77 @@ real comments from real people.
 The one mechanic with no equivalent here is the default pre-selection, which
 saves clicks in a graphical tool and has no meaning in a conversation.
 
-### Naming convention worth carrying over
+#### Naming convention worth carrying over
 
 Instances are named by combination, for example `CEO Profile | B2B Sales` or
 `[Weight Loss] Women 40+`. The same convention suits memo filenames once more
 than one creator is in play: creator, then niche, then offer.
+
+### Agents
+
+Single-purpose generators, each independently versioned and updated. Observed in
+the favourites view, grouped here by the pipeline stage they would serve.
+
+**Offer design, Gate 2 territory**
+
+| Agent | Stated purpose |
+|---|---|
+| Ideal Customer Profile | Understand the ideal client better than they understand themselves |
+| High-Value Customer Compass | Find ideal clients who pay more |
+| The Persuasive Premise | Define the one belief that turns prospects into customers |
+| Problem & Promise | Define the problem and promise the product solves |
+| Unique Selling Proposition | Make the difference clear |
+| Offer Generator | Create an offer people feel stupid saying no to |
+| High-Ticket Product Generator | Turn a high-ticket idea into a delivery plan |
+
+**Launch assets, stage 7**
+
+| Agent | Stated purpose |
+|---|---|
+| Ad Funnel | Full funnel from first contact to conversion |
+| Ads Generator | Content into ads, chosen by funnel stage |
+| Content to Ads | Any content into ads |
+| Email Subject Lines | Subject lines for open rate |
+| Carousel Generator | Content into carousels |
+| Instagram Story | Story sequences to sell or build authority |
+| Presentation Generator | Ideas into slides |
+| Lead Magnets Generator | Ideas into lead magnets |
+
+**Voice**
+
+| Agent | Stated purpose |
+|---|---|
+| Writing Analyzer | Recreate the author's authentic style with precision |
+| Universal Adapter | Adapt any text to match the business DNA |
+
+Writing Analyzer is the most relevant agent in the list for this business model,
+and not for the obvious reason. Personality DNA has to hold the creator's voice,
+not the operator's. Feeding a creator's existing posts through a style analyser
+is the mechanical way to get it there. The equivalent here is pasting a sample
+of their writing and asking for the voice to be matched.
+
+### Flows
+
+Multi-step chains that run several agents in sequence: Short Content, Instagram
+Positioning, Ads, VSL Funnel, Campaign DNA, Direct Sale Campaign, Instagram
+Editorial Strategy, Newsletters, YouTube from Idea to Click, Instagram Content,
+High Ticket Funnel, and **Growth Operator: Webinar Flow**.
+
+The last one is named for this exact business model and describes a path from a
+business audit through to a complete webinar funnel and waitlist. It is the
+single asset in the whole stack built for what you are doing, and it is worth
+opening and reading before any decision that ends access.
+
+### The inversion to watch
+
+Every agent above generates from the Campaign DNA you typed. Nothing in the
+chain checks whether the DNA was true. An Offer Generator fed an invented
+audience returns a confident, well-written offer for a person who does not
+exist.
+
+The gates in `SKILL.md` run the other way. Evidence first, offer second. Use the
+agents to phrase an offer the gates have already justified, never to discover
+one.
 
 ---
 
