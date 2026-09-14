@@ -1,6 +1,6 @@
 ---
 name: growth-operating
-description: Vet creators and design offers for a Growth Operating business (you build and market a product a creator promotes, revenue split via Whop). Use when sourcing or scoring a creator, deciding whether to pitch, designing or pressure-testing an offer, drafting deal terms, or deciding what to hand to ListKit, Ghostwriter OS, Synthesise AI, or Whop at each pipeline stage.
+description: Vet creators and design offers for a Growth Operating business (you build and market a product a creator promotes, revenue split via Whop). Use when sourcing or scoring a creator, deciding whether to pitch, designing or pressure-testing an offer, drafting deal terms, or deciding what happens at each pipeline stage and what to configure in Whop.
 ---
 
 # Growth Operating
