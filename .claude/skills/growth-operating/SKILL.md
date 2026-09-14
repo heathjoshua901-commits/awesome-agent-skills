@@ -5,7 +5,12 @@ description: Vet creators and design offers for a Growth Operating business (you
 
 # Growth Operating
 
-The tools do not decide anything. Two gates do: **is this creator worth building for**, and **is this offer worth building**. Run the gates before spending outreach or build time.
+The tools do not decide anything. One question does: **how big is the gap between
+what this creator's audience would pay for and what this creator currently offers
+them?**
+
+Two gates measure it. **Is this creator worth building for**, and **is this offer
+worth building.** Run both before spending outreach or build time.
 
 ## Pipeline and tool handoffs
 
@@ -28,6 +33,98 @@ Tooling: `references/monetise-stack.md` records what each Monetise tool takes an
 Outreach: `references/outreach.md` holds the stage 3 method, message structure and follow-up rule.
 
 **Current position, live assets and open questions: `growth-operating/STATE.md` at the repository root. Read it first.**
+
+## The gap is the decision
+
+Everything below measures one thing. **The gap between what a creator's audience
+would willingly pay for and what that creator currently offers them.**
+
+Size that gap and you have the deal. No gap, no deal, regardless of how good the
+creator looks on every other measure. A large, engaged, trusting audience that is
+already being sold exactly what it wants is not an opportunity — it is somebody
+else's finished work.
+
+Two shapes of gap, and they are the two routes:
+
+| Shape | What you are doing |
+|---|---|
+| **The creator sells nothing at all** | Build the first offer. Route one |
+| **The creator sells something with a clear way to make it better** | Grow what exists. Route two |
+
+Route two is the abundant case and the recommended one. See "Why route one is
+structurally hard" below.
+
+## Audience size: bearings, not rules
+
+| Tier | Followers |
+|---|---|
+| Nano | Under 5,000 |
+| Micro | 10,000 to 100,000 |
+| Macro | Over 100,000 |
+
+**Micro is the sweet spot for growth operating.** Large enough that the audience
+supports a real product, small enough that the creator still reads their own
+messages and has not already been approached by an operator.
+
+These tiers are for orientation. They are **not** a rule about who to talk to,
+and a tier has never decided a deal. A nano creator with an obvious gap beats a
+micro creator with none.
+
+Two caveats worth holding:
+
+- **5,000 to 10,000 is undefined** by the tiers as stated. Treat accounts in it
+  on the gap alone, which is what the tiers defer to anyway.
+- Follower count is the least informative number on a profile. It says nothing
+  about whether the audience is buyers or admirers, which is what actually
+  decides the outcome.
+
+## Spotting opportunity
+
+Four indicators. **They are indicators, not requirements** — a creator will
+rarely tick all four, and demanding all four eliminates nearly everyone.
+
+| Indicator | What you are looking for |
+|---|---|
+| **Engagement** | How many people are actually engaging. Comments are the strongest proof; likes are the weakest |
+| **A clear lane** | A defined niche *and* a specific angle within it. "Fitness" is not a lane. "Strength training for women over 40" is |
+| **Content activity** | Posting regularly. They show up consistently |
+| **Monetisation signals** | Brand or affiliate links in the bio, and a business email listed for enquiries |
+
+The last one is often misread. A business email and affiliate links do not mean
+the creator is already monetised in the way that matters — they mean the creator
+*treats this as a business* and is reachable. That is a positive signal, not a
+disqualification.
+
+Gate 1 below scores a stricter, six-signal version of the same territory and
+applies a numeric bar. Use the four indicators to decide whether a creator is
+worth ten minutes of screening; use Gate 1 to decide whether they are worth
+outreach. The bar exists because a hard threshold is what stops you talking
+yourself into a creator you like.
+
+## Niche selection: demand first, expertise second
+
+Pick the niche from where demand already exists, then check whether you can serve
+it. Picking from what you already know selects on the wrong axis and shows up
+later as a low screening hit rate.
+
+The test a niche has to pass: **does the audience arrive already carrying a
+problem they want gone?** If yes, the creator has something worth selling and
+there is pent-up demand to capture. If people arrive because the subject is
+interesting, there is attention but no buying intent, and no amount of offer
+design fixes that.
+
+Most niches that pass that test sit under one of three headings: health, wealth,
+relationships. Two of them carry a screening rule that overrides the general gate:
+
+- **Money-making niches.** Check the creator's organic content for income claims
+  *before* committing. If they make them, those claims become part of the offer
+  being scaled, and substantiating them becomes the operator's problem too.
+- **Health niches.** Credentials outrank audience metrics. Where the subject
+  touches diagnosis, medication or treatment, only pursue a qualified creator,
+  and only where the offer teaches managing the problem rather than treating it.
+
+Relationship niches tend to show the strongest comment sections, which makes
+Gate 1's Engagement quality signal readable from outside without guessing.
 
 ## Sourcing method: the productised peer
 
@@ -54,8 +151,10 @@ audience you can sell a product to. Shared skill is not shared market.
 
 ## "No product" has two causes, and only one is good
 
-Finding no product is not by itself a route-one signal. Work out which of these
-you are looking at before anything else.
+Route one is "the creator sells nothing at all". That description hides a split,
+and only one half of it is a prospect. Finding no product is not by itself a
+route-one signal. Work out which of these you are looking at before anything
+else.
 
 | Cause | What it looks like | Verdict |
 |---|---|---|
@@ -98,31 +197,6 @@ the work is systems and distribution rather than market discovery. Where the
 operator's background is consultancy, marketing or finance, it is also the
 better skill match.
 
-## Niche selection: demand first, expertise second
-
-Pick the niche from where demand already exists, then check whether you can serve
-it. Picking from what you already know selects on the wrong axis and shows up
-later as a low screening hit rate.
-
-The test a niche has to pass: **does the audience arrive already carrying a
-problem they want gone?** If yes, the creator has something worth selling and
-there is pent-up demand to capture. If people arrive because the subject is
-interesting, there is attention but no buying intent, and no amount of offer
-design fixes that.
-
-Most niches that pass that test sit under one of three headings: health, wealth,
-relationships. Two of them carry a screening rule that overrides the general gate:
-
-- **Money-making niches.** Check the creator's organic content for income claims
-  *before* committing. If they make them, those claims become part of the offer
-  being scaled, and substantiating them becomes the operator's problem too.
-- **Health niches.** Credentials outrank audience metrics. Where the subject
-  touches diagnosis, medication or treatment, only pursue a qualified creator,
-  and only where the offer teaches managing the problem rather than treating it.
-
-Relationship niches tend to show the strongest comment sections, which makes
-Gate 1's Engagement quality signal readable from outside without guessing.
-
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
@@ -154,7 +228,8 @@ The one problem their audience keeps asking about:
 
 ## Gate 2: offer design
 
-Fill every line. A blank line means the offer is not ready for Synthesise AI.
+The six lines below are how the gap gets turned into something sellable. Fill
+every line. A blank line means the offer is not ready for Synthesise AI.
 
 1. **Problem.** One sentence, in the audience's words, taken from real comments or DMs. Not the creator's framing.
 2. **Promise.** The specific outcome and the time it takes. "Land your first freelance client in 30 days," not "level up your freelancing."

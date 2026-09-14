@@ -15,6 +15,19 @@ Find candidates by searching the platform the creator posts on, then push the
 record into ListKit for contact data and pipeline tracking. Treat it as a CRM,
 not as a source.
 
+## Read the tier, then ignore it
+
+| Tier | Followers | Use |
+|---|---|---|
+| Nano | Under 5,000 | Not excluded. Needs an obvious gap to justify the time |
+| Micro | 10,000 to 100,000 | **The sweet spot.** Audience supports a real product; creator still reads their own messages |
+| Macro | Over 100,000 | Screened, not skipped. More likely to have a team and an existing operator |
+
+Bearings only. The decision is the gap between what the audience would pay for
+and what the creator currently offers, and no tier has ever decided a deal.
+Accounts between 5,000 and 10,000 are not covered by the tiers as stated, so
+judge them on the gap, which is the fallback in every case anyway.
+
 ## Sort by whose audience it is, before scoring anything
 
 Follower count is usually the least informative number on the page. What matters
@@ -181,9 +194,14 @@ On top of the standing red flags in `SKILL.md`:
 ### Why this niche screens fast
 
 These businesses live on Instagram, which is the only screening surface
-available. Coaches in the niche sit at roughly 6,000 to 12,000 followers — small
-enough that the creator still reads their own DMs, established enough to have a
-product to grow.
+available.
+
+The coaches found in the first sweep clustered at roughly 6,000 to 12,000
+followers, which straddles the bottom of the micro band and the undefined
+5,000–10,000 stretch below it. **That cluster is an artefact of one search, not a
+property of the niche.** Search surfaces whoever ranks, and the larger accounts in
+this niche are likely under-represented in it. Sweep deliberately for micro
+accounts in the 10k–100k range before concluding the niche is small.
 
 ### The lead magnet transfers
 
