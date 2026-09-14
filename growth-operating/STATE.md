@@ -72,22 +72,50 @@ choice. Only the "stops underexposed" framing is photography-specific.
 | Does Whop split gross or net of fees? | The ledger assumes the split applies **after** Whop's fees. If Whop splits gross, the creator's share will not match the ledger. Compare on the first real payout and tell Claude which basis was used |
 | Whop's real fee rates | The three rates in the ledger's settings are industry assumptions, not verified. Published sources disagree on whether a 3% platform fee still exists. Read them off a real payout |
 | Does the split cover bumps and upsells? | Not stated in any agreement yet. Both readings are defensible, which is why it has to be written down before launch |
-| Is bundled Synthesise AI perpetual? | Standalone is $2,999 one-time. If the bundled version expires with the programme, the comparison changes |
+| ~~Is bundled Synthesise AI perpetual?~~ | **Closed 14 Sept.** Moot — Monetise cancelled |
 
 ## The Monetise subscription
 
 Bought 8 September 2026, $1,995 over twelve monthly instalments of $166.25
-through Splitit. A refund was requested by email on 14 September and support
-agreed to process it. **Status at last update: requested, not yet confirmed.**
+through Splitit. **Cancelled 14 September 2026, on the last day of the refund
+window.**
 
-If the refund completes, access to Synthesise AI, Ghostwriter OS and the funnel
-mapper ends. Everything worth keeping from those tools is already recorded in
-`references/monetise-stack.md`.
+**Cancel with Monetise, never with Splitit.** Splitit is an instalment plan on a
+completed purchase; cancelling *it* makes the whole remaining balance immediately
+due. The two words look identical on a deadline day and only one of them is a
+refund.
 
-The one tool that does something this session cannot: Synthesise AI reads a
-creator's Instagram and YouTube directly. Instagram, TikTok and YouTube serve
-nothing to an unauthenticated fetch, so all platform screening has to be done by
-Josh regardless of which tools he keeps.
+### Why
+
+Three reasons, in order of weight.
+
+1. **Its main output had to be verified by hand anyway.** The profile analysis
+   under-read a creator's product range twice in a handful of screens — once
+   missing a paid programme, once missing an entire education platform, a cohort
+   course and a podcast. That produced the standing rule *use it to confirm,
+   never to clear*. A screening tool you cannot trust to clear a creator removes
+   the fast half of the job and leaves the slow half untouched.
+2. **£124 a month against zero revenue, zero creators signed, zero messages
+   sent.** The tooling spend was running well ahead of the work.
+3. **Everything durable was already extracted** into this repository. Cancelling
+   cost access, not knowledge.
+
+The real argument against, recorded because it was not weak: Synthesise AI read
+Instagram and YouTube directly, which Claude cannot, and standalone it costs
+$2,999 against $1,995 for the whole bundle — so rebuying may cost more. The
+course was also still delivering method, including the tier framework and the
+platform search shapes on the final day.
+
+**The rule this sets:** buy tools with money the business made. Nothing prevents
+rebuying after a first deal, when the cost comes out of revenue rather than hope.
+
+### What it changes
+
+All platform screening is manual and done by Josh. That was already true —
+Instagram, TikTok and YouTube serve nothing to an unauthenticated fetch — so the
+method in `references/sourcing.md` is unaffected. Outreach drafting, offer
+outlines and launch assets move to Claude, against the Gate 2 lines and the
+vetting memo.
 
 ## Pipeline position
 

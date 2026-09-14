@@ -14,21 +14,31 @@ worth building.** Run both before spending outreach or build time.
 
 ## Pipeline and tool handoffs
 
-| Stage | What happens | Tool |
+**Monetise was cancelled on 14 September 2026.** ListKit, Ghostwriter OS,
+Synthesise AI and the funnel mapper are gone. The pipeline is unchanged; only who
+does the work moved.
+
+| Stage | What happens | How, now |
 |---|---|---|
-| 1. Source | Find creators in a niche with buying intent | ListKit (CRM) |
-| 2. Vet | Score the creator with the gate below. Skip fails. | This skill |
-| 3. Outreach | Message that opens a conversation, not a pitch | Ghostwriter OS |
+| 1. Source | Find creators in a niche with buying intent | Instagram search, by hand. `references/sourcing.md` |
+| 2. Vet | Score the creator with the gate below. Skip fails. | This skill. Screening is manual: comments, bio links, cadence |
+| 3. Outreach | Message that opens a conversation, not a pitch | This skill plus `references/outreach.md`, drafted with Claude |
 | 4. Call and close | Agree terms in writing before any build | Deal terms checklist below |
-| 5. Offer design | Turn the creator's knowledge into an offer | This skill, then Synthesise AI for the product outline |
+| 5. Offer design | Turn the creator's knowledge into an offer | The six Gate 2 lines, then Claude for the product outline |
 | 6. Payment setup | Revenue split configured before launch | Whop revenue split |
-| 7. Launch assets | Sales page, emails, posts, scripts | Ghostwriter OS |
+| 7. Launch assets | Sales page, emails, posts, scripts | Claude, against the Gate 2 lines and the vetting memo |
+| — | Prospect record and stage tracking | The prospect register artifact. See `STATE.md` |
 
 Never move a creator from stage 2 to 3 without a written vetting memo. Never move from stage 4 to 5 without signed terms.
 
+Losing the profile analysis costs less than it looks. It under-read a creator's
+product range twice, which is why the standing rule is already to search every
+name by hand before outreach. The fast half of the screen is gone; the half that
+decided anything was always manual.
+
 Sourcing: `references/sourcing.md` holds the stage 1 method, the audience tiering, the pre-screen bar and what Claude cannot see.
 
-Tooling: `references/monetise-stack.md` records what each Monetise tool takes and returns, and which parts of it this skill already covers.
+Tooling: `references/monetise-stack.md` records what the Monetise tools took and returned. **Historical** — access ended 14 September 2026. Kept for the measured defects and for the Campaign DNA field map, which is a usable brief structure regardless of who renders it.
 
 Outreach: `references/outreach.md` holds the stage 3 method, message structure and follow-up rule.
 
