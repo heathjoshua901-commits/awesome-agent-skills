@@ -495,14 +495,25 @@ from the vendor's own output what the first two runs only implied: no engagement
 signal, no comments, no way to score audience trust. Honest tooling, and a hard
 boundary on what it can be used for.
 
-This run also **named no existing product**, unlike the two before it. Its
-themes describe what the creator *could* sell rather than what they do sell. On
-a 2,000-follower account that calls itself a business coach, that is the shape
-of a creator with expertise and an audience who has not yet built anything,
-which is the route-one profile.
+This run **named no existing product**, unlike the two before it.
 
-Treat a verdict with no named product as a positive signal, not an empty result.
-It is the tool saying the shelf is bare.
+**That was a miss.** A manual look at the profile found a paid programme the
+analysis never mentioned. The tool reported absence where there was presence.
+
+#### The rule this overturns
+
+An earlier version of this file said a verdict with no named product was a
+positive route-one signal. **It is not.** It is a prompt to check by hand.
+
+The likely mechanism is the fixed sample. Twelve posts and one reel is a narrow
+window, and a creator who promotes their offer occasionally will look
+unproductised inside it. Absence of evidence in a twelve-post sample is not
+evidence of absence.
+
+**Corrected rule:** a named product is reliable when it appears. Its absence
+proves nothing and requires opening the bio and every link before the creator
+goes anywhere near an outreach list. A false positive here costs a wasted build
+and a pitch to someone who already sells what you were going to make.
 
 ### Four runs compared
 
@@ -511,16 +522,18 @@ It is the tool saying the shelf is bare.
 | `@lifethroughoptics_` | 824,000 | 12 posts, 5 reels | A creator academy |
 | `@rheawhitney` | 19,000 | 12 posts, 5 reels | A directly promoted training |
 | `@buildaphotobusiness` | 4,000 | 12 posts, 2 reels | Real estate photography programmes |
-| `@photography_business_coach` | 2,000 | 12 posts, 1 reel | None found |
+| `@photography_business_coach` | 2,000 | 12 posts, 1 reel | **None found, but a paid programme exists** |
 
-Three of four are productised. Product presence does not track audience size in
-this sample: the 824,000 and 4,000 accounts both sell, the 2,000 one does not.
+**Four of four are productised.** Every photography-business creator screened so
+far already sells something, which reinforces the finding from the first sourcing
+sweep: search-findable educators in this niche are productised by definition.
 
 The post sample is fixed at twelve. Reel count varies with what the account has.
 
-**The tool is reliable at this job.** Four accurate niche characterisations, and
-existing products surfaced wherever they exist. That is a proven screening
-capability, whatever else remains unproven.
+**The tool is reliable in one direction only.** Four accurate niche
+characterisations, and every product it named was real. But it missed one that
+exists, so a positive finding can be trusted and a negative finding cannot. Use
+it to confirm, never to clear.
 
 ### The route-one test, and its result
 

@@ -57,7 +57,7 @@ rather than building a new one.
 | `@rheawhitney` | A directly promoted training, pricing specialism |
 | `@buildaphotobusiness` | Real estate photography programmes |
 | Karl Taylor | Commercial photography education, 25 years |
-| `@photography_business_coach` | None found on screening. The closest thing to a route-one candidate among the coaches |
+| `@photography_business_coach` | A paid programme, found by hand. The screen reported none, so it is a confirmed tool miss |
 
 ## What to record per screen
 
