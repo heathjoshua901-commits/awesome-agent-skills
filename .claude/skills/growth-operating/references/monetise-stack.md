@@ -338,11 +338,56 @@ Gate 1 scores a creator on six signals, four of which need platform data. This
 tool supplies the creator-side half: voice, subject matter, cadence as evidenced
 by what they actually publish.
 
-**Open question, unresolved:** whether it reads audience *comments* or only the
-creator's own output. The interface says profile, reels and recent videos, all
-of which are the creator talking. Audience trust and engagement quality are
-scored from what commenters say, and nothing here promises that. If it does not
-read comments, the hardest evidence in Gate 1 is still a manual job.
+### Verified against a real creator
+
+Run on a photography creator with 824,000 Instagram followers. The tool reported
+its own sample: **12 posts read, 5 reels transcribed.**
+
+**It analyses rather than generates.** Two details prove it. It identified
+automotive photography as a distinctive speciality, which no generic
+photography-niche template would invent. And it named an existing paid product,
+the creator's own academy, by name. Retrieved facts, not plausible filler.
+
+Output shape:
+
+| Section | Content |
+|---|---|
+| Creator overview | Niche, and the transformation the creator sells |
+| Content themes | Each theme rated for commercial strength: high, medium-high, medium |
+| Verdict | Which theme is the strongest monetisation opportunity, and why |
+| Voice and audience | Who the audience is, and how the creator speaks |
+
+A precedence rule is stated on screen: an uploaded Campaign DNA overrides what
+the platform analysis infers.
+
+### It does not read comments
+
+Answering the open question with evidence. The sample counts posts and reels
+only. The audience description is inferred from the creator's own positioning,
+not quoted from anyone in the comments.
+
+So the split is clean:
+
+| Gate 1 signal | This tool | Still manual |
+|---|---|---|
+| Buying intent in niche | Yes, via commercial theme ratings | |
+| Existing monetisation | Yes, it surfaces named products | |
+| Content consistency | Partly, from the sample | |
+| Audience trust | | Yes |
+| Engagement quality | | Yes |
+| Responsiveness | | Yes |
+
+The two signals that can fail a creator outright are the two it cannot see.
+
+### Its most useful job is screening, not offer design
+
+The verdict section names existing products. That makes this the fastest tier
+filter available: paste a handle, and within a minute you know whether the
+creator has already built what you were going to build with them.
+
+Used that way it belongs at **stage 2, vetting**, ahead of the offer work it was
+designed for. A sixty-second screen that prevents a wasted pitch is worth more
+than a generated offer.
 
 ### Interconnect with Ghostwriter OS
 
