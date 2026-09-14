@@ -60,7 +60,35 @@ are still uncaptured.
 | Credentials, Proof and Evidences | The proof behind the claims |
 | Banned Words and Phrases | Words the output must never use |
 
-Two of these are worth carrying over regardless of the software.
+#### The validation marker measures attention, not accuracy
+
+Opening a flagged tab turns its marker from amber to blue. No edit is required
+and none is checked. Observed directly: the Author Biography marker read blue on
+one screen and amber on another with the body text byte-identical between them.
+
+So a fully blue DNA means every tab has been looked at. It does not mean a
+single claim in it is true. Treat the marker as a reading log.
+
+#### Author/Brand Voice
+
+The field takes either a description of the style and tone, or pasted examples
+of real texts, emails and posts that carry the voice. **Pasted examples are the
+better input**, and for a creator they are the only honest one, because their
+voice is evidenced in what they have already published.
+
+An agent named "Voice of the Author/Brand" turns those examples into a
+structured document. The structure is worth reproducing:
+
+1. **Fundamental Vocal Identity** — voice essence in adjectives, brand persona,
+   relationship with the audience
+2. **Personality Pillars** — two or three named traits, each with a sentence on
+   how it shows up in the writing
+3. **Base Linguistic Profile** — signature expressions and recurring phrasing
+
+That is a usable template for capturing any creator's voice. Collect twenty of
+their posts, produce the document, and keep it beside their vetting memo.
+
+Two of the four fields are worth carrying over regardless of the software.
 
 **Credentials, Proof and Evidences** is Gate 2's proof line under another name.
 A creator with nothing to put in this field has no offer, and the gate already
