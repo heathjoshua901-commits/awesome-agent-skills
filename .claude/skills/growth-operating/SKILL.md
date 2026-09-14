@@ -27,6 +27,8 @@ Tooling: `references/monetise-stack.md` records what each Monetise tool takes an
 
 Outreach: `references/outreach.md` holds the stage 3 method, message structure and follow-up rule.
 
+**Current position, live assets and open questions: `growth-operating/STATE.md` at the repository root. Read it first.**
+
 ## Sourcing method: the productised peer
 
 Search only surfaces creators who already sell, because selling is what
