@@ -17,8 +17,7 @@ them, but none appears to have productised it.
 | Handle | Why |
 |---|---|
 | `@amandacampeanu` | Commercial photographer who shares editing tips and behind-the-scenes |
-| `@so.daze` | Stop motion, posts behind-the-scenes of her animation process |
-| `@colette.peri` | Stop motion, shares insider tips |
+| `@so.daze` | **Top candidate.** Alina Golovlova, Prague, 111k followers. Brand work for Disney+, McDonald's, Golden Globes, Strathberry. No education product found by search. Business email in bio |
 | `@davidnewtonphotography` | Still life, beauty and luxury product |
 | `@danylchenkocom` | Food and product advertising |
 | `@weekendcreative` | Editorial product shoots |
@@ -57,6 +56,7 @@ rather than building a new one.
 | `@rheawhitney` | A directly promoted training, pricing specialism |
 | `@buildaphotobusiness` | Real estate photography programmes |
 | Karl Taylor | Commercial photography education, 25 years |
+| `@colette.peri` | Udemy and Skillshare classes, her own course platform, an eight-part career course and a signature brand course. **Use as market proof, not as a prospect** |
 | `@photography_business_coach` | A paid programme, found by hand. The screen reported none, so it is a confirmed tool miss |
 
 ## What to record per screen
