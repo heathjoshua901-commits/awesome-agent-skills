@@ -32,6 +32,13 @@ out, Dormant. **Cleared means the pre-screen memo exists** — the standing rule
 that no memo means no outreach is enforced by the stage order. Dormant is where a
 prospect goes after the one permitted follow-up, never a second one.
 
+Each entry also holds a free-text note and a **contacted-on date, which drives the
+follow-up rule**. While a prospect sits at Contacted the row counts down to day
+four, shows "follow up due now" through day seven, then reports how many days
+overdue. The countdown stops the moment the stage moves to Followed up, because
+the rule permits one follow-up and never two. Moving a prospect into Contacted
+with no date set stamps today automatically.
+
 A prospect that reaches Terms agreed becomes a creator row in the ledger. The two
 artifacts are deliberately separate: pipeline and money.
 
