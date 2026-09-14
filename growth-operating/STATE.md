@@ -36,7 +36,9 @@ It must not carry a creator's name until that creator agrees.
 - **Both repositories push straight to main.** No feature branches. Josh deleted
   several stray branches and does not want more.
 - **Documentation of the Monetise tools covers what they take and return**, never
-  the course material itself, because the purchase may be refunded.
+  the course material itself, because the purchase may be refunded and because
+  this repository is a public fork. Course documents are read and summarised in
+  conversation, then kept off the repo.
 
 ## Open questions
 
@@ -89,6 +91,26 @@ site before anything is sent.
 **Open vetting question:** she may be too established. An academy, a cohort
 programme, a podcast and PPA status usually means a team or at least an
 assistant, and somebody may already own this work.
+
+## The niche question, opened 14 September
+
+The programme's own prospecting material selects niches on **demand**: an
+audience that arrives already carrying a problem it wants gone. Photography
+appears nowhere in it, under any heading, and the near neighbours are not near.
+Photography was selected on **Josh's expertise** instead, and the screening
+record is what that difference looks like in practice: six screened, none passed,
+two failed specifically because the audience admired the work rather than buying
+an outcome.
+
+Against the same criterion, Josh's systems-consultancy and finance background
+maps hardest onto owner-operated service businesses (trades, clinics, gyms,
+staffing, logistics) and onto consulting and agency growth. Those audiences
+arrive with a revenue or systems problem and a documented habit of paying to fix
+it.
+
+**Not decided.** The photography pipeline has real work in it, and switching
+discards the sourcing reference and the vetting queue. Recorded so the decision
+gets made deliberately rather than by drift.
 
 ## Immediate next actions
 

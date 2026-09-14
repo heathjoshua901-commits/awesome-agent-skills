@@ -98,6 +98,31 @@ the work is systems and distribution rather than market discovery. Where the
 operator's background is consultancy, marketing or finance, it is also the
 better skill match.
 
+## Niche selection: demand first, expertise second
+
+Pick the niche from where demand already exists, then check whether you can serve
+it. Picking from what you already know selects on the wrong axis and shows up
+later as a low screening hit rate.
+
+The test a niche has to pass: **does the audience arrive already carrying a
+problem they want gone?** If yes, the creator has something worth selling and
+there is pent-up demand to capture. If people arrive because the subject is
+interesting, there is attention but no buying intent, and no amount of offer
+design fixes that.
+
+Most niches that pass that test sit under one of three headings: health, wealth,
+relationships. Two of them carry a screening rule that overrides the general gate:
+
+- **Money-making niches.** Check the creator's organic content for income claims
+  *before* committing. If they make them, those claims become part of the offer
+  being scaled, and substantiating them becomes the operator's problem too.
+- **Health niches.** Credentials outrank audience metrics. Where the subject
+  touches diagnosis, medication or treatment, only pursue a qualified creator,
+  and only where the offer teaches managing the problem rather than treating it.
+
+Relationship niches tend to show the strongest comment sections, which makes
+Gate 1's Engagement quality signal readable from outside without guessing.
+
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
