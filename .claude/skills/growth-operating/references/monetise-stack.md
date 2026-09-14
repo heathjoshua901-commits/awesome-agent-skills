@@ -379,6 +379,37 @@ So the split is clean:
 
 The two signals that can fail a creator outright are the two it cannot see.
 
+### Second run, a small account
+
+Run on a photography business coach with 4,000 Instagram followers. Sample was
+**12 posts read, 2 reels transcribed**, so the post sample is fixed at twelve
+regardless of audience size. Reel count varies with what exists.
+
+It again surfaced the creator's existing products by name, including specialist
+real estate photography programmes, and rated the coaching theme highest. Two
+runs, two correct identifications of existing monetisation.
+
+**But the value-add on this run was small.** The account is called
+buildaphotobusiness and the bio says business coach. The tool returned a
+competent summary of a bio that anyone could read in ten seconds. Compare the
+824k run, where it surfaced an automotive speciality that no bio-reader would
+have predicted.
+
+The lesson for using it: this tool earns its price on creators whose
+monetisation path is **not** obvious. On an openly productised coach it
+restates the obvious. Screen the non-obvious creators with it.
+
+### The follower band is unvalidated
+
+Two runs so far: 824,000 and 4,000. The 5,000 to 300,000 band in the sourcing
+spec was a judgment call made before any real data existed, and neither creator
+observed falls inside it.
+
+Do not treat the band as evidence. A 4,000-follower account whose audience asks
+real questions may be a better partner than an 800,000-follower one whose
+audience only watches. Revisit the band once several creators have been scored
+on the signals that actually predict a sale.
+
 ### Its most useful job is screening, not offer design
 
 The verdict section names existing products. That makes this the fastest tier
