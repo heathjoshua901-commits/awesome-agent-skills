@@ -23,6 +23,8 @@ Never move a creator from stage 2 to 3 without a written vetting memo. Never mov
 
 Photography niche: `references/photography-sourcing.md` holds the stage 1 sourcing spec and pre-screen.
 
+Tooling: `references/monetise-stack.md` records what each Monetise tool takes and returns, and which parts of it this skill already covers.
+
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
