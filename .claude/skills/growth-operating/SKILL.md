@@ -69,6 +69,33 @@ A service business can still become a good partner, because products scale where
 time does not. But it is a harder, longer conversation and the audience may not
 follow. Treat it as a different pitch, not the standard one.
 
+## Why route one is structurally hard
+
+The route-one target is a creator with an audience that pays to learn, who has
+not built anything to sell them. Six screened creators in the photography and
+animation niches produced none of them:
+
+| Failure | Count |
+|---|---|
+| Already productised | 4 |
+| Audience does not pay to learn: enthusiasts, admirers, service clients | 2 |
+
+Small sample, but there is a mechanism behind it. **An un-productised learning
+audience is an unstable state.** A creator whose comments fill with "how did you
+do that" gets told to make a course, by their audience and by everyone around
+them. The gap closes itself, usually within a year. What remains findable is the
+population that already closed it.
+
+So route one is not merely unlucky, it is hunting for a condition that does not
+persist. Expect a low hit rate and do not read repeated failure as a sourcing
+problem.
+
+**Route two is the abundant case.** Creators with a product that is
+under-marketed are everywhere, their demand is already proven by revenue, and
+the work is systems and distribution rather than market discovery. Where the
+operator's background is consultancy, marketing or finance, it is also the
+better skill match.
+
 ## Gate 1: creator vetting
 
 Score each line 0, 1, or 2. Record evidence for every score, not a feeling.
