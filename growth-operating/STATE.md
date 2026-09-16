@@ -2,7 +2,7 @@
 
 Session handover. Read this first, then `.claude/skills/growth-operating/SKILL.md`.
 
-Last updated: 14 September 2026.
+Last updated: 16 September 2026.
 
 ## The business
 
@@ -78,7 +78,8 @@ choice. Only the "stops underexposed" framing is photography-specific.
 
 Bought 8 September 2026, $1,995 over twelve monthly instalments of $166.25
 through Splitit. **Cancelled 14 September 2026, on the last day of the refund
-window.**
+window. Josh confirmed the cancellation went through on 16 September.** Not
+"requested" this time — done.
 
 **Cancel with Monetise, never with Splitit.** Splitit is an instalment plan on a
 completed purchase; cancelling *it* makes the whole remaining balance immediately
