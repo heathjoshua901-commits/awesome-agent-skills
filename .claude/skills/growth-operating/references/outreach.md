@@ -64,6 +64,19 @@ That last one decides what your free guide can say without overlapping.
 The baseline is also the number your share gets measured against, so it is
 commercial groundwork, not research.
 
+### Check the free tier before you build, not after
+
+Open their site and read the whole free layer first: guides and PDFs, webinars
+live and on-demand, newsletter signup, podcast, free consultation. Building the
+asset first and discovering the overlap afterwards wastes the build and would
+have wasted the message.
+
+Webinar and PDF titles are the highest-value thing on the page, because they name
+the problems the creator already believes their audience has — and they are the
+exact ground your asset must not re-cover. One screened coach ran a webinar
+called "Why Being Fully Booked Still Isn't Making You More Profitable", which is
+the pricing audit's whole argument under a different name.
+
 ### Do not send if
 
 - They already have a lead magnet in front of the product. The observation

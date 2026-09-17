@@ -64,6 +64,23 @@ Two shapes of gap, and they are the two routes:
 Route two is the abundant case and the recommended one. See "Why route one is
 structurally hard" below.
 
+## The best-looking candidate is usually the most built-out
+
+A candidate that looks unusually good from outside — clear positioning, a named
+programme, professional presence, press — usually looks that way *because* the
+business is already well run. The same competence that makes them findable and
+attractive is the competence that already closed the gap.
+
+Two of two screened route-two candidates have followed this: both had far more
+infrastructure than first inspection suggested, and in both cases the standard
+pitch was already occupied. Small sample, but the mechanism is the same selection
+bias as web search surfacing only creators who sell.
+
+**So run the by-hand product and free-tier search before spending any build time,
+and expect the strongest-looking name on the list to be the least available.** The
+gap, when it exists in an account like this, will be narrow and specific — a
+missing rung, a missing format, a missing price point — never "they have nothing".
+
 ## Audience size: bearings, not rules
 
 | Tier | Followers |
