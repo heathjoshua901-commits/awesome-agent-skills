@@ -2,7 +2,7 @@
 
 Session handover. Read this first, then `.claude/skills/growth-operating/SKILL.md`.
 
-Last updated: 16 September 2026.
+Last updated: 20 September 2026.
 
 ## The business
 
@@ -19,6 +19,7 @@ business management. He also knows photography well.
 | Pricing audit, unbranded, built for a capacity-constrained service business | https://claude.ai/code/artifact/20b78698-0bd4-4262-8e82-d3e66bbfecf5 |
 | Niche register, private, holds the prospecting list kept off this repo | https://claude.ai/code/artifact/f755ee23-4524-4496-9bdf-c16326d82d09 |
 | Prospect register, tracks each prospect's stage | https://claude.ai/code/artifact/1f142ee2-1e77-44e2-824d-4817bb57bdd2 |
+| Heath identity, the brand sheet | https://claude.ai/artifact/DBTV48osXqeRBNr8EeYoAe |
 
 The ledger is connected to its shared database and holds the settings, one
 example creator, one example sale and two example expense rows. Split is set to
@@ -48,6 +49,27 @@ photography but the maths is niche-agnostic**: target take-home, tax, costs and
 capacity produce a required price per session. It transfers unchanged to any
 capacity-constrained service business, which is worth weighing in the niche
 choice. Only the "stops underexposed" framing is photography-specific.
+
+## The brand, decided 20 September
+
+**Heath.** Josh's surname, and open scrubland — unglamorous, productive,
+overlooked. A named practice, not a coined agency name: honest about being one
+person, credible to an established owner, and it survives a change of niche.
+
+**The governing constraint: the brand stays invisible.** Anything built for a
+partner carries the creator's name, colours and voice. Heath appears at the foot
+of a last page or nowhere, never on a cover. This is a business-facing identity
+seen by a handful of creators a year — an email domain, the contracting party on
+a Whop split, an invoice, an attribution line.
+
+Mark is an H with the crossbar dropped to a horizon: a gate on open ground.
+Palette is ink, heath green, brass, heather, parchment, fog. Libre Baskerville
+for the wordmark, Libre Franklin for everything else. Full sheet in the artifact
+above.
+
+**Domain not yet bought.** Ten candidates returned no DNS on 20 September, which
+suggests unregistered but does not prove it. Confirm at a registrar.
+`heathoperating.co.uk` is the recommended first check.
 
 ## Decisions made
 
