@@ -21,22 +21,32 @@
 -->
 <style>
   :root {
-    --ink: #1c2530;
-    --ink-soft: #46515e;
-    --bg: #f5f6f7;
-    --surface: #ffffff;
-    --line: #d6dbe1;
-    --control: #6a7482;
-    --accent: #0f5e6e;
-    --accent-strong: #0a4652;
-    --accent-tint: #e7f1f3;
-    --ok: #1b6b3a;
-    --ok-tint: #e9f4ec;
-    --bad: #a3262a;
-    --bad-tint: #fbecec;
-    --focus: #0f5e6e;
-    --radius: 8px;
+    /* Layout: a site safety document. Left-aligned reading column with a section rail on wide
+       screens, form-style fields, and safety-sign symbols: blue "must", red "must not",
+       yellow "warning". Signal blue is the one accent; green and red only mark results. */
+    --paper: #f1f3f5;
+    --sheet: #ffffff;
+    --ink: #16202a;
+    --ink-2: #45505c;
+    --rule: #d4dae1;
+    --rule-strong: #67727f;
+    --signal: #0f4c86;
+    --signal-deep: #0a3966;
+    --signal-wash: #e9f0f7;
+    --safe: #146b3a;
+    --safe-wash: #e8f3ec;
+    --stop: #ad1f28;
+    --stop-wash: #fbebeb;
+    --warn: #f2c300;
     --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --text-xs: 0.8125rem;
+    --text-sm: 0.9375rem;
+    --text-md: 1.0625rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.625rem;
+    --text-2xl: 2.125rem;
+    --text-3xl: 2.75rem;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -44,22 +54,22 @@
   body {
     margin: 0;
     font-family: var(--font);
-    font-size: 1.0625rem;
+    font-size: var(--text-md);
     line-height: 1.6;
     color: var(--ink);
-    background: var(--bg);
+    background: var(--paper);
   }
   svg { max-width: 100%; }
-  h1, h2, h3 { line-height: 1.25; margin: 0 0 0.75rem; }
-  h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.3rem; margin-top: 1.75rem; }
-  h3 { font-size: 1.1rem; }
+  h1, h2, h3 { margin: 0 0 0.75rem; line-height: 1.2; text-wrap: balance; }
+  h1 { font-size: var(--text-2xl); letter-spacing: -0.015em; }
+  h2 { margin-top: 2.25rem; font-size: var(--text-lg); }
+  h3 { font-size: var(--text-md); }
   p { margin: 0 0 1rem; }
   ul, ol { margin: 0 0 1rem; }
-  a { color: var(--accent); text-underline-offset: 2px; }
-  a:hover { color: var(--accent-strong); }
+  a { color: var(--signal); text-underline-offset: 3px; }
+  a:hover { color: var(--signal-deep); }
 
-  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
   [tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
 
   .visually-hidden {
@@ -78,31 +88,52 @@
     padding: 0.6rem 1rem;
     background: var(--ink);
     color: #fff;
-    border-radius: 0 0 6px 6px;
   }
   .skip-link:focus { top: 0; color: #fff; }
-  .wrap { max-width: 50rem; margin: 0 auto; padding: 0 16px; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+  @media (min-width: 640px) { .wrap { padding-left: 24px; padding-right: 24px; } }
   .icon { display: inline-flex; flex: none; line-height: 1; }
   .icon svg { width: 1em; height: 1em; }
+  .sign { display: inline-flex; flex: none; width: 2.75rem; height: 2.75rem; }
+  .sign svg { width: 100%; height: 100%; }
+  .sign-must { color: var(--signal); }
+  .sign-must-not { color: var(--stop); }
+  .sign-sm { width: 1.6rem; height: 1.6rem; }
+  .label {
+    margin: 0 0 0.4rem;
+    color: var(--ink-2);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .eyebrow { margin: 0 0 0.5rem; color: var(--ink-2); font-family: var(--mono); font-size: 0.875rem; }
 
   /* Header, progress and footer */
-  .site-header { background: var(--surface); border-bottom: 1px solid var(--line); }
-  .site-header .wrap {
-    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
-    gap: 0.25rem 1rem;
-    padding-top: 0.85rem; padding-bottom: 0.85rem;
+  .site-header { background: var(--sheet); border-top: 4px solid var(--signal); }
+  .header-inner {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+    padding-top: 1rem; padding-bottom: 0.5rem;
   }
-  .brand-course { margin: 0; font-size: 1.1rem; font-weight: 700; }
-  .brand-org { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+  .brand-org {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: var(--text-xs); font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .brand-course { margin: 0; font-size: var(--text-lg); font-weight: 800; letter-spacing: -0.01em; }
+  .brand-meta { margin: 0; color: var(--ink-2); font-size: var(--text-sm); }
+  @media (max-width: 639px) { .brand-meta { display: none; } }
 
-  .progress { background: var(--surface); border-bottom: 1px solid var(--line); }
+  .progress { background: var(--sheet); border-bottom: 1px solid var(--rule); }
   .steps {
     list-style: none;
-    max-width: 50rem;
-    margin: 0 auto;
-    padding: 0.4rem 16px 0.6rem;
+    max-width: 40rem;
+    margin: 0;
+    padding: 0.25rem 0 0.5rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .step { position: relative; }
   .step:not(:last-child)::after {
@@ -112,216 +143,266 @@
     left: calc(50% + 1.25rem);
     right: calc(-50% + 1.25rem);
     height: 2px;
-    background: var(--line);
+    background: var(--rule);
   }
+  .step.is-done:not(:last-child)::after { background: var(--signal); }
   .step-btn {
     display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
     width: 100%;
     min-height: 44px;
     padding: 0.4rem 0.2rem;
-    border: 0; border-radius: 6px;
+    border: 0; border-radius: 4px;
     background: none;
     color: var(--ink);
     font: inherit;
     text-align: center;
   }
   button.step-btn { cursor: pointer; }
-  button.step-btn:hover .step-label { text-decoration: underline; }
+  button.step-btn:hover .step-label { text-decoration: underline; text-underline-offset: 3px; }
   .step-marker {
     position: relative; z-index: 1;
     display: inline-flex; align-items: center; justify-content: center;
     width: 2rem; height: 2rem;
-    border: 2px solid var(--control);
+    border: 2px solid var(--rule-strong);
     border-radius: 50%;
-    background: var(--surface);
-    font-size: 0.95rem; font-weight: 700;
+    background: var(--sheet);
+    font-size: 0.9rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
   }
-  .step-label { font-size: 0.9rem; line-height: 1.2; }
-  .step.is-done .step-marker { background: var(--accent-tint); border-color: var(--accent); color: var(--accent); }
-  .step.is-current .step-marker { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .step-label { font-size: 0.875rem; line-height: 1.2; }
+  .step.is-done .step-marker { border-color: var(--signal); color: var(--signal); }
+  .step.is-current .step-marker { background: var(--signal); border-color: var(--signal); color: #fff; }
   .step.is-current .step-label {
     font-weight: 700;
     text-decoration: underline;
     text-decoration-thickness: 3px;
     text-underline-offset: 5px;
-    text-decoration-color: var(--accent);
+    text-decoration-color: var(--signal);
   }
-  .step.is-locked .step-marker { border-style: dashed; color: var(--ink-soft); }
-  .step.is-locked .step-label { color: var(--ink-soft); }
+  .step.is-locked .step-marker { border-style: dashed; color: var(--ink-2); }
+  .step.is-locked .step-label { color: var(--ink-2); }
 
-  main { display: block; padding: 1.5rem 0 3rem; }
-  .site-footer { background: var(--surface); border-top: 1px solid var(--line); padding: 1.25rem 0 1.5rem; }
-  .site-footer p { margin: 0.75rem 0 0; color: var(--ink-soft); font-size: 0.95rem; }
-  .banner { margin: 1rem 0 0; padding: 0.75rem 1rem; border: 2px solid var(--bad); border-radius: 6px; background: var(--bad-tint); }
+  main { display: block; padding: 2rem 0 4rem; }
+  .site-footer { background: var(--sheet); border-top: 1px solid var(--rule); padding: 1.25rem 0 1.5rem; }
+  .footer-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+  .site-footer p { margin: 0; color: var(--ink-2); font-size: var(--text-sm); }
+  .banner { margin: 0 0 1.5rem; padding: 0.75rem 1rem; border: 2px solid var(--stop); background: var(--stop-wash); }
   .print-fallback { display: none; }
 
   /* Shared building blocks */
-  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
-  .lead { font-size: 1.125rem; }
-  .eyebrow { margin-bottom: 0.35rem; color: var(--ink-soft); font-size: 0.95rem; font-weight: 600; }
-  .note {
-    padding: 0.75rem 1rem;
-    border-left: 4px solid var(--accent);
-    border-radius: 0 6px 6px 0;
-    background: var(--accent-tint);
-  }
-  .how li { margin-bottom: 0.4rem; }
-
+  .sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 2px; padding: clamp(1.1rem, 3vw, 2rem); }
+  .lead { max-width: 38rem; font-size: var(--text-lg); line-height: 1.5; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
     min-height: 44px;
-    padding: 0.55rem 1.15rem;
-    border: 2px solid var(--accent);
-    border-radius: 6px;
-    background: var(--accent);
+    padding: 0.55rem 1.2rem;
+    border: 2px solid var(--signal);
+    border-radius: 4px;
+    background: var(--signal);
     color: #fff;
-    font: inherit; font-weight: 600;
+    font: inherit; font-weight: 650;
     text-align: center;
     cursor: pointer;
   }
-  .btn:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
-  .btn-secondary { background: var(--surface); color: var(--accent); }
-  .btn-secondary:hover { background: var(--accent-tint); color: var(--accent-strong); }
+  .btn:hover { background: var(--signal-deep); border-color: var(--signal-deep); }
+  .btn-secondary { background: var(--sheet); color: var(--signal); }
+  .btn-secondary:hover { background: var(--signal-wash); color: var(--signal-deep); }
   .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
 
   .field { margin-bottom: 1.25rem; }
   .field label { display: block; margin-bottom: 0.25rem; font-weight: 700; }
-  .hint { margin: 0 0 0.5rem; color: var(--ink-soft); font-size: 1rem; }
+  .hint { margin: 0 0 0.5rem; color: var(--ink-2); font-size: var(--text-sm); }
   .text-input {
     width: 100%; max-width: 28rem;
     min-height: 44px;
     padding: 0.5rem 0.75rem;
-    border: 2px solid var(--control);
-    border-radius: 6px;
+    border: 2px solid var(--rule-strong);
+    border-radius: 4px;
     background: #fff;
     color: var(--ink);
     font: inherit;
   }
-  .text-input[aria-invalid="true"] { border-color: var(--bad); border-width: 3px; }
-  .error-msg { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.5rem; color: var(--bad); font-weight: 700; }
+  .text-input[aria-invalid="true"] { border-color: var(--stop); border-width: 3px; }
+  .error-msg { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.5rem; color: var(--stop); font-weight: 700; }
   .error-msg[hidden] { display: none; }
 
+  /* Welcome */
+  .welcome { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem 3.5rem; align-items: start; }
+  @media (min-width: 900px) { .welcome { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } }
+  .welcome-title { margin-bottom: 1rem; font-size: var(--text-3xl); line-height: 1.05; letter-spacing: -0.025em; }
+  .how-heading { margin-top: 2rem; }
+  .how {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 1.25rem;
+    margin: 0 0 2rem; padding: 0;
+    list-style: none;
+  }
+  .how li { padding-top: 0.75rem; border-top: 3px solid var(--ink); }
+  .how-step { display: block; margin-bottom: 0.15rem; color: var(--ink-2); font-family: var(--mono); font-size: var(--text-xs); }
+  .how-title { display: block; margin-bottom: 0.25rem; font-size: var(--text-lg); font-weight: 750; }
+  .how p { margin: 0; color: var(--ink-2); font-size: var(--text-sm); }
+  .small-print { max-width: 38rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: var(--text-sm); }
+  .small-print p:last-child { margin-bottom: 0; }
+  .start h2 { margin-top: 0; }
+
   /* Learn */
-  .toc { margin-bottom: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 1rem; }
-  .toc summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; cursor: pointer; }
-  .toc ol { margin: 0 0 0.75rem; padding: 0; list-style: none; }
+  .learn-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem 2.5rem; }
+  .toc-rail { display: none; }
+  .toc-mobile { margin-bottom: 1rem; padding: 0 1rem; background: var(--sheet); border: 1px solid var(--rule); }
+  .toc-mobile summary { display: flex; align-items: center; min-height: 44px; font-weight: 650; cursor: pointer; }
+  .toc-list { margin: 0 0 0.75rem; padding: 0; list-style: none; }
   .toc-item {
-    display: flex; gap: 0.5rem; align-items: center;
+    display: flex; align-items: baseline; gap: 0.6rem;
     width: 100%;
     min-height: 44px;
-    padding: 0.35rem 0.5rem;
-    border: 0; border-radius: 6px;
+    padding: 0.55rem 0.75rem;
+    border: 0; border-left: 3px solid transparent;
     background: none;
-    color: var(--accent);
-    font: inherit;
+    color: var(--ink);
+    font: inherit; font-size: var(--text-sm); line-height: 1.35;
     text-align: left;
-    text-decoration: underline;
-    text-underline-offset: 2px;
     cursor: pointer;
   }
-  .toc-item:hover { background: var(--accent-tint); }
-  .toc-item[aria-current="true"] { color: var(--ink); font-weight: 700; text-decoration: none; }
-  .toc-num { flex: none; min-width: 1.5rem; }
-  .law { margin-bottom: 1.25rem; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); }
-  .law-label { margin: 0 0 0.25rem; font-size: 0.95rem; font-weight: 700; }
-  .law ul { margin: 0; padding-left: 1.2rem; }
-  .extra dl { margin: 0; }
-  .extra dt { margin-top: 0.9rem; font-weight: 700; }
-  .extra dd { margin: 0.2rem 0 0; }
-  .rules ol { padding-left: 1.4rem; }
-  .rules li { margin-bottom: 0.45rem; }
-  .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .do, .dont { padding: 0.9rem 1rem; border: 1px solid var(--line); border-top-width: 4px; border-radius: 6px; }
-  .do { border-top-color: var(--ok); }
-  .dont { border-top-color: var(--bad); }
-  .do h3, .dont h3 { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.35rem; font-size: 1.05rem; }
-  .do h3 { color: var(--ok); }
-  .dont h3 { color: var(--bad); }
-  .do p, .dont p { margin: 0; }
-  .example { margin: 1.25rem 0 0; padding: 0.75rem 1rem; border-radius: 6px; background: var(--bg); }
+  .toc-item:hover { background: var(--signal-wash); }
+  .toc-item[aria-current="true"] { border-left-color: var(--signal); background: var(--sheet); font-weight: 700; }
+  .toc-num { min-width: 1.25rem; color: var(--ink-2); font-family: var(--mono); font-size: var(--text-xs); }
+  @media (min-width: 900px) {
+    .learn-layout { grid-template-columns: 15.5rem minmax(0, 1fr); }
+    .toc-rail { display: block; position: sticky; top: 1rem; align-self: start; }
+    .toc-rail .toc-list { border-left: 1px solid var(--rule); }
+    .toc-rail .toc-item { margin-left: -1px; }
+    .toc-mobile { display: none; }
+  }
+  .learn-main { min-width: 0; max-width: 48rem; }
+  .learn-article p, .learn-article li, .learn-article dd { max-width: 66ch; }
+  .learn-article h1 { margin-bottom: 1.25rem; }
+  .law { margin: 0 0 1.5rem; padding: 0.85rem 1rem; border: 1px solid var(--rule); border-top: 3px solid var(--ink); background: var(--paper); }
+  .law ul { margin: 0; padding: 0; list-style: none; }
+  .law li { padding: 0.15rem 0; font-weight: 650; }
+  .extra dl { margin: 0; border-top: 1px solid var(--rule); }
+  .extra .row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.2rem 1.25rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 640px) { .extra .row { grid-template-columns: 10rem minmax(0, 1fr); } }
+  .extra dt { font-weight: 700; }
+  .extra dd { margin: 0; }
+  .rules ol { display: grid; gap: 0.85rem; margin: 0; padding: 0; list-style: none; counter-reset: rule; }
+  .rules li { counter-increment: rule; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.85rem; align-items: start; }
+  .rules li::before {
+    content: counter(rule);
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem;
+    border-radius: 50%;
+    background: var(--signal);
+    color: #fff;
+    font-size: 0.9rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .dodont { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin-top: 2.25rem; }
+  .sign-card { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 0.9rem; align-items: start; padding: 1rem; border: 1px solid var(--rule); }
+  .sign-card h3 { margin: 0 0 0.15rem; }
+  .sign-card p { margin: 0; }
+  .example { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 0.9rem; align-items: start; margin-top: 1rem; padding: 1rem; background: var(--paper); border: 1px solid var(--rule); }
+  .example p { margin: 0; }
   .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; margin-top: 1.25rem; }
 
   /* Assess */
-  .meta { color: var(--ink-soft); font-weight: 600; }
-  .q-card { margin-bottom: 1rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-  .q-card.has-error { border: 3px solid var(--bad); }
+  .assess-head, .assess-form, .results { max-width: 48rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin: 0 0 1.5rem; color: var(--ink-2); font-size: var(--text-sm); }
+  .facts span { font-variant-numeric: tabular-nums; }
+  .facts .meta { color: var(--ink); font-weight: 700; }
+  .q-card { margin-bottom: 1rem; padding: clamp(1rem, 3vw, 1.5rem); background: var(--sheet); border: 1px solid var(--rule); border-radius: 2px; }
+  .q-card.has-error { border: 3px solid var(--stop); }
   .question { min-width: 0; margin: 0; padding: 0; border: 0; }
-  .question legend { padding: 0; margin-bottom: 0.5rem; }
-  .q-title { margin: 0; font-size: 1.15rem; }
-  .q-num { display: block; margin-bottom: 0.2rem; color: var(--ink-soft); font-size: 0.9rem; font-weight: 600; }
-  .scenario {
-    padding: 0.75rem 1rem;
-    border-left: 4px solid var(--control);
-    border-radius: 0 6px 6px 0;
-    background: var(--bg);
-  }
+  .question legend { margin-bottom: 0.5rem; padding: 0; }
+  .q-title { margin: 0; font-size: var(--text-lg); line-height: 1.35; }
+  .q-num { display: block; margin-bottom: 0.3rem; color: var(--ink-2); font-family: var(--mono); font-size: var(--text-xs); font-weight: 400; }
+  .scenario { padding: 0.85rem 1rem; background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--ink); }
   .options { display: grid; gap: 0.5rem; }
   .option {
     display: flex; align-items: flex-start; gap: 0.75rem;
     min-height: 44px;
     padding: 0.7rem 0.9rem;
-    border: 1px solid var(--control);
-    border-radius: 6px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 4px;
     background: #fff;
     cursor: pointer;
   }
-  .option:hover { background: var(--accent-tint); }
-  .option:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); background: var(--accent-tint); }
-  .option:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .option input { flex: none; width: 1.3rem; height: 1.3rem; margin: 0.15rem 0 0; accent-color: var(--accent); }
-  .option-desc { display: block; color: var(--ink-soft); font-size: 0.95rem; }
+  .option:hover { background: var(--signal-wash); }
+  .option:has(input:checked) { border-color: var(--signal); box-shadow: inset 0 0 0 1px var(--signal); background: var(--signal-wash); }
+  .option:has(input:focus-visible) { outline: 3px solid var(--signal); outline-offset: 2px; }
+  .option input { flex: none; width: 1.3rem; height: 1.3rem; margin: 0.15rem 0 0; accent-color: var(--signal); }
+  .option-desc { display: block; color: var(--ink-2); font-size: var(--text-sm); }
   .question:disabled .option { cursor: default; }
   .question:disabled .option:hover { background: #fff; }
-  .question:disabled .option:has(input:checked):hover { background: var(--accent-tint); }
+  .question:disabled .option:has(input:checked):hover { background: var(--signal-wash); }
 
-  .feedback {
-    display: flex; align-items: flex-start; gap: 0.6rem;
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid; border-left-width: 6px; border-radius: 6px;
+  .status-sign {
+    align-items: center; justify-content: center;
+    width: 1.75rem; height: 1.75rem;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1rem;
   }
+  .status-sign.is-ok { background: var(--safe); }
+  .status-sign.is-bad { background: var(--stop); }
+  .status-sign.lg { width: 2.75rem; height: 2.75rem; font-size: 1.5rem; }
+  .feedback { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 0.75rem; align-items: start; margin-top: 1rem; padding: 0.9rem 1rem; border: 2px solid; }
   .feedback p { margin: 0; }
-  .feedback .icon { margin-top: 0.15rem; font-size: 1.3rem; }
-  .feedback.is-correct { background: var(--ok-tint); border-color: var(--ok); }
-  .feedback.is-incorrect { background: var(--bad-tint); border-color: var(--bad); }
-  .is-correct .icon, .is-correct .status { color: var(--ok); }
-  .is-incorrect .icon, .is-incorrect .status { color: var(--bad); }
+  .feedback.is-correct { background: var(--safe-wash); border-color: var(--safe); }
+  .feedback.is-incorrect { background: var(--stop-wash); border-color: var(--stop); }
   .status { font-weight: 700; }
+  .is-correct > div > p > .status { color: var(--safe); }
+  .is-incorrect > div > p > .status { color: var(--stop); }
 
-  .results { margin-bottom: 1.25rem; border-width: 3px; }
-  .results.is-pass { border-color: var(--ok); }
-  .results.is-fail { border-color: var(--bad); }
-  .results h2 { margin-top: 0; display: flex; align-items: center; gap: 0.5rem; }
-  .results.is-pass h2 { color: var(--ok); }
-  .results.is-fail h2 { color: var(--bad); }
-  .result-list {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: 0.25rem 1rem;
-    margin: 0; padding: 0; list-style: none;
+  .results { margin-bottom: 1.5rem; border-width: 2px; }
+  .results.is-pass { border-color: var(--safe); }
+  .results.is-fail { border-color: var(--stop); }
+  .results-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .results h2 { margin: 0; }
+  .results.is-pass h2 { color: var(--safe); }
+  .results.is-fail h2 { color: var(--stop); }
+  .score { margin: 0.1rem 0 0; color: var(--ink-2); }
+  .score strong { color: var(--ink); font-size: var(--text-lg); font-variant-numeric: tabular-nums; }
+  .result-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(4.25rem, 1fr)); gap: 0.5rem;
+    margin: 1rem 0 0; padding: 0;
+    list-style: none;
   }
-  .result-list a { display: flex; align-items: center; gap: 0.45rem; min-height: 44px; }
+  .result-grid a {
+    display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+    min-height: 48px;
+    border: 1px solid;
+    color: var(--ink);
+    font-family: var(--mono); font-size: var(--text-sm); font-weight: 700;
+    text-decoration: none;
+  }
+  .result-grid a:hover { text-decoration: underline; }
+  .result-grid .is-correct a { background: var(--safe-wash); border-color: var(--safe); }
+  .result-grid .is-incorrect a { background: var(--stop-wash); border: 2px solid var(--stop); }
+  .result-grid .is-correct .icon { color: var(--safe); }
+  .result-grid .is-incorrect .icon { color: var(--stop); }
 
-  .error-summary { margin-bottom: 1rem; padding: 1rem 1.25rem; border: 3px solid var(--bad); border-radius: 6px; background: #fff; }
-  .error-summary h2 { margin-top: 0; color: var(--bad); display: flex; align-items: center; gap: 0.5rem; }
+  .error-summary { margin-bottom: 1rem; padding: 1rem 1.25rem; border: 3px solid var(--stop); background: #fff; }
+  .error-summary h2 { display: flex; align-items: center; gap: 0.6rem; margin-top: 0; }
   .error-summary ul { margin: 0; padding-left: 1.2rem; }
-  .error-summary a { display: inline-flex; align-items: center; min-height: 44px; color: var(--bad); font-weight: 700; }
-  .answered-count { margin: 0; font-weight: 600; }
+  .error-summary a { display: inline-flex; align-items: center; min-height: 44px; color: var(--stop); font-weight: 700; }
+  .answered-count { margin: 0; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .submit-bar .btn-row { margin-top: 1rem; }
 
   /* Hotspot scene */
-  .scene { position: relative; margin: 1rem 0 0.5rem; border: 1px solid var(--line); border-radius: 6px; user-select: none; -webkit-user-select: none; }
-  .scene-art { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .scene { position: relative; margin: 1rem 0 0.5rem; border: 1px solid var(--rule); user-select: none; -webkit-user-select: none; }
+  .scene-art { display: block; width: 100%; height: auto; }
   .hotspot {
     position: absolute;
     transform: translate(-50%, -50%);
     min-width: 44px; min-height: 44px;
     margin: 0; padding: 0;
     border: 3px solid transparent;
-    border-radius: 10px;
+    border-radius: 6px;
     background: transparent;
     cursor: pointer;
   }
   .hotspot:hover { border-color: var(--ink); border-style: dashed; }
   .hotspot:focus-visible { outline: 3px solid #fff; outline-offset: 0; box-shadow: 0 0 0 7px var(--ink); }
-  .hotspot[aria-pressed="true"] { border-color: var(--accent); border-style: solid; background: rgba(15, 94, 110, 0.16); box-shadow: 0 0 0 2px #fff; }
+  .hotspot[aria-pressed="true"] { border-color: var(--signal); border-style: solid; background: rgba(15, 76, 134, 0.16); box-shadow: 0 0 0 2px #fff; }
   .hotspot[aria-pressed="true"]:focus-visible { box-shadow: 0 0 0 7px var(--ink); }
   .hotspot:disabled { cursor: default; }
   .hotspot:disabled:hover { border-color: transparent; }
@@ -330,17 +411,17 @@
     display: none; align-items: center; justify-content: center;
     width: 26px; height: 26px;
     border: 2px solid #fff; border-radius: 50%;
-    background: var(--accent);
+    background: var(--signal);
     color: #fff;
     font-size: 15px;
   }
   .hotspot[aria-pressed="true"] .hotspot-badge { display: flex; }
-  .hotspot.is-found { border-color: var(--ok); border-style: solid; background: rgba(27, 107, 58, 0.14); }
-  .hotspot.is-found .hotspot-badge { display: flex; background: var(--ok); }
-  .hotspot.is-wrong, .hotspot.is-missed { border-color: var(--bad); background: rgba(163, 38, 42, 0.12); }
+  .hotspot.is-found { border-color: var(--safe); border-style: solid; background: rgba(20, 107, 58, 0.14); }
+  .hotspot.is-found .hotspot-badge { display: flex; background: var(--safe); }
+  .hotspot.is-wrong, .hotspot.is-missed { border-color: var(--stop); background: rgba(173, 31, 40, 0.12); }
   .hotspot.is-wrong { border-style: solid; }
   .hotspot.is-missed { border-style: dashed; }
-  .hotspot.is-wrong .hotspot-badge, .hotspot.is-missed .hotspot-badge { display: flex; background: var(--bad); }
+  .hotspot.is-wrong .hotspot-badge, .hotspot.is-missed .hotspot-badge { display: flex; background: var(--stop); }
   .miss {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -349,59 +430,59 @@
     border-radius: 999px;
     background: var(--ink);
     color: #fff;
-    font-size: 0.85rem; font-weight: 600;
+    font-size: var(--text-xs); font-weight: 650;
     white-space: nowrap;
     pointer-events: none;
   }
-  .checklist { margin-top: 0.75rem; padding: 0 1rem; border: 1px solid var(--line); border-radius: 6px; }
-  .checklist summary { display: flex; align-items: center; min-height: 44px; font-weight: 600; cursor: pointer; }
+  .checklist { margin-top: 0.75rem; padding: 0 1rem; border: 1px solid var(--rule); }
+  .checklist summary { display: flex; align-items: center; min-height: 44px; font-weight: 650; cursor: pointer; }
   .checklist .options { margin-bottom: 1rem; }
   .hs-review { margin: 0.75rem 0 0; padding: 0; list-style: none; }
   .hs-review li { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.4rem; }
   .hs-review .icon { margin-top: 0.3rem; }
-  .hs-review .is-correct .icon { color: var(--ok); }
-  .hs-review .is-incorrect .icon { color: var(--bad); }
+  .hs-review .is-correct .icon { color: var(--safe); }
+  .hs-review .is-incorrect .icon { color: var(--stop); }
 
   /* Certificate (screen) */
-  .certificate { margin-top: 1.5rem; padding: 12px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
-  .cert-inner { padding: 2rem 1.5rem; border: 6px double var(--accent); text-align: center; }
-  .cert-org { margin-bottom: 1.25rem; color: var(--accent); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.03em; }
-  .cert-title { margin: 0 0 1rem; font-size: 1.9rem; }
-  .cert-small { margin-bottom: 0.25rem; color: var(--ink-soft); }
-  .cert-name { margin-bottom: 0.5rem; font-size: 2rem; font-weight: 700; overflow-wrap: anywhere; }
-  .cert-course { margin-bottom: 1.5rem; font-size: 1.35rem; font-weight: 700; }
-  .cert-details {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.75rem 1rem;
-    max-width: 48rem; margin: 0 auto 1.75rem;
+  .cert-controls { max-width: 48rem; }
+  .certificate { margin-top: 1.5rem; padding: 10px; background: #fff; border: 1px solid var(--rule); }
+  .cert-frame { padding: clamp(1.25rem, 4vw, 2.75rem); border: 6px double var(--signal); }
+  .cert-top {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+    gap: 0.25rem 2rem;
+    margin-bottom: 1.75rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
   }
-  .cert-details dt { color: var(--ink-soft); font-size: 0.85rem; font-weight: 600; }
-  .cert-details dd { margin: 0.15rem 0 0; font-weight: 700; overflow-wrap: anywhere; }
-  .cert-sign { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; max-width: 36rem; margin: 0 auto 1.25rem; text-align: left; }
-  .sig-line { display: flex; align-items: flex-end; min-height: 2.5rem; padding-bottom: 0.2rem; border-bottom: 1.5px solid var(--ink); font-weight: 600; }
-  .sig-caption { margin: 0.3rem 0 0; color: var(--ink-soft); font-size: 0.85rem; }
-  .cert-on-behalf { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.9rem; }
-  .cert-note { margin: 0; color: var(--ink-soft); font-size: 0.8rem; }
+  .cert-org { margin: 0; color: var(--signal); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cert-type { margin: 0; color: var(--ink-2); font-size: var(--text-sm); }
+  .cert-title { margin: 0 0 1.25rem; font-size: var(--text-xl); }
+  .cert-small { margin: 0 0 0.25rem; color: var(--ink-2); }
+  .cert-name { margin: 0 0 0.75rem; font-size: clamp(1.75rem, 5vw, 2.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+  .cert-course { margin: 0 0 2rem; font-size: var(--text-lg); font-weight: 750; }
+  .cert-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1rem 1.5rem; margin: 0 0 2.25rem; }
+  .cert-details div { padding-top: 0.4rem; border-top: 2px solid var(--ink); }
+  .cert-details dt { color: var(--ink-2); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cert-details dd { margin: 0.2rem 0 0; font-weight: 700; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .cert-id-value { font-family: var(--mono); }
+  .cert-sign { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.25rem 2.5rem; max-width: 42rem; margin-bottom: 1rem; }
+  .sig-line { display: flex; align-items: flex-end; min-height: 2.75rem; padding-bottom: 0.2rem; border-bottom: 1.5px solid var(--ink); font-weight: 600; }
+  .sig-caption { margin: 0.3rem 0 0; color: var(--ink-2); font-size: var(--text-xs); }
+  .cert-on-behalf { margin: 0 0 0.75rem; color: var(--ink-2); font-size: var(--text-sm); }
+  .cert-note { margin: 0; color: var(--ink-2); font-size: var(--text-xs); }
 
   dialog {
     width: min(32rem, calc(100vw - 32px));
     padding: 1.5rem;
-    border: 0; border-radius: var(--radius);
+    border: 0; border-top: 4px solid var(--signal); border-radius: 2px;
     color: var(--ink);
   }
-  dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+  dialog::backdrop { background: rgba(10, 18, 28, 0.6); }
   dialog h2 { margin-top: 0; }
 
-  @media (max-width: 600px) {
-    .dodont { grid-template-columns: 1fr; }
-    .cert-sign { grid-template-columns: 1fr; }
-  }
   @media (max-width: 480px) {
-    .panel { padding: 1.1rem; }
-    .q-card { padding: 1rem; }
+    h1 { font-size: 1.75rem; }
+    .welcome-title { font-size: var(--text-2xl); }
     .scene { margin-left: -0.5rem; margin-right: -0.5rem; }
-    h1 { font-size: 1.5rem; }
-    .cert-inner { padding: 1.5rem 0.75rem; }
-    .cert-name { font-size: 1.6rem; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .miss { animation: miss-fade 1.8s ease forwards; }
@@ -422,30 +503,32 @@
     body:not(.has-certificate) .print-fallback { display: block !important; font-size: 14pt; }
     .certificate {
       width: 100%; height: 180mm;
-      margin: 0; padding: 2mm;
-      border: 0; border-radius: 0;
+      margin: 0; padding: 0;
+      border: 0;
       overflow: hidden;
       break-inside: avoid; page-break-inside: avoid;
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
-    .cert-inner {
-      display: flex; flex-direction: column; justify-content: center;
+    .cert-frame {
+      display: flex; flex-direction: column; justify-content: space-between;
       height: 100%;
-      padding: 6mm 16mm;
+      padding: 8mm 14mm;
       border-width: 5px;
     }
-    .cert-org { font-size: 13pt; margin-bottom: 4mm; }
-    .cert-title { font-size: 24pt; margin-bottom: 4mm; }
-    .cert-small { font-size: 11pt; margin-bottom: 1mm; }
-    .cert-name { font-size: 26pt; margin-bottom: 2mm; }
-    .cert-course { font-size: 17pt; margin-bottom: 6mm; }
-    .cert-details { grid-template-columns: repeat(4, 1fr) 1.4fr; width: 100%; max-width: none; margin-bottom: 7mm; font-size: 11pt; }
-    .cert-details dt { font-size: 9pt; }
+    .cert-top { margin-bottom: 0; }
+    .cert-org { font-size: 12pt; }
+    .cert-type { font-size: 9.5pt; }
+    .cert-title { margin-bottom: 3mm; font-size: 18pt; }
+    .cert-small { font-size: 11pt; }
+    .cert-name { margin-bottom: 2mm; font-size: 30pt; }
+    .cert-course { margin-bottom: 0; font-size: 16pt; }
+    .cert-details { width: 100%; grid-template-columns: repeat(4, 1fr) 1.5fr; margin: 0; font-size: 11pt; }
+    .cert-details dt { font-size: 8pt; }
     .cert-details dd { white-space: nowrap; overflow-wrap: normal; }
-    .cert-sign { grid-template-columns: 1fr 1fr; width: 100%; max-width: 170mm; margin-bottom: 3mm; }
-    .sig-line { min-height: 12mm; }
+    .cert-sign { width: 100%; max-width: 170mm; grid-template-columns: 1fr 1fr; margin-bottom: 3mm; }
+    .sig-line { min-height: 11mm; }
     .sig-caption, .cert-on-behalf { font-size: 9pt; }
-    .cert-on-behalf { margin-bottom: 3mm; }
+    .cert-on-behalf { margin-bottom: 2mm; }
     .cert-note { font-size: 8pt; }
   }
 </style>
@@ -454,14 +537,19 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header">
-  <div class="wrap">
-    <p class="brand-course" id="brand-course">Essential Site Safety</p>
-    <p class="brand-org" id="brand-org"></p>
+  <div class="wrap header-inner">
+    <div>
+      <p class="brand-org" id="brand-org"></p>
+      <p class="brand-course" id="brand-course">Essential Site Safety</p>
+    </div>
+    <p class="brand-meta">Construction site safety awareness &middot; Great Britain</p>
   </div>
 </header>
 
 <nav class="progress" aria-label="Course progress">
-  <ol class="steps" id="progress"></ol>
+  <div class="wrap">
+    <ol class="steps" id="progress"></ol>
+  </div>
 </nav>
 
 <main id="main" tabindex="-1">
@@ -478,7 +566,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
+  <div class="wrap footer-inner">
     <button type="button" class="btn btn-secondary" id="reset-button">Reset progress</button>
     <p>Your progress is saved in this browser on this device only.</p>
   </div>
@@ -1215,6 +1303,29 @@ const COURSE = {
     return span;
   }
 
+  // Safety-sign symbols (BS EN ISO 7010 style): the shape carries the meaning, not just the colour.
+  const SIGNS = {
+    must: '<svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="23" fill="currentColor"/><path d="M14 24.5l7 7 13-14" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    mustNot: '<svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="20" fill="#fff" stroke="currentColor" stroke-width="6"/><path d="M9.9 9.9L38.1 38.1" stroke="currentColor" stroke-width="6"/></svg>',
+    warning: '<svg viewBox="0 0 48 44" focusable="false"><path d="M24 3L45.5 41H2.5Z" fill="#f2c300" stroke="#16202a" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 16v12" stroke="#16202a" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="34" r="2.4" fill="#16202a"/></svg>'
+  };
+
+  function sign(name, extraClass) {
+    const span = document.createElement("span");
+    const kind = name === "must" ? " sign-must" : name === "mustNot" ? " sign-must-not" : "";
+    span.className = "sign" + kind + (extraClass ? " " + extraClass : "");
+    span.setAttribute("aria-hidden", "true");
+    span.innerHTML = SIGNS[name];
+    return span;
+  }
+
+  function statusSign(ok, extraClass) {
+    const span = icon(ok ? "tick" : "cross");
+    span.classList.add("status-sign", ok ? "is-ok" : "is-bad");
+    if (extraClass) span.classList.add(extraClass);
+    return span;
+  }
+
   function verifyComments(notes) {
     return (notes || []).map(note => document.createComment(" VERIFY: " + note.replace(/--/g, "-") + " "));
   }
@@ -1527,27 +1638,37 @@ const COURSE = {
   function viewWelcome() {
     const sectionCount = COURSE.sections.length;
     const questionCount = COURSE.questions.length;
-    const panel = el("div", { class: "panel" },
-      el("h1", { tabindex: "-1" }, COURSE.title),
+    const howStep = (n, title, text) => el("li", {},
+      el("span", { class: "how-step" }, `Step ${n}`),
+      el("span", { class: "how-title" }, title),
+      el("p", {}, text));
+
+    const intro = el("div", { class: "welcome-intro" },
+      el("p", { class: "label" }, "Awareness course"),
+      el("h1", { class: "welcome-title", tabindex: "-1" }, COURSE.title),
       COURSE.welcome.intro.map((text, i) => el("p", { class: i === 0 ? "lead" : null }, text)),
-      el("h2", {}, "How it works"),
+      el("h2", { class: "label how-heading" }, "How it works"),
       el("ol", { class: "how" },
-        el("li", {}, el("strong", {}, "Learn. "), `Read ${sectionCount} short sections. Take your time.`),
-        el("li", {}, el("strong", {}, "Assess. "), `Answer ${questionCount} questions. To pass, every answer must be right. You can try as many times as you need.`),
-        el("li", {}, el("strong", {}, "Certificate. "), `Print or save your certificate. It lasts ${COURSE.validityMonths} months.`)
+        howStep(1, "Learn", `Read ${sectionCount} short sections. Take your time.`),
+        howStep(2, "Assess", `Answer ${questionCount} questions. Every answer must be right to pass. You can try as many times as you need.`),
+        howStep(3, "Certificate", `Print or save your certificate. It lasts ${COURSE.validityMonths} months.`)
       ),
-      el("p", { class: "note" }, COURSE.welcome.scope),
-      el("p", { class: "note" }, COURSE.welcome.notice)
+      el("div", { class: "small-print" },
+        el("p", {}, COURSE.welcome.scope),
+        el("p", {}, COURSE.welcome.notice)
+      )
     );
 
+    const side = el("div", { class: "sheet start" });
+
     if (state.passed) {
-      panel.append(
+      side.append(
         el("h2", {}, "Your details"),
         el("p", {}, "Name on your certificate: ", el("strong", {}, state.name)),
         el("p", {}, "Your certificate has been issued, so your name can't be changed. To start again, use Reset progress at the bottom of the page."),
         el("div", { class: "btn-row" }, el("button", { type: "button", class: "btn", onclick: () => go("certificate") }, "View your certificate"))
       );
-      return panel;
+      return el("div", { class: "welcome" }, intro, side);
     }
 
     const error = el("p", { class: "error-msg", id: "name-error", hidden: true },
@@ -1580,8 +1701,8 @@ const COURSE = {
       state.name = name.slice(0, 80);
       go("learn");
     });
-    panel.append(form);
-    return panel;
+    side.append(form);
+    return el("div", { class: "welcome" }, intro, side);
   }
 
   /* ---------- Learn ---------- */
@@ -1602,43 +1723,50 @@ const COURSE = {
       render({ focus: true });
     };
 
-    const toc = el("details", { class: "toc no-print" },
+    const tocItems = () => sections.map((s, i) => el("li", {},
+      el("button", { type: "button", class: "toc-item", "aria-current": i === index ? "true" : null, onclick: () => goToSection(i) },
+        el("span", { class: "toc-num" }, String(i + 1)), el("span", {}, s.title))
+    ));
+    const tocRail = el("nav", { class: "toc-rail no-print", "aria-label": "Course sections" },
+      el("h2", { class: "label" }, "Sections"),
+      el("ol", { class: "toc-list" }, tocItems())
+    );
+    const tocMobile = el("details", { class: "toc-mobile no-print" },
       el("summary", {}, `All sections (you're on ${index + 1} of ${sections.length})`),
-      el("ol", {}, sections.map((s, i) => el("li", {},
-        el("button", { type: "button", class: "toc-item", "aria-current": i === index ? "true" : null, onclick: () => goToSection(i) },
-          el("span", { class: "toc-num" }, `${i + 1}.`), s.title)
-      )))
+      el("ol", { class: "toc-list" }, tocItems())
     );
 
-    const article = el("article", { class: "panel learn" },
+    const article = el("article", { class: "sheet learn-article" },
       el("p", { class: "eyebrow" }, `Section ${index + 1} of ${sections.length}`),
       el("h1", { tabindex: "-1" }, section.title),
       el("div", { class: "law" },
-        el("p", { class: "law-label" }, "The law"),
+        el("p", { class: "label" }, "The law"),
         el("ul", {}, section.law.map(item => el("li", {}, item)))
       ),
       section.explain.map(text => el("p", {}, text)),
       (section.extras || []).map(extra => el("section", { class: "extra" },
         el("h2", {}, extra.heading),
         extra.intro ? el("p", {}, extra.intro) : null,
-        el("dl", {}, extra.items.map(item => [el("dt", {}, item.term), el("dd", {}, item.text)]))
+        el("dl", {}, extra.items.map(item => el("div", { class: "row" }, el("dt", {}, item.term), el("dd", {}, item.text))))
       )),
       el("section", { class: "rules" },
         el("h2", {}, "Key rules"),
-        el("ol", {}, section.rules.map(rule => el("li", {}, rule)))
+        el("ol", {}, section.rules.map(rule => el("li", {}, el("span", {}, rule))))
       ),
       el("section", {},
         el("h2", { class: "visually-hidden" }, "Do and don't"),
         el("div", { class: "dodont" },
-          el("div", { class: "do" }, el("h3", {}, icon("tick"), "Do"), el("p", {}, section.do)),
-          el("div", { class: "dont" }, el("h3", {}, icon("cross"), "Don't"), el("p", {}, section.dont))
+          el("div", { class: "sign-card do" }, sign("must"), el("div", {}, el("h3", {}, "Do"), el("p", {}, section.do))),
+          el("div", { class: "sign-card dont" }, sign("mustNot"), el("div", {}, el("h3", {}, "Don't"), el("p", {}, section.dont)))
         )
       ),
-      section.example ? el("p", { class: "example" }, el("strong", {}, "On site: "), section.example) : null,
+      section.example
+        ? el("div", { class: "example" }, sign("warning"), el("p", {}, el("strong", {}, "On site. "), section.example))
+        : null,
       verifyComments(section.verify)
     );
 
-    const pager = el("nav", { class: "pager", "aria-label": "Sections" },
+    const pager = el("nav", { class: "pager", "aria-label": "Previous and next section" },
       index > 0
         ? el("button", { type: "button", class: "btn btn-secondary", onclick: () => goToSection(index - 1) },
             el("span", { "aria-hidden": "true" }, "←"), `Previous: ${sections[index - 1].title}`)
@@ -1649,7 +1777,7 @@ const COURSE = {
             `Next: ${sections[index + 1].title}`, el("span", { "aria-hidden": "true" }, "→"))
     );
 
-    return el("div", {}, toc, article, pager);
+    return el("div", { class: "learn-layout" }, tocRail, el("div", { class: "learn-main" }, tocMobile, article, pager));
   }
 
   /* ---------- Assess ---------- */
@@ -1660,19 +1788,25 @@ const COURSE = {
     const attemptNumber = state.submitted ? state.attempts : state.attempts + 1;
 
     const wrap = el("div", { class: "assess" },
-      el("h1", { tabindex: "-1" }, "Assessment"),
-      el("p", { class: "lead" }, `Answer all ${total} questions. To pass, every answer must be right. If any are wrong, read the feedback and try again. You can try as many times as you need.`),
-      el("p", { class: "meta" }, `Attempt ${attemptNumber}`)
+      el("div", { class: "assess-head" },
+        el("p", { class: "label" }, "Assess"),
+        el("h1", { tabindex: "-1" }, "Assessment"),
+        el("p", { class: "lead" }, `Answer all ${total} questions. To pass, every answer must be right. If any are wrong, read the feedback and try again. You can try as many times as you need.`),
+        el("p", { class: "facts" },
+          el("span", { class: "meta" }, `Attempt ${attemptNumber}`),
+          el("span", {}, `${total} questions`),
+          el("span", {}, "Pass mark 100%"))
+      )
     );
 
     if (state.submitted) wrap.append(resultsPanel(questions));
 
-    const form = el("form", { novalidate: true, id: "assess-form", "aria-label": "Assessment questions" });
+    const form = el("form", { novalidate: true, id: "assess-form", class: "assess-form", "aria-label": "Assessment questions" });
     form.append(el("div", { id: "error-summary-slot" }));
     questions.forEach((q, i) => form.append(questionCard(q, i, total)));
 
     if (!state.submitted) {
-      form.append(el("div", { class: "panel" },
+      form.append(el("div", { class: "sheet submit-bar" },
         el("p", { class: "answered-count", id: "answered-count" }, answeredText()),
         el("div", { class: "btn-row" },
           el("button", { type: "submit", class: "btn" }, "Submit answers"),
@@ -1732,7 +1866,7 @@ const COURSE = {
     if (locked) {
       const right = isCorrect(q, state.answers[q.id]);
       const feedback = el("div", { class: `feedback ${right ? "is-correct" : "is-incorrect"}`, id: `${base}-feedback` },
-        icon(right ? "tick" : "cross"),
+        statusSign(right),
         el("div", {},
           el("p", {}, el("span", { class: "status" }, right ? "Correct. " : "Incorrect. "), q.explanation),
           q.type === "hotspot" ? hotspotReview(q) : null
@@ -1924,7 +2058,7 @@ const COURSE = {
       }
     }
     const summary = el("div", { class: "error-summary", tabindex: "-1", "aria-labelledby": "error-summary-title" },
-      el("h2", { id: "error-summary-title" }, icon("alert"), "There is a problem"),
+      el("h2", { id: "error-summary-title" }, sign("warning", "sign-sm"), "There is a problem"),
       el("p", {}, missing.length === 1
         ? "Answer every question before you submit. 1 question still needs an answer:"
         : `Answer every question before you submit. ${missing.length} questions still need an answer:`),
@@ -1949,17 +2083,24 @@ const COURSE = {
     const correctCount = questions.filter(q => isCorrect(q, state.answers[q.id])).length;
     const percent = Math.round((correctCount / questions.length) * 100);
     const passed = state.passed;
-    return el("section", { class: `panel results ${passed ? "is-pass" : "is-fail"}`, "aria-labelledby": "results-heading" },
-      el("h2", { id: "results-heading", tabindex: "-1" }, icon(passed ? "tick" : "cross"),
-        passed ? "Results: passed" : "Results: not passed"),
-      el("p", { class: "lead" }, `You answered ${correctCount} of ${questions.length} questions correctly (${percent}%).`),
+    return el("section", { class: `sheet results ${passed ? "is-pass" : "is-fail"}`, "aria-labelledby": "results-heading" },
+      el("div", { class: "results-head" },
+        statusSign(passed, "lg"),
+        el("div", {},
+          el("h2", { id: "results-heading", tabindex: "-1" }, passed ? "Results: passed" : "Results: not passed"),
+          el("p", { class: "score" }, el("strong", {}, `${correctCount} of ${questions.length}`), ` correct (${percent}%)`)
+        )
+      ),
       passed
         ? el("p", {}, `You passed on attempt ${state.attempts}. Your certificate is ready.`)
         : el("p", {}, `This was attempt ${state.attempts}. You need every answer right to pass. Read the feedback under each question, then try again. The questions will be in a new order.`),
-      el("ul", { class: "result-list" }, questions.map((q, i) => {
+      el("ol", { class: "result-grid", "aria-label": "Your answers, question by question" }, questions.map((q, i) => {
         const right = isCorrect(q, state.answers[q.id]);
         return el("li", { class: right ? "is-correct" : "is-incorrect" },
-          el("a", { href: `#q-${q.id}` }, icon(right ? "tick" : "cross"), `Question ${i + 1}: ${right ? "correct" : "incorrect"}`));
+          el("a", { href: `#q-${q.id}` },
+            el("span", { "aria-hidden": "true" }, `Q${i + 1}`),
+            icon(right ? "tick" : "cross"),
+            el("span", { class: "visually-hidden" }, `Question ${i + 1}: ${right ? "correct" : "incorrect"}`)));
       })),
       el("div", { class: "btn-row" }, nextStepButton())
     );
@@ -1996,7 +2137,8 @@ const COURSE = {
       save();
     });
 
-    const controls = el("div", { class: "panel no-print" },
+    const controls = el("div", { class: "sheet cert-controls no-print" },
+      el("p", { class: "label" }, "Certificate"),
       el("h1", { tabindex: "-1" }, "Your certificate"),
       el("p", {}, `Well done, ${state.name}. You passed ${COURSE.title}. Print your certificate, or choose "Save as PDF" in the print window.`),
       el("div", { class: "field" },
@@ -2010,26 +2152,33 @@ const COURSE = {
     );
 
     const certificate = el("section", { class: "certificate", id: "certificate", "aria-labelledby": "cert-title" },
-      el("div", { class: "cert-inner" },
-        el("p", { class: "cert-org" }, COURSE.organisation),
-        el("h2", { class: "cert-title", id: "cert-title" }, "Certificate of completion"),
-        el("p", { class: "cert-small" }, "This is to certify that"),
-        el("p", { class: "cert-name" }, state.name),
-        el("p", { class: "cert-small" }, "has successfully completed"),
-        el("p", { class: "cert-course" }, COURSE.title),
+      el("div", { class: "cert-frame" },
+        el("div", { class: "cert-top" },
+          el("p", { class: "cert-org" }, COURSE.organisation),
+          el("p", { class: "cert-type" }, "Construction site safety awareness · Great Britain")
+        ),
+        el("div", { class: "cert-body" },
+          el("h2", { class: "cert-title", id: "cert-title" }, "Certificate of completion"),
+          el("p", { class: "cert-small" }, "This is to certify that"),
+          el("p", { class: "cert-name" }, state.name),
+          el("p", { class: "cert-small" }, "has successfully completed"),
+          el("p", { class: "cert-course" }, COURSE.title)
+        ),
         el("dl", { class: "cert-details" },
           el("div", {}, el("dt", {}, "Completion date"), el("dd", {}, formatUKDate(state.completedOn))),
           el("div", {}, el("dt", {}, "Expiry date"), el("dd", {}, formatUKDate(expiry))),
           el("div", {}, el("dt", {}, "Score"), el("dd", {}, "100%")),
           el("div", {}, el("dt", {}, "Attempts"), el("dd", {}, String(state.attempts))),
-          el("div", {}, el("dt", {}, "Certificate ID"), el("dd", {}, state.certificateId))
+          el("div", {}, el("dt", {}, "Certificate ID"), el("dd", { class: "cert-id-value" }, state.certificateId))
         ),
-        el("div", { class: "cert-sign" },
-          el("div", {}, el("div", { class: "sig-line" }), el("p", { class: "sig-caption" }, "Signature")),
-          el("div", {}, el("div", { class: "sig-line" }, signatoryText), el("p", { class: "sig-caption" }, "Printed name"))
-        ),
-        el("p", { class: "cert-on-behalf" }, `Signed for and on behalf of ${COURSE.organisation}`),
-        el("p", { class: "cert-note" }, COURSE.certificateNote)
+        el("div", { class: "cert-foot" },
+          el("div", { class: "cert-sign" },
+            el("div", {}, el("div", { class: "sig-line" }), el("p", { class: "sig-caption" }, "Signature")),
+            el("div", {}, el("div", { class: "sig-line" }, signatoryText), el("p", { class: "sig-caption" }, "Printed name"))
+          ),
+          el("p", { class: "cert-on-behalf" }, `Signed for and on behalf of ${COURSE.organisation}`),
+          el("p", { class: "cert-note" }, COURSE.certificateNote)
+        )
       )
     );
 
