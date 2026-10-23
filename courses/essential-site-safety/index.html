@@ -539,6 +539,7 @@
 
   /* Certificate (screen) */
   .cert-controls { max-width: 48rem; margin-left: auto; margin-right: auto; }
+  .frame-print { margin: 1rem 0 0; }
   .certificate { margin-top: 1.5rem; padding: 12px; background: #fff; border-radius: var(--radius-lg); }
   .cert-frame { position: relative; overflow: hidden; padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--rule); border-radius: var(--radius-md); }
   .cert-frame > *:not(.cert-watermark) { position: relative; }
@@ -693,7 +694,7 @@
   <h2 id="reset-title">Reset all progress?</h2>
   <p id="reset-desc">This deletes your name, answers, attempts and certificate from this browser. You can't undo this.</p>
   <div class="btn-row">
-    <button type="button" class="btn btn-secondary" id="reset-cancel" autofocus>Cancel</button>
+    <button type="button" class="btn btn-secondary" id="reset-cancel">Cancel</button>
     <button type="button" class="btn" id="reset-confirm">Yes, reset everything</button>
   </div>
 </dialog>
@@ -2307,13 +2308,13 @@ const COURSE = {
       );
       return f;
     });
-    const form = el("form", { novalidate: true },
+    // Plain buttons, not a form submission, so this works in frames that block forms.
+    const form = el("div", { class: "start-form" },
       el("h2", {}, state.name ? "Welcome back" : "Before you start"),
       fields.map(f => f.block),
-      el("button", { type: "submit", class: "btn" }, state.name ? "Continue" : "Start the course")
+      el("button", { type: "button", class: "btn", onclick: () => saveDetails() }, state.name ? "Continue" : "Start the course")
     );
-    form.addEventListener("submit", event => {
-      event.preventDefault();
+    const saveDetails = () => {
       let firstInvalid = null;
       for (const f of fields) {
         const value = f.input.value.replace(/\s+/g, " ").trim();
@@ -2335,7 +2336,15 @@ const COURSE = {
       }
       for (const f of fields) state[f.key] = f.value;
       go("learn");
-    });
+    };
+    for (const f of fields) {
+      f.input.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          saveDetails();
+        }
+      });
+    }
     side.append(form);
     return el("div", { class: "welcome" }, hero, side, more);
   }
@@ -2526,7 +2535,8 @@ const COURSE = {
       feedback.replaceChildren(statusSign(right),
         el("div", {}, el("p", {}, el("span", { class: "status" }, right ? "Correct. " : "Not quite. "), check.explanation)));
     };
-    const form = el("form", { class: "check no-print", novalidate: true },
+    // A plain button, not a form submission, so it works in frames that block forms.
+    const form = el("div", { class: "check no-print" },
       el("fieldset", {},
         el("legend", {}, el("span", { class: "label" }, "Check yourself"), el("span", { class: "check-q" }, check.prompt)),
         el("p", { class: "hint" }, "This doesn't count towards your score."),
@@ -2537,11 +2547,10 @@ const COURSE = {
             el("span", {}, option.text));
         }))
       ),
-      el("div", { class: "btn-row" }, el("button", { type: "submit", class: "btn btn-secondary" }, "Check my answer")),
+      el("div", { class: "btn-row" }, el("button", { type: "button", class: "btn btn-secondary", onclick: () => checkAnswer() }, "Check my answer")),
       feedback
     );
-    form.addEventListener("submit", event => {
-      event.preventDefault();
+    const checkAnswer = () => {
       const picked = form.querySelector(`input[name="${base}"]:checked`);
       if (!picked) {
         feedback.className = "check-feedback feedback is-incorrect";
@@ -2551,7 +2560,7 @@ const COURSE = {
       state.checks[section.id] = picked.value;
       save();
       showResult(picked.value);
-    });
+    };
     if (state.checks[section.id]) showResult(state.checks[section.id]);
     return form;
   }
@@ -2577,7 +2586,8 @@ const COURSE = {
 
     if (state.submitted) wrap.append(resultsPanel(questions));
 
-    const form = el("form", { novalidate: true, id: "assess-form", class: "assess-form", "aria-label": "Assessment questions" });
+    // A section with a plain Submit button, not a form, so it works in frames that block forms.
+    const form = el("section", { id: "assess-form", class: "assess-form", "aria-label": "Assessment questions" });
     form.append(el("div", { id: "error-summary-slot" }));
     questions.forEach((q, i) => form.append(questionCard(q, i, total)));
 
@@ -2585,14 +2595,12 @@ const COURSE = {
       form.append(el("div", { class: "sheet submit-bar" },
         el("p", { class: "answered-count", id: "answered-count" }, answeredText()),
         el("div", { class: "btn-row" },
-          el("button", { type: "submit", class: "btn" }, "Submit answers"),
+          el("button", { type: "button", class: "btn", onclick: submitAnswers }, "Submit answers"),
           el("button", { type: "button", class: "btn btn-secondary", onclick: () => go("learn") }, "Back to the Learn section")
         )
       ));
-      form.addEventListener("submit", onSubmit);
     } else {
       form.append(el("div", { class: "btn-row" }, nextStepButton()));
-      form.addEventListener("submit", event => event.preventDefault());
     }
     wrap.append(form);
     return wrap;
@@ -2667,9 +2675,9 @@ const COURSE = {
         : current === option.id;
       const input = el("input", { type: inputType, id: inputId, name, value: option.id, checked });
       input.addEventListener("change", () => {
-        const form = input.form;
+        const list = input.closest(".options");
         if (inputType === "checkbox") {
-          const picked = [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
+          const picked = [...list.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
           if (picked.length) state.answers[q.id] = picked;
           else delete state.answers[q.id];
         } else {
@@ -2793,8 +2801,7 @@ const COURSE = {
     fieldset.setAttribute("aria-describedby", ids.join(" "));
   }
 
-  function onSubmit(event) {
-    event.preventDefault();
+  function submitAnswers() {
     if (state.submitted) return;
     const questions = orderedQuestions();
     const missing = questions.filter(q => !isAnswered(q, state.answers[q.id]));
@@ -2924,7 +2931,11 @@ const COURSE = {
       ),
       el("div", { class: "btn-row" },
         el("button", { type: "button", class: "btn", onclick: () => window.print() }, "Print / Save as PDF")
-      )
+      ),
+      // Platforms that show the course in a locked-down frame can block the print window.
+      window.self !== window.top
+        ? el("p", { class: "hint frame-print" }, "If the print window doesn't open, the training platform showing this course is blocking it. Certificates print when the course is opened directly in a browser, not inside a platform.")
+        : null
     );
 
     const watermark = el("span", { class: "cert-watermark", "aria-hidden": "true" });
@@ -2992,7 +3003,7 @@ const COURSE = {
   const dialog = document.getElementById("reset-dialog");
   document.getElementById("reset-button").addEventListener("click", () => {
     if (typeof dialog.showModal === "function") dialog.showModal();
-    else if (window.confirm("Reset all progress? This deletes your name, answers, attempts and certificate from this browser.")) resetProgress();
+    else resetProgress();
   });
   document.getElementById("reset-cancel").addEventListener("click", () => dialog.close());
   document.getElementById("reset-confirm").addEventListener("click", () => {

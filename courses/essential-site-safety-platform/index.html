@@ -11,9 +11,9 @@
   This copy has no name screen and no certificate: the platform records who the
   learner is and issues its own certificate. It never relies on form submission
   or saved progress, which platforms that show courses in a locked-down frame
-  can block. The main course, with its own certificate, is
-  courses/essential-site-safety/index.html. Course content is shared: change it
-  in both files.
+  can block. Don't edit this file: it is built from the main course
+  (courses/essential-site-safety/index.html). Change the main course, then run
+  python3 courses/make-platform-copy.py to rebuild this copy.
 
   - Everything is in this one file. It makes no network requests, so it works
     offline when opened straight from disk.
@@ -1076,8 +1076,9 @@ const ORGANISATION_NAME = "RPA Services Ltd and Mortise";
      a new id, and edit it. The assessment picks it up automatically.
    - Changing a correct answer or adding a question means anyone who already
      passed in their browser will need to pass again.
-   - This is the platform copy. Make the same content change in the main
-     course (courses/essential-site-safety/index.html) as well.
+   - This is the platform copy, built from the main course. Make content
+     changes in courses/essential-site-safety/index.html, then run
+     python3 courses/make-platform-copy.py.
    ========================================================================= */
 const COURSE = {
   title: "Essential Site Safety",
