@@ -1,0 +1,2597 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Essential Site Safety</title>
+<!--
+  ESSENTIAL SITE SAFETY (PLATFORM COPY): a single-file awareness course for
+  showing inside a learning platform.
+
+  This copy has no name screen and no certificate: the platform records who the
+  learner is and issues its own certificate. It never relies on form submission
+  or saved progress, which platforms that show courses in a locked-down frame
+  can block. The main course, with its own certificate, is
+  courses/essential-site-safety/index.html. Course content is shared: change it
+  in both files.
+
+  - Everything is in this one file. It makes no network requests, so it works
+    offline when opened straight from disk.
+  - To change the wording, questions, answers or hotspot positions, edit the
+    COURSE object at the top of the <script> near the end of this file. You
+    don't need to touch anything below the line marked "COURSE ENGINE".
+  - VERIFY notes: anything that should be checked against current HSE guidance
+    is stored in COURSE as a "verify" entry. The page writes each one into the
+    rendered page as an HTML comment of the form VERIFY: ... next to the content
+    it relates to. Search this file for  verify:  to list them all.
+  - Progress is saved in this browser only, where the platform allows it, under
+    the localStorage key "ess-course-platform-v1".
+-->
+<style>
+  :root {
+    /* Layout: Apple-style grouped surfaces. A light grey page holds white rounded tiles,
+       answer lists are grouped with hairline separators, headlines are large and tightly
+       tracked, and Apple blue is the one accent. Safety signs keep their ISO 7010 shapes;
+       green and red only mark results. Greys are darkened where Apple's would fail WCAG AA. */
+    --paper: #f5f5f7;
+    --sheet: #ffffff;
+    --fill: #e8e8ed;
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --rule: #d2d2d7;
+    --rule-strong: #8a8a8e;
+    --accent: #0071e3;
+    --accent-deep: #0062c3;
+    --signal: #0066cc;
+    --signal-wash: #e8f1fb;
+    --safe: #1e7a35;
+    --safe-wash: #eaf6ed;
+    --stop: #d70015;
+    --stop-wash: #fdeced;
+    --warn: #ffcc00;
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --text-xs: 0.8125rem;
+    --text-sm: 0.9375rem;
+    --text-md: 1.0625rem;
+    --text-lg: 1.3125rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 2.5rem;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-size: var(--text-md);
+    line-height: 1.47;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  svg { max-width: 100%; }
+  h1, h2, h3 { margin: 0 0 0.75rem; font-family: var(--font-display); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
+  h1 { font-size: var(--text-2xl); font-weight: 700; }
+  h2 { margin-top: 2.5rem; font-size: var(--text-lg); font-weight: 600; }
+  h3 { font-size: var(--text-md); font-weight: 600; }
+  p { margin: 0 0 1rem; }
+  ul, ol { margin: 0 0 1rem; }
+  a { color: var(--signal); text-underline-offset: 3px; }
+  a:hover { color: var(--accent-deep); }
+
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  [tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .skip-link {
+    position: absolute;
+    left: 16px; top: -100px;
+    z-index: 30;
+    padding: 0.6rem 1rem;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    background: var(--ink);
+    color: #fff;
+  }
+  .skip-link:focus { top: 0; color: #fff; }
+  .wrap { max-width: 68rem; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+  @media (min-width: 640px) { .wrap { padding-left: 24px; padding-right: 24px; } }
+  .icon { display: inline-flex; flex: none; line-height: 1; }
+  .icon svg { width: 1em; height: 1em; }
+  .sign { display: inline-flex; flex: none; width: 2.75rem; height: 2.75rem; }
+  .sign svg { width: 100%; height: 100%; }
+  .sign-must { color: var(--accent); }
+  .sign-must-not { color: var(--stop); }
+  .sign-sm { width: 1.6rem; height: 1.6rem; }
+  .label {
+    margin: 0 0 0.4rem;
+    color: var(--ink-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .eyebrow { margin: 0 0 0.35rem; color: var(--ink-2); font-size: var(--text-sm); font-weight: 600; }
+  .eyebrow-time { font-weight: 400; }
+
+  /* Header: frosted bar */
+  .site-header {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(255, 255, 255, 0.82);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .site-header { background: var(--sheet); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }
+  .header-inner {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+    min-height: 3.5rem;
+    padding-top: 0.5rem; padding-bottom: 0.5rem;
+  }
+  .brand { display: flex; align-items: center; gap: 0.65rem; }
+  .brand-mark { flex: none; display: inline-flex; width: 2rem; height: 2rem; color: var(--accent); }
+  .brand-mark svg { width: 100%; height: 100%; }
+  .brand-org { margin: 0; color: var(--ink-2); font-size: var(--text-xs); line-height: 1.2; }
+  .brand-course { margin: 0; font-size: var(--text-md); font-weight: 600; line-height: 1.25; }
+  .brand-meta { margin: 0; color: var(--ink-2); font-size: var(--text-xs); }
+  @media (max-width: 639px) { .brand-meta { display: none; } }
+
+  /* Progress: segmented control */
+  .progress { padding-top: 1.25rem; }
+  .steps {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px;
+    max-width: 40rem;
+    margin: 0 auto; padding: 3px;
+    list-style: none;
+    background: var(--fill);
+    border-radius: var(--radius-md);
+  }
+  .step-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2rem;
+    width: 100%; height: 100%;
+    min-height: 48px;
+    padding: 0.35rem 0.25rem;
+    border: 0; border-radius: 9px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit; font-size: var(--text-xs); font-weight: 500; line-height: 1.15;
+    text-align: center;
+  }
+  @media (min-width: 640px) { .step-btn { flex-direction: row; gap: 0.45rem; font-size: 0.875rem; } }
+  button.step-btn { cursor: pointer; }
+  button.step-btn:hover { background: rgba(255, 255, 255, 0.6); }
+  .step.is-current .step-btn { background: var(--sheet); font-weight: 600; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(0, 0, 0, 0.06); }
+  .step-marker {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.375rem; height: 1.375rem;
+    border: 1.5px solid var(--ink-2);
+    border-radius: 50%;
+    font-size: 0.75rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .step.is-current .step-marker, .step.is-done .step-marker { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .step.is-locked .step-marker { border-color: transparent; color: var(--ink-2); font-size: 0.95rem; }
+
+  main { display: block; padding: 2rem 0 5rem; }
+  .site-footer { border-top: 1px solid var(--rule); padding: 1.25rem 0 2rem; }
+  .footer-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+  .site-footer p { margin: 0; color: var(--ink-2); font-size: var(--text-xs); }
+  .footer-notes { max-width: 46rem; margin-top: 1rem; }
+  .footer-notes p + p { margin-top: 0.5rem; }
+  .banner { margin: 0 0 1.5rem; padding: 0.85rem 1.1rem; border-radius: var(--radius-md); background: var(--stop-wash); box-shadow: inset 0 0 0 2px var(--stop); }
+
+  /* Shared building blocks */
+  .sheet { background: var(--sheet); border-radius: var(--radius-lg); padding: clamp(1.25rem, 3.5vw, 2.25rem); }
+  .lead { max-width: 40rem; font-size: var(--text-lg); line-height: 1.38; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    min-height: 44px;
+    padding: 0.6rem 1.35rem;
+    border: 0; border-radius: 980px;
+    background: var(--accent);
+    color: #fff;
+    font: inherit; font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--accent-deep); }
+  .btn-secondary { background: transparent; color: var(--signal); box-shadow: inset 0 0 0 1.5px var(--accent); }
+  .btn-secondary:hover { background: var(--signal-wash); color: var(--signal); }
+  .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+
+  .field { margin-bottom: 1.25rem; }
+  .field label { display: block; margin-bottom: 0.2rem; font-weight: 600; }
+  .hint { margin: 0 0 0.5rem; color: var(--ink-2); font-size: var(--text-sm); }
+  .text-input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+  }
+  .text-input:focus-visible { border-color: var(--accent); outline: 3px solid rgba(0, 113, 227, 0.45); outline-offset: 0; }
+  .text-input[aria-invalid="true"] { border-color: var(--stop); box-shadow: 0 0 0 1px var(--stop); }
+  .error-msg { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.5rem; color: var(--stop); font-weight: 600; }
+  .error-msg[hidden] { display: none; }
+
+  /* Learn */
+  .learn-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem 2.5rem; }
+  .toc-rail { display: none; }
+  .toc-mobile { margin-bottom: 1rem; padding: 0 1rem; background: var(--sheet); border-radius: var(--radius-md); }
+  .toc-mobile summary { display: flex; align-items: center; min-height: 48px; font-weight: 600; cursor: pointer; }
+  .toc-list { margin: 0 0 0.75rem; padding: 0; list-style: none; }
+  .toc-item {
+    display: flex; align-items: baseline; gap: 0.6rem;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.55rem 0.75rem;
+    border: 0; border-radius: 10px;
+    background: none;
+    color: var(--ink);
+    font: inherit; font-size: var(--text-sm); line-height: 1.35;
+    text-align: left;
+    cursor: pointer;
+  }
+  .toc-item:hover { background: var(--fill); }
+  .toc-item[aria-current="true"] { background: var(--sheet); font-weight: 600; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); }
+  .toc-num { min-width: 1.1rem; color: var(--ink-2); font-size: var(--text-xs); font-variant-numeric: tabular-nums; }
+  .toc-tick { flex: none; align-self: center; margin-left: auto; padding-left: 0.5rem; color: var(--signal); font-size: 1rem; }
+  @media (min-width: 900px) {
+    .learn-layout { grid-template-columns: 15rem minmax(0, 1fr); }
+    .toc-rail { display: block; position: sticky; top: 5rem; align-self: start; }
+    .toc-mobile { display: none; }
+  }
+  .learn-main { min-width: 0; max-width: 48rem; }
+  .learn-article { overflow: hidden; }
+  .learn-article p, .learn-article li, .learn-article dd { max-width: 66ch; }
+  .learn-article h1 { margin-bottom: 1.5rem; }
+  .law { margin: 0 0 1.5rem; padding: 1rem 1.2rem; background: var(--paper); border-radius: var(--radius-md); }
+  .law ul { margin: 0; padding: 0; list-style: none; }
+  .law li { padding: 0.1rem 0; font-weight: 600; }
+  .extra dl { margin: 0; padding: 0 1.2rem; background: var(--paper); border-radius: var(--radius-md); }
+  .extra .row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.2rem 1.25rem; padding: 0.9rem 0; }
+  .extra .row + .row { border-top: 1px solid var(--rule); }
+  @media (min-width: 640px) { .extra .row { grid-template-columns: 9.5rem minmax(0, 1fr); } }
+  .extra dt { font-weight: 600; }
+  .extra dd { margin: 0; }
+  .rules ol { display: grid; gap: 0.9rem; margin: 0; padding: 0; list-style: none; counter-reset: rule; }
+  .rules li { counter-increment: rule; display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 0.85rem; align-items: start; }
+  .rules li::before {
+    content: counter(rule);
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.75rem; height: 1.75rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.85rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .dodont { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .sign-card { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 0.9rem; align-items: start; padding: 1.1rem; background: var(--paper); border-radius: var(--radius-md); }
+  .sign-card h3 { margin: 0 0 0.15rem; }
+  .sign-card p { margin: 0; }
+  .example { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 0.9rem; align-items: start; margin-top: 1rem; padding: 1.1rem; background: var(--paper); border-radius: var(--radius-md); }
+  .example p { margin: 0; }
+  .pager { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-top: 1.25rem; }
+  .pager-link {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0.15rem;
+    min-height: 72px;
+    padding: 1rem 1.25rem;
+    border: 0; border-radius: var(--radius-lg);
+    background: var(--sheet);
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .pager-link:hover { box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); }
+  .pager-next, .pager-end { grid-column: 2; }
+  .pager-next { align-items: flex-end; text-align: right; }
+  .pager-end { display: flex; align-items: center; justify-content: flex-end; }
+  .pager-label { color: var(--ink-2); font-size: var(--text-xs); font-weight: 600; }
+  .pager-title { color: var(--signal); font-weight: 600; }
+  @media (max-width: 560px) {
+    .pager { grid-template-columns: minmax(0, 1fr); }
+    .pager-next, .pager-end { grid-column: auto; }
+    .pager > span:empty { display: none; }
+  }
+
+  /* Reveal cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+  .card { display: flex; flex-direction: column; background: var(--paper); border-radius: var(--radius-md); }
+  .card.is-open { background: var(--sheet); box-shadow: inset 0 0 0 2px var(--accent); }
+  .card-btn {
+    display: grid; justify-items: start; gap: 0.15rem;
+    width: 100%;
+    min-height: 44px;
+    padding: 1rem 1.1rem;
+    border: 0; border-radius: var(--radius-md);
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .card-btn:hover { background: var(--fill); }
+  .card.is-open .card-btn:hover { background: none; }
+  .card-letter { color: var(--accent); font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; line-height: 1; }
+  .card-term { font-size: var(--text-lg); font-weight: 600; }
+  .card-hint { color: var(--signal); font-size: var(--text-sm); }
+  .card-text { margin: 0; padding: 0 1.1rem 1.1rem; }
+  .cards-intro { margin-bottom: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .card-text:not([hidden]) { animation: reveal 0.25s ease-out; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  }
+
+  /* Ladder exercise */
+  .lab { margin-top: 2.5rem; padding: clamp(1rem, 3vw, 1.5rem); background: var(--paper); border-radius: var(--radius-md); }
+  .lab h2 { margin-top: 0; }
+  .lab-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem 1.5rem; align-items: start; }
+  @media (min-width: 640px) { .lab-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+  .lab-stage { line-height: 0; background: #dfe8ee; border-radius: 10px; overflow: hidden; }
+  .lab-stage svg { display: block; width: 100%; height: auto; }
+  .lab label { display: block; font-weight: 600; }
+  .range { display: block; width: 100%; min-height: 44px; margin: 0.25rem 0 0.5rem; accent-color: var(--accent); }
+  .lab-readout { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 0.6rem; align-items: start; padding: 0.9rem 1rem; background: var(--sheet); border-radius: var(--radius-md); }
+  .lab-readout.is-right { box-shadow: inset 0 0 0 2px var(--safe); }
+  .lab-readout p { margin: 0 0 0.25rem; }
+  .lab-angle { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+
+  /* Check yourself */
+  .check { margin-top: 2.5rem; padding: clamp(1rem, 3vw, 1.5rem); background: var(--paper); border-radius: var(--radius-md); }
+  .check .label { color: var(--signal); }
+  .check fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+  .check legend { margin-bottom: 0.25rem; padding: 0; }
+  .check-q { display: block; font-size: var(--text-lg); font-weight: 600; line-height: 1.3; }
+  .check .btn-row { margin-top: 1rem; }
+  .check-feedback:empty { display: none; }
+
+  /* Assess */
+  .assess-head, .assess-form, .results { max-width: 48rem; margin-left: auto; margin-right: auto; }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.75rem; }
+  .facts span { padding: 0.35rem 0.85rem; border-radius: 980px; background: var(--sheet); font-size: var(--text-sm); font-variant-numeric: tabular-nums; }
+  .facts .meta { font-weight: 600; }
+  .q-card { margin-bottom: 1rem; padding: clamp(1.25rem, 3.5vw, 2rem); background: var(--sheet); border-radius: var(--radius-lg); }
+  .q-card.has-error { box-shadow: 0 0 0 3px var(--stop); }
+  .question { min-width: 0; margin: 0; padding: 0; border: 0; }
+  .question legend { margin-bottom: 0.5rem; padding: 0; }
+  .q-title { margin: 0; font-size: var(--text-lg); font-weight: 600; line-height: 1.3; text-wrap: pretty; }
+  .q-num { display: block; margin-bottom: 0.3rem; color: var(--ink-2); font-family: var(--font); font-size: var(--text-sm); font-weight: 600; letter-spacing: -0.01em; }
+  .scenario { padding: 1rem 1.2rem; background: var(--paper); border-radius: var(--radius-md); }
+
+  /* Grouped option lists with Mac-style controls (still native inputs) */
+  .options { display: grid; gap: 0; overflow: hidden; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-md); }
+  .option {
+    position: relative;
+    display: flex; align-items: flex-start; gap: 0.85rem;
+    min-height: 48px;
+    padding: 0.85rem 1rem;
+    background: var(--sheet);
+    cursor: pointer;
+  }
+  .option + .option::before { content: ""; position: absolute; top: 0; left: 3.1rem; right: 0; height: 1px; background: var(--rule); }
+  .option:hover { background: #f7f7f9; }
+  .option:has(input:checked) { background: var(--signal-wash); }
+  .option:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: -3px; }
+  .option input {
+    -webkit-appearance: none; appearance: none;
+    display: inline-grid; place-content: center;
+    flex: none;
+    width: 22px; height: 22px;
+    margin: 0.05rem 0 0;
+    border: 1.5px solid var(--rule-strong);
+    background: #fff;
+    cursor: pointer;
+  }
+  .option input:focus-visible { outline: none; }
+  .option input[type="radio"] { border-radius: 50%; }
+  .option input[type="checkbox"] { border-radius: 6px; }
+  .option input:checked { background: var(--accent); border-color: var(--accent); }
+  .option input[type="radio"]:checked::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+  .option input[type="checkbox"]:checked::before {
+    content: ""; width: 12px; height: 12px; background: #fff;
+    clip-path: polygon(12% 45%, 0 62%, 42% 100%, 100% 18%, 84% 4%, 40% 70%);
+  }
+  @media (forced-colors: active) { .option input { -webkit-appearance: auto; appearance: auto; } }
+  .option-desc { display: block; color: var(--ink-2); font-size: var(--text-sm); }
+  .question:disabled .option, .question:disabled .option input { cursor: default; }
+  .question:disabled .option:hover { background: var(--sheet); }
+  .question:disabled .option:has(input:checked):hover { background: var(--signal-wash); }
+
+  .status-sign {
+    align-items: center; justify-content: center;
+    width: 1.75rem; height: 1.75rem;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1rem;
+  }
+  .status-sign.is-ok { background: var(--safe); }
+  .status-sign.is-bad { background: var(--stop); }
+  .status-sign.lg { width: 3rem; height: 3rem; font-size: 1.6rem; }
+  .feedback { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 0.75rem; align-items: start; margin-top: 1rem; padding: 1rem 1.1rem; border-radius: var(--radius-md); }
+  .feedback p { margin: 0; }
+  .feedback.is-correct { background: var(--safe-wash); }
+  .feedback.is-incorrect { background: var(--stop-wash); }
+  .status { font-weight: 700; }
+  .is-correct > div > p > .status { color: var(--safe); }
+  .is-incorrect > div > p > .status { color: var(--stop); }
+
+  .results { margin-bottom: 1.5rem; }
+  .results-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .results h2 { margin: 0; font-size: var(--text-xl); font-weight: 700; }
+  .results.is-pass h2 { color: var(--safe); }
+  .results.is-fail h2 { color: var(--stop); }
+  .score { margin: 0.1rem 0 0; color: var(--ink-2); }
+  .score strong { color: var(--ink); font-size: var(--text-lg); font-variant-numeric: tabular-nums; }
+  .result-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(4.25rem, 1fr)); gap: 0.5rem;
+    margin: 1rem 0 0; padding: 0;
+    list-style: none;
+  }
+  .result-grid a {
+    display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+    min-height: 48px;
+    border-radius: 10px;
+    color: var(--ink);
+    font-size: var(--text-sm); font-weight: 600; font-variant-numeric: tabular-nums;
+    text-decoration: none;
+  }
+  .result-grid a:hover { text-decoration: underline; }
+  .result-grid .is-correct a { background: var(--safe-wash); }
+  .result-grid .is-incorrect a { background: var(--stop-wash); box-shadow: inset 0 0 0 2px var(--stop); }
+  .result-grid .is-correct .icon { color: var(--safe); }
+  .result-grid .is-incorrect .icon { color: var(--stop); }
+
+  .error-summary { margin-bottom: 1rem; padding: 1.25rem 1.5rem; background: var(--sheet); border-radius: var(--radius-lg); box-shadow: inset 0 0 0 2px var(--stop); }
+  .error-summary h2 { display: flex; align-items: center; gap: 0.6rem; margin-top: 0; }
+  .error-summary ul { margin: 0; padding-left: 1.2rem; }
+  .error-summary a { display: inline-flex; align-items: center; min-height: 44px; color: var(--stop); font-weight: 600; }
+  .answered-count { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .submit-bar .btn-row { margin-top: 1rem; }
+
+  /* Hotspot scene */
+  .scene { position: relative; margin: 1rem 0 0.5rem; user-select: none; -webkit-user-select: none; }
+  .scene-art { display: block; width: 100%; height: auto; border-radius: var(--radius-md); }
+  .hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    min-width: 44px; min-height: 44px;
+    margin: 0; padding: 0;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .hotspot:hover { border-color: var(--ink); border-style: dashed; }
+  .hotspot:focus-visible { outline: 3px solid #fff; outline-offset: 0; box-shadow: 0 0 0 7px var(--ink); }
+  .hotspot[aria-pressed="true"] { border-color: var(--accent); border-style: solid; background: rgba(0, 113, 227, 0.16); box-shadow: 0 0 0 2px #fff; }
+  .hotspot[aria-pressed="true"]:focus-visible { box-shadow: 0 0 0 7px var(--ink); }
+  .hotspot:disabled { cursor: default; }
+  .hotspot:disabled:hover { border-color: transparent; }
+  .hotspot-badge {
+    position: absolute; top: -13px; right: -13px;
+    display: none; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border: 2px solid #fff; border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 15px;
+  }
+  .hotspot[aria-pressed="true"] .hotspot-badge { display: flex; }
+  .hotspot.is-found { border-color: var(--safe); border-style: solid; background: rgba(30, 122, 53, 0.14); }
+  .hotspot.is-found .hotspot-badge { display: flex; background: var(--safe); }
+  .hotspot.is-wrong, .hotspot.is-missed { border-color: var(--stop); background: rgba(215, 0, 21, 0.12); }
+  .hotspot.is-wrong { border-style: solid; }
+  .hotspot.is-missed { border-style: dashed; }
+  .hotspot.is-wrong .hotspot-badge, .hotspot.is-missed .hotspot-badge { display: flex; background: var(--stop); }
+  .miss {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex; align-items: center; gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 980px;
+    background: rgba(29, 29, 31, 0.9);
+    color: #fff;
+    font-size: var(--text-xs); font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .checklist { margin-top: 0.75rem; padding: 0 1rem; background: var(--paper); border-radius: var(--radius-md); }
+  .checklist summary { display: flex; align-items: center; min-height: 48px; font-weight: 600; cursor: pointer; }
+  .checklist .options { margin-bottom: 1rem; }
+  .hs-review { margin: 0.75rem 0 0; padding: 0; list-style: none; }
+  .hs-review li { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.4rem; }
+  .hs-review .icon { margin-top: 0.3rem; }
+  .hs-review .is-correct .icon { color: var(--safe); }
+  .hs-review .is-incorrect .icon { color: var(--stop); }
+
+  /* Illustrations */
+  .art { display: block; line-height: 0; background: #dfe8ee; }
+  .art svg { display: block; width: 100%; height: auto; }
+  .learn-article > .art { margin: calc(-1 * clamp(1.25rem, 3.5vw, 2.25rem)) calc(-1 * clamp(1.25rem, 3.5vw, 2.25rem)) 1.75rem; }
+
+  dialog {
+    width: min(30rem, calc(100vw - 32px));
+    padding: 1.75rem;
+    border: 0; border-radius: 16px;
+    color: var(--ink);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+  dialog::backdrop { background: rgba(0, 0, 0, 0.35); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  dialog h2 { margin-top: 0; font-size: var(--text-xl); }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    .scene { margin-left: -0.5rem; margin-right: -0.5rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .miss { animation: miss-fade 1.8s ease forwards; }
+    @keyframes miss-fade { 0% { opacity: 0; } 12% { opacity: 1; } 75% { opacity: 1; } 100% { opacity: 0; } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><circle cx="20" cy="20" r="20" fill="currentColor"/><use href="#sym-hat" x="8" y="7" width="24" height="24" style="color:#ffffff"/></svg></span>
+      <div>
+        <p class="brand-org" id="brand-org"></p>
+        <p class="brand-course" id="brand-course">Essential Site Safety</p>
+      </div>
+    </div>
+    <p class="brand-meta">Construction site safety awareness &middot; Great Britain</p>
+  </div>
+</header>
+
+<nav class="progress" aria-label="Course progress">
+  <div class="wrap">
+    <ol class="steps" id="progress"></ol>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+  <div class="wrap">
+    <div id="storage-warning" class="banner" role="status" hidden>
+      Your progress can't be saved here, so finish the course in one go. If the page reloads, you will start again.
+    </div>
+    <noscript>
+      <p class="banner">This course needs JavaScript. Please turn it on, or open the file in a different browser.</p>
+    </noscript>
+    <div id="view"></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <button type="button" class="btn btn-secondary" id="reset-button">Reset progress</button>
+    <p>Your progress is saved in this browser on this device only.</p>
+  </div>
+  <div class="wrap footer-notes" id="footer-notes"></div>
+</footer>
+
+<div id="live" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+<dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-desc">
+  <h2 id="reset-title">Reset all progress?</h2>
+  <p id="reset-desc">This clears your answers and your place in the course. You can't undo this.</p>
+  <div class="btn-row">
+    <button type="button" class="btn btn-secondary" id="reset-cancel">Cancel</button>
+    <button type="button" class="btn" id="reset-confirm">Yes, reset everything</button>
+  </div>
+</dialog>
+
+<!--
+  Shared drawing parts and the section illustrations. Each illustration is a
+  <template> named in COURSE (sections[].art.template). All use a 640 x 240 grid.
+-->
+<svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="sym-hat" viewBox="0 0 24 24">
+      <path d="M4.5 15.5a7.5 7.5 0 0 1 15 0z" fill="currentColor"/>
+      <rect x="10.4" y="6.4" width="3.2" height="3" rx="1.2" fill="currentColor"/>
+      <rect x="2" y="15.3" width="20" height="2.8" rx="1.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="sym-worker" viewBox="0 0 40 90">
+      <path d="M10 32 L3 54 M30 32 L37 54" style="stroke:var(--sleeve,#2f3b48)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <circle cx="3" cy="56" r="3.8" fill="#d8b04a"/>
+      <circle cx="37" cy="56" r="3.8" fill="#d8b04a"/>
+      <rect x="11" y="57" width="8" height="24" style="fill:var(--legs,#2f3b48)"/>
+      <rect x="21" y="57" width="8" height="24" style="fill:var(--legs,#2f3b48)"/>
+      <rect x="9" y="79" width="11" height="7" rx="2" fill="#1f1f1f"/>
+      <rect x="20" y="79" width="11" height="7" rx="2" fill="#1f1f1f"/>
+      <rect x="9" y="29" width="22" height="30" rx="5" style="fill:var(--vest,#e8772e)"/>
+      <path d="M9 40 H31 M9 49 H31" stroke="#e3e6e8" stroke-width="2.5"/>
+      <circle cx="20" cy="20" r="8.5" style="fill:var(--skin,#c98e68)"/>
+      <path d="M9 15a11 11 0 0 1 22 0z" style="fill:var(--hat,#ffffff)" stroke="#5d6167"/>
+      <rect x="6" y="14" width="28" height="3.5" rx="1.5" style="fill:var(--hat,#ffffff)" stroke="#5d6167"/>
+    </symbol>
+    <symbol id="sym-signaller" viewBox="0 0 40 90">
+      <path d="M10 32 L4 12 M30 32 L36 12" style="stroke:var(--sleeve,#2f3b48)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <circle cx="4" cy="10" r="3.8" fill="#d8b04a"/>
+      <circle cx="36" cy="10" r="3.8" fill="#d8b04a"/>
+      <rect x="11" y="57" width="8" height="24" fill="#2f3b48"/>
+      <rect x="21" y="57" width="8" height="24" fill="#2f3b48"/>
+      <rect x="9" y="79" width="11" height="7" rx="2" fill="#1f1f1f"/>
+      <rect x="20" y="79" width="11" height="7" rx="2" fill="#1f1f1f"/>
+      <rect x="9" y="29" width="22" height="30" rx="5" style="fill:var(--vest,#f2c12e)"/>
+      <path d="M9 40 H31 M9 49 H31" stroke="#e3e6e8" stroke-width="2.5"/>
+      <circle cx="20" cy="20" r="8.5" style="fill:var(--skin,#c98e68)"/>
+      <path d="M9 15a11 11 0 0 1 22 0z" fill="#ffffff" stroke="#5d6167"/>
+      <rect x="6" y="14" width="28" height="3.5" rx="1.5" fill="#ffffff" stroke="#5d6167"/>
+    </symbol>
+    <symbol id="sym-cone" viewBox="0 0 20 28">
+      <path d="M7.5 2h5l5 21h-15z" fill="#e8772e"/>
+      <path d="M5.6 10h8.8l1.2 5H4.4z" fill="#ffffff"/>
+      <rect x="0" y="23" width="20" height="4" rx="1" fill="#2b2b2b"/>
+    </symbol>
+    <symbol id="sym-extinguisher" viewBox="0 0 12 30">
+      <rect x="1" y="6" width="10" height="23" rx="3" fill="#c0392b" stroke="#6b1c16"/>
+      <rect x="1" y="12" width="10" height="5" style="fill:var(--band,#c0392b)"/>
+      <path d="M6 6V2h4" stroke="#2b2b2b" stroke-width="2" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<template id="art-legal">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#dfe8ee"/>
+    <rect y="190" width="640" height="50" fill="#d8cbb0"/>
+    <rect y="62" width="640" height="128" fill="#b9c6bd"/>
+    <path d="M80 62V190M160 62V190M240 62V190M320 62V190M400 62V190M480 62V190M560 62V190" stroke="#a3b2a8" stroke-width="2"/>
+    <!-- Site rules board with mandatory PPE signs -->
+    <rect x="60" y="78" width="176" height="96" fill="#ffffff" stroke="#5d6167" stroke-width="2"/>
+    <rect x="60" y="78" width="176" height="20" fill="#0f4c86"/>
+    <text x="148" y="92.5" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">SITE RULES</text>
+    <g fill="#0f4c86"><circle cx="86" cy="122" r="15"/><circle cx="126" cy="122" r="15"/><circle cx="166" cy="122" r="15"/><circle cx="206" cy="122" r="15"/></g>
+    <use href="#sym-hat" x="74" y="109" width="24" height="24" style="color:#ffffff"/>
+    <path d="M119 113h4l3 3 3-3h4v18h-14z" fill="#ffffff"/>
+    <path d="M160 112h6v10l8 4v6h-14z" fill="#ffffff"/>
+    <path d="M199 132v-12a2 2 0 0 1 4 0v-4a2 2 0 0 1 4 0v4a2 2 0 0 1 4 0v12z" fill="#ffffff"/>
+    <rect x="72" y="146" width="152" height="5" rx="2" fill="#c9ced4"/>
+    <rect x="72" y="157" width="110" height="5" rx="2" fill="#c9ced4"/>
+    <!-- Safety notice -->
+    <rect x="262" y="84" width="74" height="96" fill="#ffffff" stroke="#5d6167" stroke-width="2"/>
+    <rect x="262" y="84" width="74" height="16" fill="#146b3a"/>
+    <g fill="#c9ced4"><rect x="270" y="108" width="58" height="4" rx="2"/><rect x="270" y="118" width="50" height="4" rx="2"/><rect x="270" y="128" width="58" height="4" rx="2"/><rect x="270" y="138" width="44" height="4" rx="2"/><rect x="270" y="148" width="56" height="4" rx="2"/><rect x="270" y="158" width="40" height="4" rx="2"/></g>
+    <!-- Supervisor with a clipboard, and a worker -->
+    <use href="#sym-worker" x="392" y="103" width="40" height="90" style="--vest:#f2c12e"/>
+    <rect x="424" y="150" width="16" height="20" rx="1" fill="#8b6a3e"/>
+    <rect x="427" y="153" width="10" height="14" fill="#ffffff"/>
+    <use href="#sym-worker" x="452" y="103" width="40" height="90" style="--hat:#f2c12e;--skin:#8d5a3b"/>
+    <!-- Skip -->
+    <path d="M532 152h94l-10 38h-74z" fill="#e2b714" stroke="#8a6d0c" stroke-width="2"/>
+    <path d="M552 158v26M572 158v26M592 158v26M610 158v26" stroke="#c99a12" stroke-width="2"/>
+  </svg>
+</template>
+
+<template id="art-induction">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#e7eaed"/>
+    <rect y="186" width="640" height="54" fill="#cfc6b8"/>
+    <rect y="182" width="640" height="4" fill="#b9b2a6"/>
+    <!-- Whiteboard with the site plan -->
+    <rect x="44" y="26" width="250" height="124" fill="#ffffff" stroke="#5d6167" stroke-width="3"/>
+    <rect x="64" y="150" width="210" height="5" fill="#8a8f96"/>
+    <text x="58" y="44" font-size="10" font-weight="700" fill="#45505c" letter-spacing="1">SITE PLAN</text>
+    <rect x="70" y="58" width="90" height="56" fill="#cbc4b8" stroke="#5d6167"/>
+    <path d="M168 132H280M168 132V64" stroke="#45505c" stroke-width="3" stroke-dasharray="8 6" fill="none"/>
+    <path d="M66 126H160" stroke="#146b3a" stroke-width="3" stroke-dasharray="4 4"/>
+    <rect x="236" y="54" width="24" height="24" fill="#146b3a"/>
+    <circle cx="248" cy="62" r="3" fill="#ffffff"/>
+    <rect x="245" y="66" width="6" height="8" fill="#ffffff"/>
+    <!-- Supervisor pointing at the plan -->
+    <use href="#sym-worker" x="306" y="94" width="40" height="90" style="--vest:#f2c12e"/>
+    <path d="M309 150L276 104" stroke="#2b2b2b" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Permits board -->
+    <rect x="452" y="34" width="150" height="104" fill="#c9a46a" stroke="#8b6a3e" stroke-width="3"/>
+    <text x="527" y="54" font-size="10" font-weight="700" fill="#16202a" text-anchor="middle" letter-spacing="1">PERMITS</text>
+    <g fill="#5d6167"><circle cx="480" cy="68" r="2.5"/><circle cx="515" cy="68" r="2.5"/><circle cx="550" cy="68" r="2.5"/><circle cx="585" cy="68" r="2.5"/></g>
+    <g fill="#ffffff" stroke="#8a8f96"><rect x="468" y="72" width="24" height="34"/><rect x="503" y="72" width="24" height="34"/><rect x="538" y="72" width="24" height="34"/><rect x="573" y="72" width="24" height="34"/></g>
+    <rect x="468" y="72" width="24" height="7" fill="#b3261e"/><rect x="503" y="72" width="24" height="7" fill="#0f4c86"/>
+    <rect x="538" y="72" width="24" height="7" fill="#e2b714"/><rect x="573" y="72" width="24" height="7" fill="#146b3a"/>
+    <g fill="#c9ced4"><rect x="472" y="85" width="16" height="3"/><rect x="472" y="92" width="12" height="3"/><rect x="507" y="85" width="16" height="3"/><rect x="507" y="92" width="12" height="3"/><rect x="542" y="85" width="16" height="3"/><rect x="542" y="92" width="12" height="3"/><rect x="577" y="85" width="16" height="3"/><rect x="577" y="92" width="12" height="3"/></g>
+    <!-- Four workers listening, seen from behind -->
+    <g>
+      <rect x="93" y="206" width="34" height="40" rx="8" fill="#f2c12e"/><rect x="106" y="198" width="8" height="10" fill="#c98e68"/><circle cx="110" cy="192" r="13" fill="#3a2a1d"/><rect x="92" y="222" width="36" height="18" rx="3" fill="#5d6167"/>
+      <rect x="183" y="206" width="34" height="40" rx="8" fill="#e8772e"/><rect x="196" y="198" width="8" height="10" fill="#8d5a3b"/><circle cx="200" cy="192" r="13" fill="#1f1f1f"/><rect x="182" y="222" width="36" height="18" rx="3" fill="#5d6167"/>
+      <rect x="383" y="206" width="34" height="40" rx="8" fill="#f2c12e"/><rect x="396" y="198" width="8" height="10" fill="#e0b48f"/><circle cx="400" cy="192" r="13" fill="#c9a04a"/><rect x="382" y="222" width="36" height="18" rx="3" fill="#5d6167"/>
+      <rect x="473" y="206" width="34" height="40" rx="8" fill="#e8772e"/><rect x="486" y="198" width="8" height="10" fill="#c98e68"/><circle cx="490" cy="192" r="13" fill="#8b5a2b"/><rect x="472" y="222" width="36" height="18" rx="3" fill="#5d6167"/>
+    </g>
+  </svg>
+</template>
+
+<template id="art-height">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#dfe8ee"/>
+    <rect y="206" width="640" height="34" fill="#d8cbb0"/>
+    <rect x="360" y="24" width="280" height="182" fill="#cbc4b8" stroke="#5d6167" stroke-width="2"/>
+    <path d="M360 50H640M360 76H640M360 102H640M360 128H640M360 154H640M360 180H640" stroke="#a9a196" stroke-width="1.5"/>
+    <rect x="470" y="128" width="40" height="52" fill="#7d8a96"/>
+    <use href="#sym-worker" x="452" y="40" width="32" height="72" style="--vest:#f2c12e"/>
+    <!-- Scaffold -->
+    <path d="M330 34V204M420 34V204M510 34V204M600 34V204" stroke="#5f6a75" stroke-width="4" stroke-linecap="round"/>
+    <path d="M322 68H632M322 88H632M322 160H632" stroke="#5f6a75" stroke-width="4" stroke-linecap="round"/>
+    <rect x="320" y="99" width="314" height="11" fill="#b5884d" stroke="#7a5a2f"/>
+    <rect x="320" y="110" width="314" height="5" fill="#8f683a"/>
+    <path d="M322 206h16M412 206h16M502 206h16M592 206h16" stroke="#3f464d" stroke-width="4"/>
+    <rect x="334" y="122" width="14" height="18" rx="2" fill="#ffffff" stroke="#3f464d"/>
+    <rect x="334" y="122" width="14" height="6" fill="#2f7a46"/>
+    <!-- Ladder: 1 out for every 4 up, tied at the top, sticking up above the platform -->
+    <path d="M296 206L331 66M308 206L343 66" stroke="#7c5a2e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M298.5 196h12M302 182h12M305.5 168h12M309 154h12M312.5 140h12M316 126h12M319.5 112h12M323 98h12M326.5 84h12M329.5 72h12" stroke="#7c5a2e" stroke-width="3"/>
+    <path d="M324 76q10 7 22 0M324 82q10 7 22 0" stroke="#16202a" stroke-width="2" fill="none"/>
+    <!-- Angle guide -->
+    <g stroke="#0f4c86" stroke-width="2"><path d="M286 206V110" stroke-dasharray="5 4"/><path d="M280 110h12M280 206h12"/><path d="M302 218H326" stroke-dasharray="4 3"/><path d="M302 212v12M326 212v12"/></g>
+    <g fill="#0f4c86" font-size="17" font-weight="700" stroke="#ffffff" stroke-width="4" paint-order="stroke" text-anchor="middle"><text x="270" y="164">4</text><text x="314" y="238">1</text></g>
+  </svg>
+</template>
+
+<template id="art-handling">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#dfe8ee"/>
+    <rect y="132" width="640" height="74" fill="#c4cec7"/>
+    <path d="M100 132V206M220 132V206M340 132V206M460 132V206M580 132V206" stroke="#aebab2" stroke-width="2"/>
+    <rect y="206" width="640" height="34" fill="#d8cbb0"/>
+    <!-- 1: side view of a lift with bent knees, straight back and the load close to the body -->
+    <path d="M106 165L130 176L126 202" stroke="#2f3b48" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+    <rect x="118" y="198" width="17" height="8" rx="2" fill="#1f1f1f"/>
+    <path d="M101 133h15l5 33h-19z" fill="#e8772e"/>
+    <path d="M102.5 143h15M103.5 153h16" stroke="#e3e6e8" stroke-width="2.5"/>
+    <rect x="120" y="144" width="32" height="26" fill="#c8995a" stroke="#8b6a3e" stroke-width="1.5"/>
+    <path d="M120 154h32" stroke="#e8d3a8" stroke-width="3"/>
+    <path d="M110 138L134 158" stroke="#2f3b48" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="136" cy="159" r="3.8" fill="#d8b04a"/>
+    <circle cx="110" cy="124" r="8.5" fill="#c98e68"/>
+    <path d="M99 119a11 11 0 0 1 22 0z" fill="#ffffff" stroke="#5d6167"/>
+    <rect x="97" y="118" width="29" height="3.5" rx="1.5" fill="#ffffff" stroke="#5d6167"/>
+    <!-- 2: sack truck -->
+    <use href="#sym-worker" x="236" y="120" width="40" height="90" style="--vest:#f2c12e;--skin:#e0b48f"/>
+    <path d="M273 172L302 204M281 170L310 204" stroke="#3f464d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M300 204h32" stroke="#3f464d" stroke-width="4"/>
+    <g fill="#a9a196" stroke="#77746e"><rect x="304" y="191" width="30" height="12" rx="4"/><rect x="302" y="178" width="30" height="12" rx="4"/><rect x="300" y="165" width="30" height="12" rx="4"/></g>
+    <circle cx="306" cy="201" r="8" fill="#2b2b2b"/>
+    <!-- 3: team lift of a long board -->
+    <use href="#sym-worker" x="420" y="120" width="40" height="90"/>
+    <use href="#sym-worker" x="560" y="120" width="40" height="90" style="--hat:#f2c12e;--skin:#8d5a3b"/>
+    <rect x="444" y="170" width="132" height="8" fill="#b5884d" stroke="#7a5a2f"/>
+  </svg>
+</template>
+
+<template id="art-ppe">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#eef1f4"/>
+    <ellipse cx="320" cy="230" rx="70" ry="6" fill="#d4dae1"/>
+    <use href="#sym-worker" x="272" y="14" width="96" height="216" style="--vest:#f2c12e"/>
+    <rect x="306" y="57" width="28" height="9" rx="3" fill="#7fa7c9" fill-opacity="0.75" stroke="#16202a" stroke-width="2"/>
+    <path d="M297 54V48M343 54V48" stroke="#16202a" stroke-width="3"/>
+    <rect x="292" y="54" width="10" height="20" rx="4" fill="#d33a2c" stroke="#16202a" stroke-width="1.5"/>
+    <rect x="338" y="54" width="10" height="20" rx="4" fill="#d33a2c" stroke="#16202a" stroke-width="1.5"/>
+    <g stroke="#45505c" stroke-width="1.5" fill="none">
+      <path d="M204 32L300 34M204 68L306 62M204 124L296 124M436 56L348 62M436 148L364 148M436 210L348 212"/>
+    </g>
+    <g fill="#0f4c86"><circle cx="300" cy="34" r="3"/><circle cx="306" cy="62" r="3"/><circle cx="296" cy="124" r="3"/><circle cx="348" cy="62" r="3"/><circle cx="364" cy="148" r="3"/><circle cx="348" cy="212" r="3"/></g>
+    <g fill="#16202a" font-size="15" font-weight="700">
+      <text x="196" y="37" text-anchor="end">Hard hat</text>
+      <text x="196" y="73" text-anchor="end">Safety glasses</text>
+      <text x="196" y="129" text-anchor="end">Hi-vis vest</text>
+      <text x="444" y="61">Ear defenders</text>
+      <text x="444" y="153">Gloves</text>
+      <text x="444" y="215">Safety boots</text>
+    </g>
+  </svg>
+</template>
+
+<template id="art-substances">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#dfe8ee"/>
+    <rect y="206" width="640" height="34" fill="#d8cbb0"/>
+    <!-- Store for hazardous substances -->
+    <rect x="470" y="86" width="130" height="120" fill="#e2b714" stroke="#8a6d0c" stroke-width="2"/>
+    <path d="M535 86V206" stroke="#8a6d0c" stroke-width="2"/>
+    <rect x="527" y="140" width="4" height="14" fill="#5d6167"/><rect x="539" y="140" width="4" height="14" fill="#5d6167"/>
+    <g transform="translate(502 116)"><path d="M0-15L15 0 0 15-15 0Z" fill="#ffffff" stroke="#b3261e" stroke-width="3"/><path d="M0-7v9" stroke="#16202a" stroke-width="2.6" stroke-linecap="round"/><circle cx="0" cy="6.5" r="1.6" fill="#16202a"/></g>
+    <g transform="translate(568 116)"><path d="M0-15L15 0 0 15-15 0Z" fill="#ffffff" stroke="#b3261e" stroke-width="3"/><path d="M0 8c-5 0-6-5-3-9 0 3 2 4 3 4-1-5 1-8 4-10-1 4 3 6 3 10 0 3-3 5-7 5z" fill="#16202a"/></g>
+    <!-- Kerb being cut -->
+    <rect x="236" y="190" width="140" height="16" fill="#a9a59d" stroke="#77746e"/>
+    <!-- Water bottle and hose -->
+    <rect x="132" y="178" width="20" height="28" rx="4" fill="#2f6f8f"/>
+    <rect x="137" y="173" width="10" height="6" rx="2" fill="#2f6f8f"/>
+    <path d="M226 182C226 200 160 204 150 192" stroke="#2f6f8f" stroke-width="3" fill="none"/>
+    <!-- Worker with mask, glasses and ear defenders -->
+    <use href="#sym-worker" x="176" y="120" width="40" height="90"/>
+    <rect x="185" y="135" width="5" height="9" rx="2" fill="#d33a2c"/><rect x="202" y="135" width="5" height="9" rx="2" fill="#d33a2c"/>
+    <rect x="189" y="135" width="14" height="4" rx="1.5" fill="#7fa7c9" stroke="#16202a"/>
+    <path d="M190 141h12a6 6 0 0 1-6 7 6 6 0 0 1-6-7z" fill="#f5f5f5" stroke="#5d6167"/>
+    <!-- Disc cutter with water on the blade -->
+    <path d="M182 172L214 168" stroke="#2f3b48" stroke-width="5" stroke-linecap="round"/>
+    <rect x="210" y="166" width="30" height="16" rx="3" fill="#e0762b" stroke="#8a4314"/>
+    <rect x="238" y="172" width="22" height="6" fill="#5d6167"/>
+    <circle cx="262" cy="184" r="14" fill="#c4c8cc" stroke="#5d6167" stroke-width="2"/>
+    <path d="M248 184a14 14 0 0 1 28 0" fill="none" stroke="#e0762b" stroke-width="5"/>
+    <g fill="#5aa0d6"><circle cx="276" cy="186" r="2"/><circle cx="282" cy="181" r="1.6"/><circle cx="287" cy="188" r="1.8"/><circle cx="280" cy="193" r="1.5"/><circle cx="292" cy="183" r="1.4"/><circle cx="270" cy="194" r="1.6"/></g>
+  </svg>
+</template>
+
+<template id="art-traffic">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#dfe8ee"/>
+    <rect y="96" width="640" height="144" fill="#d8cbb0"/>
+    <rect y="118" width="640" height="78" fill="#b5afa3"/>
+    <rect y="204" width="640" height="30" fill="#efede7"/>
+    <path d="M0 204H640M0 234H640" stroke="#a88424" stroke-width="3" stroke-dasharray="12 7"/>
+    <path d="M0 199H640" stroke="#e8772e" stroke-width="5"/>
+    <path d="M0 199H640" stroke="#ffffff" stroke-width="5" stroke-dasharray="14 14"/>
+    <path d="M20 192V206M100 192V206M180 192V206M260 192V206M340 192V206M420 192V206M500 192V206M580 192V206" stroke="#3f464d" stroke-width="3"/>
+    <!-- Exclusion zone around the excavator -->
+    <ellipse cx="130" cy="158" rx="118" ry="34" fill="#ad1f28" fill-opacity="0.08" stroke="#ad1f28" stroke-width="2.5" stroke-dasharray="10 7"/>
+    <rect x="80" y="164" width="100" height="18" rx="9" fill="#2b2b2b"/>
+    <rect x="92" y="134" width="70" height="30" rx="3" fill="#e2b714" stroke="#8a6d0c" stroke-width="2"/>
+    <rect x="138" y="112" width="24" height="24" fill="#e2b714" stroke="#8a6d0c" stroke-width="2"/>
+    <rect x="142" y="116" width="16" height="12" fill="#bcd3e6"/>
+    <path d="M100 138L60 102L36 136" stroke="#e2b714" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M100 138L60 102L36 136" stroke="#8a6d0c" stroke-width="1.5" fill="none"/>
+    <path d="M26 136h20l-4 14h-12z" fill="#5d6167"/>
+    <use href="#sym-cone" x="2" y="148" width="20" height="28"/>
+    <use href="#sym-cone" x="236" y="148" width="20" height="28"/>
+    <use href="#sym-cone" x="118" y="102" width="20" height="28"/>
+    <!-- Dumper reversing, guided by a banksman -->
+    <path d="M432 130h-14M432 144h-18M432 158h-14" stroke="#3f464d" stroke-width="3" stroke-linecap="round"/>
+    <rect x="440" y="158" width="110" height="12" rx="3" fill="#4b4f55"/>
+    <path d="M498 126L552 126L544 158L504 158Z" fill="#e0762b" stroke="#8a4314" stroke-width="2"/>
+    <rect x="442" y="138" width="44" height="20" rx="3" fill="#e0762b" stroke="#8a4314" stroke-width="2"/>
+    <path d="M446 138V110H478V138" fill="none" stroke="#2f3338" stroke-width="4"/>
+    <rect x="458" y="103" width="8" height="7" rx="2" fill="#f4b400"/>
+    <circle cx="470" cy="124" r="7" fill="#c98e68"/>
+    <path d="M463 122a7 7 0 0 1 14 0z" fill="#ffffff" stroke="#5d6167"/>
+    <rect x="464" y="130" width="13" height="9" rx="3" fill="#f2c12e"/>
+    <circle cx="460" cy="176" r="15" fill="#2b2b2b"/><circle cx="460" cy="176" r="5" fill="#8a8f96"/>
+    <circle cx="530" cy="176" r="15" fill="#2b2b2b"/><circle cx="530" cy="176" r="5" fill="#8a8f96"/>
+    <!-- The banksman stands back, to the side of the vehicle's path, where the driver can see them -->
+    <use href="#sym-signaller" x="384" y="66" width="30" height="67.5"/>
+    <!-- People on the fenced walkway -->
+    <use href="#sym-worker" x="250" y="160" width="28" height="63" style="--vest:#f2c12e"/>
+    <use href="#sym-worker" x="560" y="160" width="28" height="63" style="--skin:#8d5a3b"/>
+  </svg>
+</template>
+
+<template id="art-emergencies">
+  <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <rect width="640" height="240" fill="#dfe8ee"/>
+    <rect y="190" width="640" height="50" fill="#d8cbb0"/>
+    <!-- Welfare cabin with a first-aid sign -->
+    <rect x="30" y="104" width="190" height="86" fill="#a5b7a8" stroke="#4e5b51" stroke-width="2"/>
+    <rect x="46" y="122" width="40" height="26" fill="#e8eef0" stroke="#4e5b51"/>
+    <rect x="98" y="122" width="40" height="26" fill="#e8eef0" stroke="#4e5b51"/>
+    <rect x="168" y="128" width="34" height="62" fill="#7f9384" stroke="#4e5b51"/>
+    <rect x="140" y="158" width="24" height="24" fill="#146b3a"/>
+    <path d="M149 161h6v6h6v6h-6v6h-6v-6h-6v-6h6z" fill="#ffffff"/>
+    <!-- Fire point -->
+    <rect x="296" y="120" width="4" height="70" fill="#5d6167"/>
+    <rect x="280" y="104" width="36" height="24" fill="#b3261e"/>
+    <text x="298" y="114" fill="#ffffff" font-size="7" font-weight="700" text-anchor="middle">FIRE</text>
+    <text x="298" y="124" fill="#ffffff" font-size="7" font-weight="700" text-anchor="middle">POINT</text>
+    <use href="#sym-extinguisher" x="282" y="158" width="12" height="30"/>
+    <use href="#sym-extinguisher" x="302" y="158" width="12" height="30" style="--band:#1f1f1f"/>
+    <rect x="278" y="186" width="40" height="4" fill="#5d6167"/>
+    <!-- Assembly point -->
+    <rect x="470" y="110" width="4" height="80" fill="#5d6167"/>
+    <rect x="440" y="44" width="64" height="64" fill="#146b3a"/>
+    <g fill="#ffffff"><circle cx="458" cy="66" r="5"/><circle cx="472" cy="62" r="5"/><circle cx="486" cy="66" r="5"/><path d="M451 74h14v18h-14zM465 70h14v22h-14zM479 74h14v18h-14z"/></g>
+    <rect x="434" y="108" width="76" height="14" fill="#ffffff" stroke="#146b3a"/>
+    <text x="472" y="118" fill="#16202a" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="0.5">ASSEMBLY POINT</text>
+    <use href="#sym-worker" x="404" y="113" width="36" height="81"/>
+    <use href="#sym-worker" x="512" y="113" width="36" height="81" style="--vest:#f2c12e;--skin:#8d5a3b"/>
+    <use href="#sym-worker" x="552" y="113" width="36" height="81" style="--hat:#f2c12e;--skin:#e0b48f"/>
+  </svg>
+</template>
+
+<!--
+  Hotspot scene artwork. It's drawn in a 640 x 480 grid. The clickable areas are
+  NOT part of the drawing: they live in COURSE (question "scene", hotspots x, y,
+  w, h), using the same 640 x 480 units.
+-->
+<template id="scene-site">
+  <svg class="scene-art" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <!-- Sky and ground -->
+    <rect width="640" height="300" fill="#dfe8ee"/>
+    <rect y="300" width="640" height="180" fill="#d8cbb0"/>
+    <!-- Site road for vehicles -->
+    <path d="M488 300 H640 V480 H468 Z" fill="#b5afa3"/>
+    <path d="M488 300 L468 480" stroke="#8c867b" stroke-width="2"/>
+    <!-- Pedestrian walkway -->
+    <rect x="0" y="372" width="478" height="32" fill="#efede7"/>
+    <path d="M0 372 H478 M0 404 H478" stroke="#a88424" stroke-width="3" stroke-dasharray="12 7"/>
+
+    <!-- Building: ground floor -->
+    <rect x="30" y="215" width="300" height="85" fill="#cbc4b8" stroke="#5d6167" stroke-width="2"/>
+    <path d="M30 236 H330 M30 257 H330 M30 278 H330" stroke="#a9a196" stroke-width="1.5"/>
+    <rect x="206" y="238" width="36" height="62" fill="#6e6961"/>
+    <!-- First-floor slab -->
+    <rect x="26" y="205" width="306" height="10" fill="#8e939a" stroke="#5d6167" stroke-width="1.5"/>
+    <!-- First-floor walls, left part only -->
+    <rect x="30" y="120" width="150" height="85" fill="#cbc4b8" stroke="#5d6167" stroke-width="2"/>
+    <path d="M30 141 H180 M30 162 H180 M30 183 H180" stroke="#a9a196" stroke-width="1.5"/>
+    <rect x="118" y="132" width="34" height="22" fill="#7d8a96"/>
+    <!-- Blocks stacked near the open edge -->
+    <g fill="#b9b5ad" stroke="#6f6c66">
+      <rect x="262" y="192" width="22" height="13"/>
+      <rect x="284" y="192" width="22" height="13"/>
+      <rect x="273" y="179" width="22" height="13"/>
+    </g>
+
+    <!-- Scaffold with guard-rail, mid-rail and toe board -->
+    <g stroke="#5f6a75" stroke-width="4" stroke-linecap="round">
+      <path d="M28 150 V298 M100 150 V298 M172 150 V298"/>
+      <path d="M24 158 H176 M24 180 H176 M24 252 H176"/>
+    </g>
+    <rect x="22" y="192" width="156" height="11" fill="#b5884d" stroke="#7a5a2f"/>
+    <rect x="22" y="203" width="156" height="5" fill="#8f683a"/>
+    <path d="M20 299 h16 M92 299 h16 M164 299 h16" stroke="#3f464d" stroke-width="4"/>
+    <!-- Scaffold inspection tag -->
+    <rect x="104" y="222" width="16" height="20" rx="2" fill="#ffffff" stroke="#3f464d"/>
+    <rect x="104" y="222" width="16" height="7" fill="#2f7a46"/>
+
+    <!-- Ladder: not tied, not footed, stops level with the floor -->
+    <g stroke="#7c5a2e" stroke-width="4" stroke-linecap="round">
+      <path d="M330 207 L356 300 M346 207 L372 300"/>
+    </g>
+    <path d="M332 214 h16 M335 226 h16 M338 237 h16 M341 248 h16 M345 259 h16 M348 270 h16 M351 281 h16 M354 293 h16" stroke="#7c5a2e" stroke-width="3"/>
+
+    <!-- Welfare cabin -->
+    <rect x="470" y="226" width="100" height="72" fill="#a5b7a8" stroke="#4e5b51" stroke-width="2"/>
+    <rect x="482" y="240" width="26" height="18" fill="#e8eef0" stroke="#4e5b51"/>
+    <rect x="530" y="244" width="22" height="54" fill="#7f9384" stroke="#4e5b51"/>
+
+    <!-- Fire point -->
+    <rect x="588" y="232" width="4" height="66" fill="#5d6167"/>
+    <rect x="572" y="220" width="36" height="24" fill="#b3261e"/>
+    <text x="590" y="230" fill="#ffffff" font-family="Arial, sans-serif" font-size="7" font-weight="700" text-anchor="middle">FIRE</text>
+    <text x="590" y="240" fill="#ffffff" font-family="Arial, sans-serif" font-size="7" font-weight="700" text-anchor="middle">POINT</text>
+    <rect x="574" y="268" width="10" height="28" rx="3" fill="#c0392b" stroke="#6b1c16"/>
+    <rect x="596" y="268" width="10" height="28" rx="3" fill="#c0392b" stroke="#6b1c16"/>
+    <rect x="596" y="276" width="10" height="5" fill="#1f1f1f"/>
+    <rect x="570" y="296" width="40" height="4" fill="#5d6167"/>
+
+    <!-- Worker by the cabin: hi-vis and boots, no hard hat -->
+    <circle cx="450" cy="301" r="9" fill="#c98e68"/>
+    <path d="M441 300 Q450 287 459 300 Q450 294 441 300 Z" fill="#3a2a1d"/>
+    <path d="M440 314 L431 338 M460 314 L468 336" stroke="#2f3b48" stroke-width="5" stroke-linecap="round"/>
+    <rect x="439" y="311" width="22" height="30" rx="5" fill="#f2c12e"/>
+    <path d="M439 322 H461 M439 331 H461" stroke="#d9dde0" stroke-width="2.5"/>
+    <rect x="441" y="340" width="8" height="22" fill="#2f3b48"/>
+    <rect x="451" y="340" width="8" height="22" fill="#2f3b48"/>
+    <rect x="439" y="361" width="11" height="6" rx="2" fill="#1f1f1f"/>
+    <rect x="450" y="361" width="11" height="6" rx="2" fill="#1f1f1f"/>
+    <path d="M470 312 L474 350" stroke="#7c5a2e" stroke-width="3"/>
+    <path d="M468 350 h12 l-2 12 h-8 z" fill="#6b7280"/>
+
+    <!-- Worker on the walkway: hard hat, hi-vis, gloves, boots -->
+    <circle cx="165" cy="338" r="8.5" fill="#8d5a3b"/>
+    <path d="M154 333 a11 11 0 0 1 22 0 Z" fill="#ffffff" stroke="#5d6167"/>
+    <rect x="151" y="331" width="28" height="3.5" rx="1.5" fill="#ffffff" stroke="#5d6167"/>
+    <path d="M155 350 L148 371 M175 350 L182 371" stroke="#2f3b48" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="148" cy="373" r="3.8" fill="#d8b04a"/>
+    <circle cx="182" cy="373" r="3.8" fill="#d8b04a"/>
+    <rect x="154" y="347" width="22" height="28" rx="5" fill="#e8772e"/>
+    <path d="M154 357 H176 M154 366 H176" stroke="#d9dde0" stroke-width="2.5"/>
+    <rect x="156" y="374" width="8" height="20" fill="#2f3b48"/>
+    <rect x="166" y="374" width="8" height="20" fill="#2f3b48"/>
+    <rect x="154" y="393" width="11" height="6" rx="2" fill="#1f1f1f"/>
+    <rect x="165" y="393" width="11" height="6" rx="2" fill="#1f1f1f"/>
+
+    <!-- Site transformer and a loose cable across the walkway -->
+    <rect x="296" y="340" width="28" height="22" rx="3" fill="#e2b714" stroke="#7a6410" stroke-width="1.5"/>
+    <rect x="303" y="335" width="14" height="5" rx="2" fill="#7a6410"/>
+    <path d="M308 362 C304 384 268 380 270 398 S250 430 238 444" fill="none" stroke="#4a3d0c" stroke-width="6" stroke-linecap="round"/>
+    <path d="M308 362 C304 384 268 380 270 398 S250 430 238 444" fill="none" stroke="#e8c21b" stroke-width="3" stroke-linecap="round"/>
+    <rect x="214" y="440" width="28" height="9" rx="3" fill="#2f6f8f" transform="rotate(-12 228 444)"/>
+
+    <!-- Hole: no cover, no barrier -->
+    <rect x="22" y="414" width="86" height="32" rx="2" fill="#3b342c"/>
+    <rect x="22" y="414" width="86" height="7" fill="#5b5249"/>
+
+    <!-- Pallet of blocks -->
+    <rect x="345" y="444" width="82" height="8" fill="#a77b48" stroke="#6e4f2b"/>
+    <g fill="#bdb9b1" stroke="#77746e">
+      <rect x="349" y="414" width="24" height="15"/>
+      <rect x="375" y="414" width="24" height="15"/>
+      <rect x="401" y="414" width="24" height="15"/>
+      <rect x="349" y="429" width="24" height="15"/>
+      <rect x="375" y="429" width="24" height="15"/>
+      <rect x="401" y="429" width="24" height="15"/>
+    </g>
+    <path d="M347 421 H427 M347 437 H427" stroke="#3c6e9e" stroke-width="1.5"/>
+
+    <!-- Dumper reversing (skip at the front, on the right), nobody guiding it -->
+    <path d="M514 372 h-12 M514 388 h-14 M514 404 h-12" stroke="#3f464d" stroke-width="3" stroke-linecap="round"/>
+    <rect x="518" y="398" width="110" height="14" rx="3" fill="#4b4f55"/>
+    <path d="M576 364 L630 364 L622 398 L582 398 Z" fill="#e0762b" stroke="#8a4314" stroke-width="2"/>
+    <rect x="520" y="378" width="44" height="20" rx="3" fill="#e0762b" stroke="#8a4314" stroke-width="2"/>
+    <path d="M524 378 V350 H556 V378" fill="none" stroke="#2f3338" stroke-width="4"/>
+    <rect x="536" y="343" width="8" height="7" rx="2" fill="#f4b400"/>
+    <circle cx="548" cy="363" r="7" fill="#c98e68"/>
+    <path d="M541 361 a7 7 0 0 1 14 0 Z" fill="#f2c12e"/>
+    <rect x="542" y="369" width="13" height="10" rx="3" fill="#f2c12e"/>
+    <circle cx="540" cy="420" r="17" fill="#2b2b2b"/>
+    <circle cx="540" cy="420" r="6" fill="#8a8f96"/>
+    <circle cx="606" cy="420" r="17" fill="#2b2b2b"/>
+    <circle cx="606" cy="420" r="6" fill="#8a8f96"/>
+  </svg>
+</template>
+
+<script>
+"use strict";
+
+/* =========================================================================
+   SETTINGS: change this value to rebrand the course.
+   ========================================================================= */
+const ORGANISATION_NAME = "RPA Services Ltd and Mortise";
+
+/* =========================================================================
+   COURSE CONTENT. Edit the text here; you don't need to touch the engine.
+
+   HOW TO EDIT
+   - Text: change anything between the quote marks. Keep the quote marks and
+     the comma at the end of the line.
+   - A Learn section has: id, title, art (the illustration and its description),
+     law (list), explain (list of paragraphs), extras (optional headed lists of
+     term + text; add display: "cards" to show them as cards to open), rules
+     (3 to 5), do, dont, example (optional), check (an ungraded "Check
+     yourself" question) and verify (notes for whoever checks the content).
+   - A question has: id (unique, no spaces), type, prompt, explanation and:
+       type "single" or "scenario": options [{ id, text }] and correct: "a"
+         (a scenario also has a scenario: "..." paragraph)
+       type "multi":     options and correct: ["a", "c"]  (every right option)
+       type "truefalse": correct: true or false  (no options needed)
+       type "hotspot":   scene, hotspots [...] and correct: ["id", "id"]
+                         (the ids of every hotspot that IS a hazard)
+   - To add a question, copy a whole { ... }, block of the same type, give it
+     a new id, and edit it. The assessment picks it up automatically.
+   - Changing a correct answer or adding a question means anyone who already
+     passed in their browser will need to pass again.
+   - This is the platform copy. Make the same content change in the main
+     course (courses/essential-site-safety/index.html) as well.
+   ========================================================================= */
+const COURSE = {
+  title: "Essential Site Safety",
+  organisation: ORGANISATION_NAME,
+
+  // Shown at the foot of every page.
+  notes: {
+    scope: "This course follows the law in Great Britain (England, Scotland and Wales). The Health and Safety Executive (HSE) enforces it. Northern Ireland has its own, very similar laws, enforced by HSENI.",
+    notice: "This is awareness training. It doesn't replace your site induction, the training your employer gives you for your job, or a CSCS card."
+  },
+
+  /* ---------------------------------------------------------------------
+     LEARN SECTIONS
+     --------------------------------------------------------------------- */
+  sections: [
+    {
+      id: "legal",
+      title: "Your legal duties",
+      art: { template: "art-legal", alt: "A supervisor and a worker talk at the site entrance, beside a site rules board showing the PPE you must wear and a safety notice." },
+      check: {
+        prompt: "Who must carry out the risk assessment for your work?",
+        options: [
+          { id: "a", text: "Your employer" },
+          { id: "b", text: "You, before every task" },
+          { id: "c", text: "The HSE" },
+          { id: "d", text: "Nobody, if the job is quick" }
+        ],
+        correct: "a",
+        explanation: "Your employer must, under the Management of Health and Safety at Work Regulations 1999. Your part is to follow it."
+      },
+      law: [
+        "Health and Safety at Work etc. Act 1974",
+        "Management of Health and Safety at Work Regulations 1999",
+        "Construction (Design and Management) Regulations 2015 (CDM 2015)"
+      ],
+      explain: [
+        "Health and safety law gives everyone on site a part to play. The main law is the Health and Safety at Work etc. Act 1974.",
+        "Your employer must protect your health, safety and welfare 'so far as is reasonably practicable'. This means they must take every sensible step to control a risk, unless the cost, time or trouble would be far too much compared with the risk. They must give you safe equipment, safe ways of working, and the information, training and supervision you need.",
+        "You have duties too. You must take reasonable care of yourself and of anyone affected by what you do, or fail to do. You must co-operate with your employer on safety. You must never misuse or interfere with anything provided for safety.",
+        "The Management of Health and Safety at Work Regulations 1999 say your employer must carry out a risk assessment. This means looking at what could cause harm, who could be hurt, and how to stop it happening. You must use equipment in the way you were trained, and tell your employer about anything dangerous."
+      ],
+      extras: [
+        {
+          heading: "CDM 2015: who does what",
+          intro: "CDM 2015 sets out the duties of everyone involved in a building project. These people are called duty holders.",
+          items: [
+            { term: "Client", text: "The person or organisation the building work is for. They must set the project up to be safe, with enough time and money." },
+            { term: "Principal designer", text: "Plans and co-ordinates health and safety while the job is being designed, when more than one contractor is involved." },
+            { term: "Designer", text: "Anyone who draws up or changes a design. They must remove or reduce risks in the design where they can." },
+            { term: "Principal contractor", text: "Plans, manages and monitors the building work when more than one contractor is involved. Makes sure there is a site induction and proper welfare facilities." },
+            { term: "Contractor", text: "Does or manages building work. Plans and supervises their own work and workers." },
+            { term: "Worker", text: "That's you. You must co-operate, follow the site rules, and report anything you see that could hurt someone." }
+          ]
+        }
+      ],
+      rules: [
+        "Take reasonable care of yourself and of anyone affected by your work.",
+        "Co-operate with your employer, and follow the site rules and the safe way of working for your job.",
+        "Never misuse or interfere with anything provided for safety, such as guard-rails, signs, barriers or fire extinguishers.",
+        "Only use tools and equipment in the way you were trained to use them.",
+        "Report anything dangerous, or any gap in the safety arrangements, to your supervisor."
+      ],
+      do: "Speak up when something looks unsafe, even if it isn't your job.",
+      dont: "Don't move a barrier, sign or guard-rail to make your job easier.",
+      example: "A labourer moves a barrier to get a wheelbarrow through and doesn't put it back. That is interfering with something provided for safety.",
+      verify: [
+        "Summary of CDM 2015 duty holders (client, principal designer, designer, principal contractor, contractor, worker) against HSE guidance L153.",
+        "Plain-English explanation of 'so far as is reasonably practicable'.",
+        "Employee duties: HSWA 1974 sections 7 and 8; MHSWR 1999 regulation 14."
+      ]
+    },
+    {
+      id: "induction",
+      title: "Site induction, RAMS and permits to work",
+      art: { template: "art-induction", alt: "A site induction in the site cabin. A supervisor points to the site plan on a whiteboard while four workers listen. Permits to work hang on a board." },
+      check: {
+        prompt: "What is a permit to work for?",
+        options: [
+          { id: "a", text: "Controlling a high-risk job, such as hot work or work in a confined space" },
+          { id: "b", text: "Showing you have finished your induction" },
+          { id: "c", text: "Getting permission to park on site" },
+          { id: "d", text: "Recording the hours you work" }
+        ],
+        correct: "a",
+        explanation: "A permit to work controls a high-risk job. It says what must be done to make it safe, who can do it, and for how long."
+      },
+      law: [
+        "Construction (Design and Management) Regulations 2015",
+        "Management of Health and Safety at Work Regulations 1999"
+      ],
+      explain: [
+        "Every site is different. Before you start work on a site, you must have a site induction. Under CDM 2015, the principal contractor must make sure you get one. If there is no principal contractor, the contractor you work for must.",
+        "The induction tells you the site rules, the main dangers on that site, where the welfare facilities are, what to do in an emergency, and who to talk to.",
+        "RAMS stands for risk assessments and method statements. The risk assessment says what could go wrong and how the risks are controlled. The method statement sets out, step by step, how to do the job safely. Your supervisor should go through the RAMS with you before you start. This is often called a briefing.",
+        "A permit to work is a written form that controls a high-risk job. Examples include hot work (welding, cutting or grinding that makes heat or sparks), work in a confined space, digging near buried cables or pipes, and work on electrical systems. The permit says what must be done to make the job safe, who can do it, and for how long."
+      ],
+      rules: [
+        "Don't start work on a site until you've had the site induction.",
+        "Read and understand the RAMS for your job before you start. Ask if anything is unclear.",
+        "If the job or the conditions change from what the RAMS says, stop and talk to your supervisor.",
+        "Never start a job that needs a permit to work without a valid permit. Stick to what it says.",
+        "Keep walkways and work areas tidy. Run cables and hoses where they won't trip anyone."
+      ],
+      do: "Stop and ask if the job in front of you doesn't match the method statement.",
+      dont: "Don't sign to say you understand a RAMS briefing if you haven't read it or don't understand it.",
+      example: "The method statement says to use a mobile tower, but the tower hasn't arrived. Using a ladder instead changes the plan, so you stop and ask.",
+      verify: [
+        "CDM 2015 duty to provide a suitable site induction: principal contractor (regulation 13), or the contractor where there is no principal contractor (regulation 15).",
+        "Examples of permit-to-work activities against current HSE guidance."
+      ]
+    },
+    {
+      id: "height",
+      title: "Working at height",
+      art: { template: "art-height", alt: "A scaffold with guard-rails, middle rails and toe boards. A ladder is tied at the top, set at 1 out for every 4 up, and sticks up above the platform." },
+      interactive: "ladder",   // adds the ladder-angle exercise
+      check: {
+        prompt: "You use a ladder to get onto a scaffold. How far should it stick up above where you step off?",
+        options: [
+          { id: "a", text: "It should stop level with the platform" },
+          { id: "b", text: "At least 1 metre" },
+          { id: "c", text: "At least 3 metres" },
+          { id: "d", text: "It doesn't matter if the ladder is tied" }
+        ],
+        correct: "b",
+        explanation: "A ladder used to get on and off a higher level should stick up at least 1 metre above it, so you have something to hold as you step on and off."
+      },
+      law: ["Work at Height Regulations 2005"],
+      explain: [
+        "Working at height means working anywhere you could fall and get hurt. That includes ladders, scaffolds, roofs, the edge of a floor, and near an opening in a floor or the ground. There is no minimum height. The law applies even if the fall would be less than 2 metres.",
+        "Falls from height are one of the most common causes of death in construction.",
+        "The law sets an order to follow. First, avoid working at height if the job can be done another way, such as from the ground. If you can't avoid it, use equipment that stops falls, like a scaffold with guard-rails or a mobile elevating work platform (MEWP). If a fall could still happen, use equipment that makes the fall shorter or less harmful, like safety nets or a harness."
+      ],
+      extras: [
+        {
+          heading: "Ladders, scaffolds and edges",
+          items: [
+            { term: "Ladders", text: "Only use a ladder for short, simple, low-risk jobs. Check it before you use it. Tie it if you can; having someone foot it is a last resort. Set it at an angle of 1 out for every 4 up (about 75 degrees). If you use it to get on and off a higher level, it must stick up at least 1 metre above where you step off. Keep three points of contact: two feet and one hand." },
+            { term: "Scaffolds", text: "Only competent scaffolders may put up, change or take down a scaffold. A competent person must inspect it before it is first used, after anything that could affect it (like strong winds), and at least every 7 days. Check the scaffold tag or inspection record before you go on it." },
+            { term: "Edges and holes", text: "Open edges need a top guard-rail at least 950 mm high, a middle rail so that no gap is bigger than 470 mm, and a toe board. Holes need a cover that is strong enough, fixed in place and clearly marked, or guard-rails around them." }
+          ]
+        }
+      ],
+      rules: [
+        "Avoid working at height if the job can be done from the ground.",
+        "Only use a ladder for short, low-risk work, and make sure it is secured.",
+        "Never change, remove or climb on parts of a scaffold. Only competent scaffolders may alter it.",
+        "Check that a scaffold has been inspected before you use it.",
+        "Never leave an edge or hole open. If you find one, keep people away and report it straight away."
+      ],
+      do: "Check the ladder, and the ground it stands on, before you climb.",
+      dont: "Don't overreach from a ladder. Climb down and move it.",
+      example: "Someone lifts a hole cover to pass a hose through and doesn't put it back. The next person steps into the hole.",
+      verify: [
+        "Ladder rules (short-duration, low-risk use; 1 in 4 angle; at least 1 m above the landing; three points of contact; tie before footing) against HSE INDG455.",
+        "Scaffold inspection before first use, after events affecting stability, and at intervals not exceeding 7 days. WAHR 2005 Schedule 7 applies this to working platforms from which a person could fall 2 m or more.",
+        "Guard-rail at least 950 mm and no unprotected gap over 470 mm: WAHR 2005 Schedule 2.",
+        "Falls from height as one of the most common causes of construction deaths: check against current HSE statistics."
+      ]
+    },
+    {
+      id: "handling",
+      title: "Manual handling",
+      art: { template: "art-handling", alt: "Workers moving materials safely. One lifts a box close to their body with bent knees, one uses a sack truck, and two carry a long board together." },
+      check: {
+        prompt: "In TILE, what does the L stand for?",
+        options: [
+          { id: "a", text: "Lift" },
+          { id: "b", text: "Ladder" },
+          { id: "c", text: "Load" },
+          { id: "d", text: "Location" }
+        ],
+        correct: "c",
+        explanation: "TILE stands for Task, Individual, Load and Environment. For the load, ask: is it heavy, bulky, hard to grip, sharp or unstable?"
+      },
+      law: ["Manual Handling Operations Regulations 1992"],
+      explain: [
+        "Manual handling means lifting, carrying, putting down, pushing, pulling or moving a load by hand or with your body. Doing it badly can injure your back, joints and muscles. Some of these injuries last a lifetime.",
+        "Your employer must avoid manual handling that could hurt you, where that is reasonably practicable. If it can't be avoided, they must assess the risk and reduce it. For example, they can provide lifting aids, use smaller or lighter loads, or plan team lifts.",
+        "You must follow the safe system of work your employer sets up, and use the lifting aids provided."
+      ],
+      extras: [
+        {
+          heading: "Plan every lift with TILE",
+          display: "cards",   // shows these as cards the learner opens one at a time
+          items: [
+            { term: "Task", text: "Does it involve twisting, stooping, reaching up, or carrying a long way?" },
+            { term: "Individual", text: "Are you fit, trained and strong enough? Does anyone need extra care, such as someone with an injury or a health condition?" },
+            { term: "Load", text: "Is it heavy, bulky, hard to grip, sharp or unstable?" },
+            { term: "Environment", text: "Is the floor uneven, slippery or cluttered? Is it windy, dark, hot or cramped?" }
+          ]
+        }
+      ],
+      rules: [
+        "Use lifting aids, such as trolleys, sack trucks or hoists, wherever you can.",
+        "Plan the lift with TILE before you move anything.",
+        "Keep the load close to your waist and avoid twisting your back.",
+        "Get help, or split the load, if it is too heavy or awkward.",
+        "Report aches, pains or injuries early."
+      ],
+      do: "Check your route is clear before you pick anything up.",
+      dont: "Don't lift and twist at the same time. Move your feet instead.",
+      example: "You need to carry full sheets of plasterboard along a scaffold on a windy day. The load is awkward and the wind can catch it, so use a team lift or have the sheets brought up by hoist.",
+      verify: [
+        "Duty order (avoid, assess, reduce) and employee duty: MHOR 1992 regulations 4 and 5.",
+        "HSE guidance L23 also uses TILEO, adding 'Other factors' such as PPE that restricts movement."
+      ]
+    },
+    {
+      id: "ppe",
+      title: "Personal protective equipment (PPE)",
+      art: { template: "art-ppe", alt: "A worker wearing a hard hat, ear defenders, safety glasses, a hi-vis vest, gloves and safety boots, each one labelled." },
+      check: {
+        prompt: "Your safety glasses are scratched and hard to see through. What should you do?",
+        options: [
+          { id: "a", text: "Keep using them until they break" },
+          { id: "b", text: "Take them off and work carefully" },
+          { id: "c", text: "Report it and get a replacement" },
+          { id: "d", text: "Buy a new pair and keep the receipt" }
+        ],
+        correct: "c",
+        explanation: "Report damaged PPE straight away. Your employer must replace it, free of charge."
+      },
+      law: ["Personal Protective Equipment at Work Regulations 1992 (as amended in 2022)"],
+      explain: [
+        "PPE stands for personal protective equipment. It includes hard hats, safety boots, high-visibility (hi-vis) clothing, gloves, eye protection, hearing protection and respiratory protective equipment (RPE), such as dust masks.",
+        "PPE is the last line of defence. It only protects you, and only if it fits and you wear it properly. Other controls, like guard-rails, water on a cutter or dust extraction, should come first.",
+        "Your employer must give you the PPE you need, free of charge. It must suit the job, fit you, and be kept in good condition, and you must be shown how to use it. Since April 2022, these duties also cover many workers who aren't employees, such as some casual workers.",
+        "Most sites ask for a minimum of a hard hat, safety boots with toe protection, and hi-vis clothing. The site rules and the risk assessment for your job may add more, such as gloves, eye protection or hearing protection.",
+        "A tight-fitting mask only works if it seals against your face. It must be face-fit tested for you, and you need to be clean-shaven where the mask seals."
+      ],
+      rules: [
+        "Wear the PPE that the site rules and your risk assessment say you need.",
+        "Check your PPE before you use it. Report any loss or damage straight away.",
+        "Never alter your PPE, for example by drilling holes in a hard hat.",
+        "Look after your PPE and store it properly when you're not using it.",
+        "You must not be charged for PPE you need to do your job safely."
+      ],
+      do: "Ask for replacement PPE as soon as yours is worn or damaged.",
+      dont: "Don't take off your PPE in an area where it is required, even for a minute.",
+      example: "A worker's safety glasses keep misting up, so they take them off. The right answer is to report it and get a pair that works, not to go without.",
+      verify: [
+        "PPE at Work (Amendment) Regulations 2022, in force 6 April 2022, extending duties to 'limb (b)' workers. Check the plain-English wording.",
+        "Face-fit testing and clean-shaven seal guidance for tight-fitting RPE: HSE INDG479.",
+        "Minimum site PPE comes from site rules, not the regulations. Confirm against the principal contractor's rules.",
+        "No charge for PPE: HSWA 1974 section 9."
+      ]
+    },
+    {
+      id: "substances",
+      title: "Hazardous substances, asbestos and silica dust",
+      art: { template: "art-substances", alt: "A worker cuts a concrete kerb with a disc cutter. Water damps down the dust, and the worker wears a mask, safety glasses and ear defenders. A store cabinet for hazardous substances stands nearby." },
+      check: {
+        prompt: "What is the best way to control the dust when you cut a concrete block?",
+        options: [
+          { id: "a", text: "Water or on-tool extraction, plus the right mask" },
+          { id: "b", text: "A dust mask on its own" },
+          { id: "c", text: "Cut outdoors and let the wind take the dust" },
+          { id: "d", text: "Sweep the dust up straight after" }
+        ],
+        correct: "a",
+        explanation: "Control the dust where it is made, with water or extraction, and wear the right mask as well. A mask on its own is the last line of defence."
+      },
+      law: [
+        "Control of Substances Hazardous to Health Regulations 2002 (COSHH)",
+        "Control of Asbestos Regulations 2012"
+      ],
+      explain: [
+        "Hazardous substances on site include cement, paints, solvents, adhesives, fuels, and dusts like silica and wood dust. They can harm you if you breathe them in, swallow them, or get them on your skin or in your eyes. For example, wet cement can burn your skin and cause dermatitis (sore, cracked skin).",
+        "Before you use a substance, read the COSHH assessment and the label. Look for the hazard symbols: black pictures inside a red diamond. Follow the controls they give you, such as gloves, fresh air or a mask."
+      ],
+      extras: [
+        {
+          heading: "Two dusts that need extra care",
+          items: [
+            { term: "Asbestos", text: "Asbestos was used in many buildings until it was banned in 1999. Any building built or refurbished before 2000 could contain it. Breathing in asbestos fibres can cause serious lung diseases, including cancers, which often appear many years later. If you think you've found asbestos, stop work straight away, keep others away, and tell your supervisor. Only trained people may work with it, and most higher-risk asbestos work must be done by licensed contractors." },
+            { term: "Silica dust", text: "Cutting, drilling, grinding or sweeping concrete, brick, block, stone or tiles makes fine dust containing silica. The most harmful dust is too fine to see. Breathing it in can cause silicosis, lung cancer and other lung diseases. Control the dust where it is made: use water to damp it down, or a tool with dust extraction. Wear the right mask as well. Never dry sweep." }
+          ]
+        }
+      ],
+      rules: [
+        "Read the COSHH assessment and the label before you use any substance.",
+        "Use the dust controls every time you cut, drill or grind: water or extraction, plus the right mask.",
+        "Never dry sweep dust. Damp it down, or use a vacuum cleaner suitable for construction dust.",
+        "If you suspect asbestos, stop, keep others away, and report it.",
+        "Wash your hands before you eat, drink or smoke. Report any skin or breathing problems."
+      ],
+      do: "Ask whether an older building has been checked for asbestos before you drill or break into it.",
+      dont: "Don't cut blocks or kerbs dry, without water or dust extraction.",
+      example: "A carpenter drilling a ceiling in a 1970s school finds a grey board with a fibrous edge. They stop, leave the room, and tell the supervisor.",
+      verify: [
+        "Asbestos ban (1999) and 'built or refurbished before 2000' against HSE asbestos guidance.",
+        "Silica controls (water suppression or on-tool extraction, plus RPE, typically FFP3) and vacuum class (M or H) for clean-up: HSE construction dust guidance.",
+        "Hazard pictograms: GB CLP red-diamond symbols."
+      ]
+    },
+    {
+      id: "traffic",
+      title: "Site traffic, plant and exclusion zones",
+      art: { template: "art-traffic", alt: "A banksman guides a reversing dumper. Cones and a dashed line mark an exclusion zone around a working excavator, and people walk on a fenced walkway." },
+      check: {
+        prompt: "What is an exclusion zone?",
+        options: [
+          { id: "a", text: "A rest area away from the noise" },
+          { id: "b", text: "A marked area around working plant or a lift that you must not enter unless authorised" },
+          { id: "c", text: "A place to store materials" },
+          { id: "d", text: "The area outside the site fence" }
+        ],
+        correct: "b",
+        explanation: "Exclusion zones keep people away from moving plant and suspended loads. Only go in if you're authorised and the operator knows you're there."
+      },
+      law: [
+        "Construction (Design and Management) Regulations 2015",
+        "Provision and Use of Work Equipment Regulations 1998"
+      ],
+      explain: [
+        "Vehicles and mobile plant, like dumpers, excavators, telehandlers and delivery lorries, cause serious accidents on site. Many happen when a vehicle reverses, or when someone walks into its path.",
+        "CDM 2015 says a site must be organised so people and vehicles can move around safely. A good site keeps them apart, with separate walkways, barriers and marked crossing points.",
+        "Drivers of large plant often can't see close to or behind their machine. If you can't see the driver, assume the driver can't see you.",
+        "Reversing should be avoided where possible, for example by using one-way routes. Where it can't be avoided, a trained signaller, often called a banksman or vehicle marshal, should guide the vehicle and keep people clear.",
+        "An exclusion zone is a marked area around working plant or a lifting operation. Never go into an exclusion zone unless you are authorised. To approach a machine, get the operator's attention, wait for them to stop and make it safe, and only go in when they signal that it is safe."
+      ],
+      rules: [
+        "Always use the marked walkways and crossing points.",
+        "Never enter an exclusion zone around working plant or a lift unless you are authorised.",
+        "Make eye contact with the driver and get a clear signal before you go near a machine.",
+        "Only trained and authorised people may drive plant or act as a signaller.",
+        "Never ride on plant or vehicles unless there is a proper seat for you."
+      ],
+      do: "Stay where drivers expect people to be: on the walkways, and wearing hi-vis.",
+      dont: "Don't walk behind a reversing vehicle or under a suspended load.",
+      example: "An excavator is turning to load a dumper. A worker walks between them to fetch a shovel. They are inside the exclusion zone, and the operator may not see them.",
+      verify: [
+        "CDM 2015 Part 4 duties on traffic routes and vehicles, including no riding except in a safe place provided for that purpose.",
+        "HSE guidance on reversing and signallers (banksmen): HSG144 'The safe use of vehicles on construction sites'.",
+        "Statement that many vehicle accidents involve reversing: check wording against current HSE guidance."
+      ]
+    },
+    {
+      id: "emergencies",
+      title: "Fire, emergencies and reporting",
+      art: { template: "art-emergencies", alt: "Workers gathered at the assembly point sign. Nearby are a fire point with extinguishers and the welfare cabin with a first-aid sign." },
+      check: {
+        prompt: "Which of these is a near miss?",
+        options: [
+          { id: "a", text: "A worker cuts their hand and needs first aid" },
+          { id: "b", text: "A delivery arrives late" },
+          { id: "c", text: "A brick falls from a scaffold and lands next to someone, but nobody is hurt" },
+          { id: "d", text: "A worker forgets their lunch" }
+        ],
+        correct: "c",
+        explanation: "A near miss could have hurt someone but didn't. Report it, so next time it doesn't become a real injury."
+      },
+      law: [
+        "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (RIDDOR)",
+        "Health and Safety (First-Aid) Regulations 1981",
+        "Construction (Design and Management) Regulations 2015"
+      ],
+      explain: [
+        "Fire: CDM 2015 says every site must have emergency procedures, escape routes and fire-fighting equipment. Your induction tells you how the alarm sounds, where the escape routes are and where the assembly point is. If you find a fire, raise the alarm, leave by the nearest safe route and go to the assembly point. Only use a fire extinguisher if you're trained, it's safe, and you have a clear way out. Hot work needs a permit, and someone must keep watch for fire after the work stops.",
+        "Reporting: report every accident, injury, near miss and unsafe condition to your supervisor straight away. A near miss is something that could have hurt someone but didn't, like a dropped tool landing next to a worker. Reporting near misses helps stop the next one becoming a real injury.",
+        "RIDDOR: some incidents must be reported to the HSE by law. These include deaths, certain serious injuries such as most broken bones, injuries that stop someone doing their normal work for more than 7 days in a row, some work-related diseases, and certain 'dangerous occurrences', such as lifting equipment collapsing. The report is made by the 'responsible person', usually your employer or whoever controls the site. Your job is to tell your supervisor straight away.",
+        "First aid: your employer must provide first-aid kits and people to give first aid. Know where the first-aid kit is and who the first aider is. Don't try to treat someone unless you are trained. In a serious emergency, call 999.",
+        "Welfare: every site must have toilets, washing facilities with hot and cold (or warm) running water and soap, drinking water, somewhere to change and store your clothes, and a rest area where you can sit, make a hot drink and eat. Help keep them clean, and report any problems."
+      ],
+      rules: [
+        "Know the alarm sound, your escape routes and the assembly point.",
+        "Never block or lock a fire exit or escape route, and never move fire extinguishers.",
+        "Report every accident, injury and near miss to your supervisor straight away.",
+        "Only give first aid if you are trained. In an emergency, get the first aider and dial 999.",
+        "Use the welfare facilities properly and help keep them clean."
+      ],
+      do: "Report a near miss, even when nobody was hurt.",
+      dont: "Don't go back for your tools once the fire alarm has sounded.",
+      example: "A scaffold board slips and lands where someone was standing a moment earlier. Nobody is hurt, but it is a near miss and must be reported.",
+      verify: [
+        "RIDDOR 2013 categories (deaths, specified injuries, over-7-day injuries, occupational diseases, dangerous occurrences) and the 'responsible person': HSE RIDDOR guidance.",
+        "Welfare facilities list against CDM 2015 Schedule 2.",
+        "Fire on construction sites: CDM 2015 Part 4 covers emergency procedures, routes and fire-fighting; general fire safety law also applies (Regulatory Reform (Fire Safety) Order 2005 in England and Wales; Fire (Scotland) Act 2005 in Scotland).",
+        "First aid: Health and Safety (First-Aid) Regulations 1981 and HSE guidance L74."
+      ]
+    }
+  ],
+
+  /* ---------------------------------------------------------------------
+     ASSESSMENT QUESTIONS. Every answer must be right to pass.
+     Options are shuffled for the learner, so their order here doesn't matter.
+     --------------------------------------------------------------------- */
+  questions: [
+    {
+      id: "duty",
+      type: "single",
+      prompt: "Under the Health and Safety at Work etc. Act 1974, which of these is a duty for you as a worker?",
+      options: [
+        { id: "a", text: "Write the risk assessment for every task you do" },
+        { id: "b", text: "Take reasonable care of your own safety and the safety of others affected by your work" },
+        { id: "c", text: "Buy your own safety equipment" },
+        { id: "d", text: "Report every accident directly to the HSE" }
+      ],
+      correct: "b",
+      explanation: "Section 7 of the Act says you must take reasonable care of yourself and others, and co-operate with your employer."
+    },
+    {
+      id: "induction",
+      type: "single",
+      prompt: "When must you have a site induction?",
+      options: [
+        { id: "a", text: "Within your first week on site" },
+        { id: "b", text: "Only if you are new to construction" },
+        { id: "c", text: "Before you start work on that site" },
+        { id: "d", text: "Only if you will be working at height" }
+      ],
+      correct: "c",
+      explanation: "Every site has its own rules and dangers, so you need the induction before you start work there, however experienced you are."
+    },
+    {
+      id: "height",
+      type: "truefalse",
+      prompt: "The Work at Height Regulations 2005 only apply if you could fall 2 metres or more.",
+      correct: false,
+      explanation: "False. The regulations apply anywhere a fall could cause injury, whatever the height."
+    },
+    {
+      id: "ppe",
+      type: "multi",
+      prompt: "Under the PPE at Work Regulations 1992, which of these are your duties?",
+      options: [
+        { id: "a", text: "Use your PPE in the way you were trained" },
+        { id: "b", text: "Pay for a replacement when it wears out" },
+        { id: "c", text: "Report any loss of, or damage to, your PPE" },
+        { id: "d", text: "Alter your PPE to make it more comfortable" },
+        { id: "e", text: "Store your PPE properly when you're not using it" }
+      ],
+      correct: ["a", "c", "e"],
+      explanation: "You must use PPE as trained, report loss or damage, and store it properly. Your employer replaces it free, and you must not alter it."
+    },
+    {
+      id: "handling",
+      type: "single",
+      prompt: "Under the Manual Handling Operations Regulations 1992, what must your employer try to do first?",
+      options: [
+        { id: "a", text: "Give every worker a back-support belt" },
+        { id: "b", text: "Avoid manual handling that could cause injury, where reasonably practicable" },
+        { id: "c", text: "Set one weight limit for every lift on site" },
+        { id: "d", text: "Send every worker on a lifting course each year" }
+      ],
+      correct: "b",
+      explanation: "The first step is to avoid hazardous manual handling. Then they must assess any that can't be avoided and reduce the risk, for example with lifting aids."
+    },
+    {
+      id: "silica",
+      type: "multi",
+      prompt: "Which of these jobs can create harmful silica dust?",
+      options: [
+        { id: "a", text: "Cutting concrete blocks with a disc cutter" },
+        { id: "b", text: "Painting a timber door with a brush" },
+        { id: "c", text: "Chasing a brick wall to bury a cable" },
+        { id: "d", text: "Dry sweeping concrete dust" },
+        { id: "e", text: "Fixing a timber skirting board with nails" }
+      ],
+      correct: ["a", "c", "d"],
+      explanation: "Cutting, chasing and dry sweeping concrete, brick or stone all release silica dust. Painting and nailing timber don't."
+    },
+    {
+      id: "scaffold",
+      type: "scenario",
+      scenario: "You arrive at your work area on a scaffold. A length of guard-rail has been taken off, leaving an open edge. Nobody else is around, and you have a lot of blocks to lay before lunch.",
+      prompt: "What should you do?",
+      options: [
+        { id: "a", text: "Put the guard-rail back yourself and carry on" },
+        { id: "b", text: "Carry on working, but stay well away from the edge" },
+        { id: "c", text: "Keep away from the open edge, stop others using that area, and report it so a scaffolder can fix it" },
+        { id: "d", text: "Tie some barrier tape across the gap and carry on" }
+      ],
+      correct: "c",
+      explanation: "Only a competent scaffolder should alter a scaffold. Keep people away from the open edge and report it straight away."
+    },
+    {
+      id: "reversing",
+      type: "scenario",
+      scenario: "You are walking across site to the welfare cabin. A dumper starts reversing towards your walkway. There is no banksman, and the driver is looking forwards.",
+      prompt: "What should you do?",
+      options: [
+        { id: "a", text: "Move to a safe place out of its path, then report it to your supervisor" },
+        { id: "b", text: "Walk quickly behind it to get past before it reaches you" },
+        { id: "c", text: "Guide it back yourself with hand signals, even though you aren't trained" },
+        { id: "d", text: "Keep walking, because the reversing alarm means it is safe" }
+      ],
+      correct: "a",
+      explanation: "Get out of its path first. Only trained signallers should guide vehicles, and reversing near people without one must be reported."
+    },
+    {
+      id: "cutter",
+      type: "scenario",
+      scenario: "You need to cut some concrete kerbs with a petrol disc cutter. The water bottle that damps down the dust is empty, and you've left your face-fit tested mask in the van.",
+      prompt: "What should you do?",
+      options: [
+        { id: "a", text: "Cut quickly, so you're only in the dust for a short time" },
+        { id: "b", text: "Cut dry, but stand so the wind blows the dust away from you" },
+        { id: "c", text: "Hold a damp cloth over your nose and mouth while you cut" },
+        { id: "d", text: "Stop. Refill the water and fetch your mask before you start cutting" }
+      ],
+      correct: "d",
+      explanation: "Silica dust must be controlled where it is made, with water or extraction, and you need the right mask too. A cloth or the wind won't protect you."
+    },
+    {
+      id: "asbestos",
+      type: "truefalse",
+      prompt: "If you think you have found asbestos, you should stop work, keep others away and tell your supervisor.",
+      correct: true,
+      explanation: "True. Don't disturb it any further. Only trained people may deal with asbestos, and most higher-risk work needs a licensed contractor."
+    },
+    {
+      id: "riddor",
+      type: "single",
+      prompt: "Under RIDDOR 2013, who must report a reportable injury on site to the HSE?",
+      options: [
+        { id: "a", text: "The injured worker" },
+        { id: "b", text: "The first aider who treated them" },
+        { id: "c", text: "The ambulance service" },
+        { id: "d", text: "The 'responsible person', usually the employer or whoever controls the site" }
+      ],
+      correct: "d",
+      explanation: "RIDDOR puts the duty on the responsible person. Your part is to tell your supervisor straight away so they can report it.",
+      verify: ["RIDDOR 2013 'responsible person' definition for construction sites."]
+    },
+    {
+      id: "scene",
+      type: "hotspot",
+      prompt: "Find every hazard in this site scene.",
+      scene: {
+        template: "scene-site",   // id of the <template> holding the drawing
+        width: 640,               // the drawing's own units (its viewBox)
+        height: 480,
+        description: "The picture shows a building site. On the left is a two-storey building with a scaffold across part of the front and a ladder at the right-hand end. A walkway runs across the site. On the right are a welfare cabin, a fire point and a site road."
+      },
+      // x and y are the centre of each clickable area; w and h are its size.
+      // All four use the drawing's own 640 x 480 units.
+      hotspots: [
+        { id: "scaffold", label: "Scaffold on the left of the building",
+          description: "A scaffold at first-floor level. It has a top guard-rail, a middle rail and a toe board, and an inspection tag is fixed to it.",
+          x: 100, y: 205, w: 150, h: 130,
+          feedback: "It has a guard-rail, a middle rail and a toe board, and it has been inspected." },
+        { id: "edge", label: "First floor, to the right of the scaffold",
+          description: "The right-hand part of the first floor. Blocks are stacked near the edge. There is no guard-rail or toe board.",
+          x: 245, y: 190, w: 110, h: 56,
+          feedback: "An open edge needs a guard-rail, a middle rail and a toe board." },
+        { id: "ladder", label: "Ladder to the first floor",
+          description: "A ladder leans against the first floor. It is not tied, nobody is footing it, and its top stops level with the floor.",
+          x: 351, y: 252, w: 60, h: 110,
+          feedback: "A ladder must be secured, and stick up at least 1 metre above where you step off." },
+        { id: "fire-point", label: "Fire point next to the cabin",
+          description: "A fire point sign with fire extinguishers on a stand. The area around it is clear.",
+          x: 590, y: 262, w: 50, h: 84,
+          feedback: "A clear fire point is what you want to see." },
+        { id: "worker-walkway", label: "Worker on the walkway",
+          description: "A worker on the walkway wearing a hard hat, a hi-vis vest, gloves and safety boots.",
+          x: 165, y: 362, w: 44, h: 84,
+          feedback: "This worker has the right PPE and is using the walkway." },
+        { id: "worker-cabin", label: "Worker by the welfare cabin",
+          description: "A worker by the welfare cabin holding a shovel. They are wearing a hi-vis vest and boots, but no hard hat.",
+          x: 450, y: 333, w: 50, h: 72,
+          feedback: "A hard hat is part of the minimum PPE on site." },
+        { id: "hole", label: "Hole next to the walkway",
+          description: "A hole in the ground next to the walkway, with no cover and no barrier around it.",
+          x: 65, y: 430, w: 92, h: 40,
+          feedback: "A hole needs a fixed, marked cover or a guard-rail around it." },
+        { id: "cable", label: "Cable across the walkway",
+          description: "An extension cable runs from a site transformer, lying loose across the walkway, to a power tool on the ground.",
+          x: 275, y: 402, w: 96, h: 60,
+          feedback: "A loose cable across a walkway is a trip hazard. Route it overhead or along the edge." },
+        { id: "pallet", label: "Pallet of blocks",
+          description: "Blocks stacked neatly on a pallet on firm, level ground, off the walkway.",
+          x: 386, y: 430, w: 96, h: 50,
+          feedback: "The materials are stored neatly and away from the walkway." },
+        { id: "dumper", label: "Dumper on the site road",
+          description: "A dumper is reversing towards the walkway. The driver is looking forwards, and nobody is guiding it.",
+          x: 565, y: 400, w: 130, h: 86,
+          feedback: "A vehicle reversing near people needs a trained signaller (banksman), or it must stop." }
+      ],
+      correct: ["edge", "ladder", "worker-cabin", "hole", "cable", "dumper"],
+      explanation: "The six hazards are the open edge, the unsecured ladder, the worker with no hard hat, the uncovered hole, the cable across the walkway and the dumper reversing with nobody guiding it."
+    }
+  ]
+};
+
+/* =========================================================================
+   COURSE ENGINE: no need to edit below this line.
+   ========================================================================= */
+(function () {
+  const STORAGE_KEY = "ess-course-platform-v1";
+  const STEPS = [
+    { id: "learn", label: "Learn" },
+    { id: "assess", label: "Assess" }
+  ];
+  const TYPE_HINTS = {
+    single: "Select one answer.",
+    scenario: "Select one answer.",
+    truefalse: "Select True or False.",
+    multi: "Select all that apply.",
+    hotspot: "Select every hazard you can see in the picture. Select an item again to clear it. You can use the checklist under the picture instead."
+  };
+  const TRUE_FALSE_OPTIONS = [{ id: "true", text: "True" }, { id: "false", text: "False" }];
+  const ICONS = {
+    tick: '<svg viewBox="0 0 20 20" focusable="false"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    cross: '<svg viewBox="0 0 20 20" focusable="false"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>',
+    alert: '<svg viewBox="0 0 20 20" focusable="false"><path d="M10 4.5v7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="10" cy="15.5" r="1.6" fill="currentColor"/></svg>',
+    lock: '<svg viewBox="0 0 20 20" focusable="false"><rect x="4.5" y="9" width="11" height="8.5" rx="2" fill="currentColor"/><path d="M7 9V6.8a3 3 0 0 1 6 0V9" fill="none" stroke="currentColor" stroke-width="2"/></svg>'
+  };
+
+  const $view = document.getElementById("view");
+  const $progress = document.getElementById("progress");
+  const $live = document.getElementById("live");
+
+  let storageWorks = true;
+  let state = loadState();
+
+  /* ---------- Small helpers ---------- */
+
+  function el(tag, attrs, ...children) {
+    const node = document.createElement(tag);
+    if (attrs) {
+      for (const [key, value] of Object.entries(attrs)) {
+        if (value === null || value === undefined || value === false) continue;
+        if (key === "class") node.className = value;
+        else if (key.startsWith("on") && typeof value === "function") node.addEventListener(key.slice(2), value);
+        else node.setAttribute(key, value === true ? "" : String(value));
+      }
+    }
+    for (const child of children.flat(Infinity)) {
+      if (child === null || child === undefined || child === false) continue;
+      node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+    }
+    return node;
+  }
+
+  function icon(name) {
+    const span = document.createElement("span");
+    span.className = "icon";
+    span.setAttribute("aria-hidden", "true");
+    span.innerHTML = ICONS[name];
+    return span;
+  }
+
+  // Safety-sign symbols (BS EN ISO 7010 style): the shape carries the meaning, not just the colour.
+  const SIGNS = {
+    must: '<svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="23" fill="currentColor"/><path d="M14 24.5l7 7 13-14" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    mustNot: '<svg viewBox="0 0 48 48" focusable="false"><circle cx="24" cy="24" r="20" fill="#fff" stroke="currentColor" stroke-width="6"/><path d="M9.9 9.9L38.1 38.1" stroke="currentColor" stroke-width="6"/></svg>',
+    warning: '<svg viewBox="0 0 48 44" focusable="false"><path d="M24 3L45.5 41H2.5Z" fill="#f2c300" stroke="#16202a" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 16v12" stroke="#16202a" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="34" r="2.4" fill="#16202a"/></svg>'
+  };
+
+  function sign(name, extraClass) {
+    const span = document.createElement("span");
+    const kind = name === "must" ? " sign-must" : name === "mustNot" ? " sign-must-not" : "";
+    span.className = "sign" + kind + (extraClass ? " " + extraClass : "");
+    span.setAttribute("aria-hidden", "true");
+    span.innerHTML = SIGNS[name];
+    return span;
+  }
+
+  function statusSign(ok, extraClass) {
+    const span = icon(ok ? "tick" : "cross");
+    span.classList.add("status-sign", ok ? "is-ok" : "is-bad");
+    if (extraClass) span.classList.add(extraClass);
+    return span;
+  }
+
+  function verifyComments(notes) {
+    return (notes || []).map(note => document.createComment(" VERIFY: " + note.replace(/--/g, "-") + " "));
+  }
+
+  let announceTimer = null;
+  function announce(message) {
+    clearTimeout(announceTimer);
+    $live.textContent = "";
+    announceTimer = setTimeout(() => { $live.textContent = message; }, 60);
+  }
+
+  function randomInt(max) {
+    const limit = Math.floor(0x100000000 / max) * max;
+    const buffer = new Uint32Array(1);
+    do { crypto.getRandomValues(buffer); } while (buffer[0] >= limit);
+    return buffer[0] % max;
+  }
+
+  function shuffle(list) {
+    const copy = list.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = randomInt(i + 1);
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function sameList(a, b) {
+    return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((item, i) => item === b[i]);
+  }
+
+  function sameSet(a, b) {
+    if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+    const set = new Set(a);
+    return set.size === b.length && b.every(item => set.has(item));
+  }
+
+  function isPermutation(list, ids) {
+    return Array.isArray(list) && sameSet(list, ids);
+  }
+
+  function clone(value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+
+  /* ---------- Questions and marking ---------- */
+
+  function questionById(id) {
+    return COURSE.questions.find(q => q.id === id);
+  }
+
+  function hasShuffledOptions(q) {
+    return q.type === "single" || q.type === "scenario" || q.type === "multi";
+  }
+
+  function choiceIds(q) {
+    if (q.type === "truefalse") return TRUE_FALSE_OPTIONS.map(o => o.id);
+    if (q.type === "hotspot") return q.hotspots.map(h => h.id);
+    return q.options.map(o => o.id);
+  }
+
+  function isAnswered(q, answer) {
+    if (q.type === "multi" || q.type === "hotspot") return Array.isArray(answer) && answer.length > 0;
+    return typeof answer === "string" && choiceIds(q).includes(answer);
+  }
+
+  function isCorrect(q, answer) {
+    if (!isAnswered(q, answer)) return false;
+    if (q.type === "truefalse") return answer === String(q.correct);
+    if (q.type === "multi" || q.type === "hotspot") return sameSet(answer, q.correct);
+    return answer === q.correct;
+  }
+
+  function cleanAnswers(raw) {
+    const clean = {};
+    if (!raw || typeof raw !== "object") return clean;
+    for (const q of COURSE.questions) {
+      const value = raw[q.id];
+      const ids = choiceIds(q);
+      if (q.type === "multi" || q.type === "hotspot") {
+        if (Array.isArray(value)) {
+          const kept = [...new Set(value.filter(v => ids.includes(v)))];
+          if (kept.length) clean[q.id] = kept;
+        }
+      } else if (typeof value === "string" && ids.includes(value)) {
+        clean[q.id] = value;
+      }
+    }
+    return clean;
+  }
+
+  function orderedQuestions() {
+    return state.questionOrder.map(questionById);
+  }
+
+  function orderedOptions(q) {
+    if (q.type === "truefalse") return TRUE_FALSE_OPTIONS;
+    return state.optionOrder[q.id].map(id => q.options.find(o => o.id === id));
+  }
+
+  /* ---------- Illustrations and reading time ---------- */
+
+  function illustration(spec, extraClass) {
+    const template = spec && document.getElementById(spec.template);
+    if (!template) return null;
+    const wrap = el("div", { class: `art${extraClass ? " " + extraClass : ""}`, role: "img", "aria-label": spec.alt });
+    wrap.append(template.content.cloneNode(true));
+    return wrap;
+  }
+
+  // An estimate at 180 words a minute, for a reader taking their time.
+  function readingMinutes(section) {
+    const parts = [...section.explain, ...section.rules, section.do, section.dont, section.example || ""];
+    for (const extra of section.extras || []) {
+      parts.push(extra.intro || "");
+      for (const item of extra.items) parts.push(item.term, item.text);
+    }
+    const words = parts.join(" ").split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 180));
+  }
+
+  /* ---------- Saved progress ---------- */
+
+  function freshState() {
+    return {
+      version: 1,
+      step: "learn",
+      learnIndex: 0,
+      learnComplete: false,
+      questionOrder: [],
+      optionOrder: {},
+      answers: {},
+      submitted: false,
+      attempts: 0,
+      passed: false,
+      passedAnswers: null,
+      visited: [],
+      checks: {}
+    };
+  }
+
+  function loadState() {
+    let raw = null;
+    try {
+      raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    } catch (error) {
+      raw = null;
+    }
+    const s = freshState();
+    if (raw && typeof raw === "object") {
+      if (STEPS.some(step => step.id === raw.step)) s.step = raw.step;
+      if (Number.isInteger(raw.learnIndex)) s.learnIndex = Math.min(Math.max(raw.learnIndex, 0), COURSE.sections.length - 1);
+      s.learnComplete = raw.learnComplete === true;
+      if (Array.isArray(raw.questionOrder)) s.questionOrder = raw.questionOrder;
+      if (raw.optionOrder && typeof raw.optionOrder === "object") s.optionOrder = raw.optionOrder;
+      s.answers = cleanAnswers(raw.answers);
+      s.submitted = raw.submitted === true;
+      if (Number.isInteger(raw.attempts) && raw.attempts > 0) s.attempts = raw.attempts;
+      if (raw.passedAnswers && typeof raw.passedAnswers === "object") s.passedAnswers = cleanAnswers(raw.passedAnswers);
+      if (Array.isArray(raw.visited)) s.visited = COURSE.sections.map(x => x.id).filter(id => raw.visited.includes(id));
+      if (raw.checks && typeof raw.checks === "object") {
+        for (const section of COURSE.sections) {
+          const value = raw.checks[section.id];
+          if (section.check && section.check.options.some(o => o.id === value)) s.checks[section.id] = value;
+        }
+      }
+    }
+    return normalise(s);
+  }
+
+  // Never trust a stored "passed" flag: work it out again from the answers.
+  function normalise(s) {
+    s.passed = Boolean(s.passedAnswers) && COURSE.questions.every(q => isCorrect(q, s.passedAnswers[q.id]));
+
+    if (s.passed) {
+      s.attempts = Math.max(1, s.attempts);
+      s.answers = clone(s.passedAnswers);
+      s.submitted = true;
+      s.learnComplete = true;
+    } else {
+      s.passedAnswers = null;
+      // A "submitted" attempt with every answer right but no recorded pass
+      // can only come from editing storage: let the learner submit it properly.
+      if (s.submitted && COURSE.questions.every(q => isCorrect(q, s.answers[q.id]))) s.submitted = false;
+    }
+
+    const ids = COURSE.questions.map(q => q.id);
+    if (!isPermutation(s.questionOrder, ids)) {
+      s.questionOrder = s.attempts > 0 ? shuffle(ids) : ids.slice();
+      s.submitted = s.passed;
+    }
+    for (const q of COURSE.questions) {
+      if (hasShuffledOptions(q) && !isPermutation(s.optionOrder[q.id], q.options.map(o => o.id))) {
+        s.optionOrder[q.id] = shuffle(q.options.map(o => o.id));
+      }
+    }
+    if (s.submitted && !COURSE.questions.every(q => isAnswered(q, s.answers[q.id]))) s.submitted = false;
+
+    if (s.step === "assess" && !s.learnComplete) s.step = "learn";
+    return s;
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      storageWorks = true;
+    } catch (error) {
+      storageWorks = false;
+    }
+    document.getElementById("storage-warning").hidden = storageWorks;
+  }
+
+  /* ---------- Navigation ---------- */
+
+  function canVisit(step) {
+    if (step === "learn") return true;
+    if (step === "assess") return state.learnComplete;
+    return false;
+  }
+
+  function isDone(step) {
+    if (step === "learn") return state.learnComplete;
+    if (step === "assess") return state.passed;
+    return false;
+  }
+
+  function go(step) {
+    if (!canVisit(step)) return;
+    state.step = step;
+    save();
+    render({ focus: true });
+  }
+
+  function render(options) {
+    const view = { learn: viewLearn, assess: viewAssess }[state.step]();
+    $view.replaceChildren(view);
+    renderProgress();
+    const label = STEPS.find(step => step.id === state.step).label;
+    document.title = `${label}: ${COURSE.title}`;
+    if (options && options.focus) {
+      const heading = $view.querySelector("h1");
+      if (heading) heading.focus();
+    }
+  }
+
+  function renderProgress() {
+    $progress.replaceChildren(...STEPS.map((step, index) => {
+      const current = state.step === step.id;
+      const done = isDone(step.id);
+      const available = canVisit(step.id);
+      const status = current ? "current" : done ? "done" : available ? "available" : "locked";
+      const parts = [
+        el("span", { class: "step-marker", "aria-hidden": "true" },
+          done && !current ? icon("tick") : status === "locked" ? icon("lock") : String(index + 1)),
+        el("span", { class: "step-label" }, step.label),
+        el("span", { class: "visually-hidden" },
+          current ? ", current step" : done ? ", completed" : available ? "" : ", locked")
+      ];
+      const inner = available && !current
+        ? el("button", { type: "button", class: "step-btn", onclick: () => go(step.id) }, parts)
+        : el("span", { class: "step-btn", "aria-current": current ? "step" : null }, parts);
+      return el("li", { class: `step is-${status}${done ? " is-done" : ""}` }, inner);
+    }));
+  }
+
+  /* ---------- Learn ---------- */
+
+  function viewLearn() {
+    const sections = COURSE.sections;
+    const index = state.learnIndex;
+    const section = sections[index];
+    const last = index === sections.length - 1;
+    if (last && !state.learnComplete) state.learnComplete = true;
+    if (!state.visited.includes(section.id)) state.visited.push(section.id);
+    save();
+
+    const goToSection = target => {
+      state.learnIndex = target;
+      save();
+      render({ focus: true });
+    };
+
+    const tocItems = () => sections.map((s, i) => el("li", {},
+      el("button", { type: "button", class: "toc-item", "aria-current": i === index ? "true" : null, onclick: () => goToSection(i) },
+        el("span", { class: "toc-num" }, String(i + 1)), el("span", {}, s.title),
+        i !== index && state.visited.includes(s.id)
+          ? el("span", { class: "toc-tick" }, icon("tick"), el("span", { class: "visually-hidden" }, ", read"))
+          : null)
+    ));
+    const tocRail = el("nav", { class: "toc-rail no-print", "aria-label": "Course sections" },
+      el("h2", { class: "label" }, "Sections"),
+      el("ol", { class: "toc-list" }, tocItems())
+    );
+    const tocMobile = el("details", { class: "toc-mobile no-print" },
+      el("summary", {}, `All sections (you're on ${index + 1} of ${sections.length})`),
+      el("ol", { class: "toc-list" }, tocItems())
+    );
+
+    const article = el("article", { class: "sheet learn-article" },
+      illustration(section.art),
+      el("p", { class: "eyebrow" }, `Section ${index + 1} of ${sections.length}`,
+        el("span", { class: "eyebrow-time" }, ` · About ${readingMinutes(section)} min read`)),
+      el("h1", { tabindex: "-1" }, section.title),
+      el("div", { class: "law" },
+        el("p", { class: "label" }, "The law"),
+        el("ul", {}, section.law.map(item => el("li", {}, item)))
+      ),
+      section.explain.map(text => el("p", {}, text)),
+      (section.extras || []).map(extra => extra.display === "cards" ? revealCards(extra, section.id) : el("section", { class: "extra" },
+        el("h2", {}, extra.heading),
+        extra.intro ? el("p", {}, extra.intro) : null,
+        el("dl", {}, extra.items.map(item => el("div", { class: "row" }, el("dt", {}, item.term), el("dd", {}, item.text))))
+      )),
+      section.interactive === "ladder" ? ladderExercise() : null,
+      el("section", { class: "rules" },
+        el("h2", {}, "Key rules"),
+        el("ol", {}, section.rules.map(rule => el("li", {}, el("span", {}, rule))))
+      ),
+      el("section", {},
+        el("h2", { class: "visually-hidden" }, "Do and don't"),
+        el("div", { class: "dodont" },
+          el("div", { class: "sign-card do" }, sign("must"), el("div", {}, el("h3", {}, "Do"), el("p", {}, section.do))),
+          el("div", { class: "sign-card dont" }, sign("mustNot"), el("div", {}, el("h3", {}, "Don't"), el("p", {}, section.dont)))
+        )
+      ),
+      section.example
+        ? el("div", { class: "example" }, sign("warning"), el("p", {}, el("strong", {}, "On site. "), section.example))
+        : null,
+      checkYourself(section),
+      verifyComments(section.verify)
+    );
+
+    const pagerTile = (target, kind) => el("button", { type: "button", class: `pager-link pager-${kind}`, onclick: () => goToSection(target) },
+      el("span", { class: "pager-label" }, kind === "next" ? "Next" : "Previous"),
+      el("span", { class: "pager-title" },
+        kind === "prev" ? el("span", { "aria-hidden": "true" }, "\u2039 ") : null,
+        sections[target].title,
+        kind === "next" ? el("span", { "aria-hidden": "true" }, " \u203a") : null));
+    const pager = el("nav", { class: "pager", "aria-label": "Previous and next section" },
+      index > 0 ? pagerTile(index - 1, "prev") : el("span"),
+      last
+        ? el("div", { class: "pager-end" }, el("button", { type: "button", class: "btn", onclick: () => go("assess") }, "Start the assessment"))
+        : pagerTile(index + 1, "next")
+    );
+
+    return el("div", { class: "learn-layout" }, tocRail, el("div", { class: "learn-main" }, tocMobile, article, pager));
+  }
+
+  function revealCards(extra, sectionId) {
+    const cards = extra.items.map((item, i) => {
+      const textId = `card-${sectionId}-${i}`;
+      const text = el("p", { class: "card-text", id: textId, hidden: true }, item.text);
+      const hint = el("span", { class: "card-hint" }, "Show what to check");
+      const button = el("button", { type: "button", class: "card-btn", "aria-expanded": "false", "aria-controls": textId },
+        el("span", { class: "card-letter", "aria-hidden": "true" }, item.term.charAt(0)),
+        el("span", { class: "card-term" }, item.term),
+        hint);
+      const card = el("div", { class: "card" }, button, text);
+      button.addEventListener("click", () => {
+        const open = button.getAttribute("aria-expanded") !== "true";
+        button.setAttribute("aria-expanded", String(open));
+        text.hidden = !open;
+        hint.textContent = open ? "Hide" : "Show what to check";
+        card.classList.toggle("is-open", open);
+      });
+      return card;
+    });
+    return el("section", { class: "extra" },
+      el("h2", {}, extra.heading),
+      el("p", { class: "cards-intro" }, extra.intro || "Think about each one, then open the card to check."),
+      el("div", { class: "cards" }, cards));
+  }
+
+  function ladderExercise() {
+    const ground = 220, wall = 250, length = 190;
+    const stage = el("div", { class: "lab-stage" });
+    stage.innerHTML = `<svg viewBox="0 0 320 240" aria-hidden="true" focusable="false">
+      <rect width="320" height="240" fill="#dfe8ee"/>
+      <rect y="${ground}" width="320" height="20" fill="#d8cbb0"/>
+      <rect x="${wall}" y="10" width="70" height="${ground - 10}" fill="#cbc4b8" stroke="#5d6167" stroke-width="2"/>
+      <g class="lab-guide" stroke="#0f4c86" stroke-width="2" stroke-dasharray="5 4" fill="none"><path/></g>
+      <g class="lab-ladder" stroke="#7c5a2e" stroke-linecap="round" fill="none"></g>
+      <g fill="#0f4c86" font-size="15" font-weight="700" stroke="#ffffff" stroke-width="4" paint-order="stroke">
+        <text class="lab-run" text-anchor="middle"></text><text class="lab-rise"></text>
+      </g>
+    </svg>`;
+    const input = el("input", { type: "range", class: "range", id: "ladder-angle", min: "60", max: "85", step: "1", value: "65", "aria-describedby": "ladder-help" });
+    const readout = el("div", { class: "lab-readout", id: "ladder-readout" });
+
+    const update = () => {
+      const degrees = Number(input.value);
+      const radians = degrees * Math.PI / 180;
+      const ratio = Math.tan(radians);
+      const base = { x: wall - length * Math.cos(radians), y: ground };
+      const top = { x: wall, y: ground - length * Math.sin(radians) };
+      const nx = Math.sin(radians) * 9, ny = Math.cos(radians) * 9;
+      let rails = `<path stroke-width="4" d="M${base.x} ${base.y}L${top.x} ${top.y}M${base.x - nx} ${base.y - ny}L${top.x - nx} ${top.y - ny}"/>`;
+      for (let t = 0.08; t < 0.98; t += 0.1) {
+        const x = base.x + (top.x - base.x) * t, y = base.y + (top.y - base.y) * t;
+        rails += `<path stroke-width="3" d="M${x} ${y}L${x - nx} ${y - ny}"/>`;
+      }
+      stage.querySelector(".lab-ladder").innerHTML = rails;
+      stage.querySelector(".lab-guide path").setAttribute("d", `M${base.x} ${ground + 8}H${wall}M${wall + 8} ${ground}V${top.y}`);
+      const run = stage.querySelector(".lab-run");
+      run.setAttribute("x", (base.x + wall) / 2);
+      run.setAttribute("y", ground + 17);
+      run.textContent = "1";
+      const rise = stage.querySelector(".lab-rise");
+      rise.setAttribute("x", wall + 14);
+      rise.setAttribute("y", (ground + top.y) / 2 + 5);
+      rise.textContent = ratio.toFixed(1);
+
+      let verdict, right = false;
+      if (degrees < 75) verdict = "Too shallow. The foot of the ladder could slide out.";
+      else if (degrees > 76) verdict = "Too steep. The ladder could tip backwards.";
+      else { verdict = "That's right: about 1 out for every 4 up."; right = true; }
+      const ratioText = `For every 1 out, it goes ${ratio.toFixed(1)} up.`;
+      readout.className = `lab-readout${right ? " is-right" : ""}`;
+      readout.replaceChildren(right ? statusSign(true) : sign("warning", "sign-sm"),
+        el("div", {},
+          el("p", { class: "lab-angle" }, `${degrees}°`),
+          el("p", {}, ratioText),
+          el("p", {}, el("strong", {}, verdict))));
+      input.setAttribute("aria-valuetext", `${degrees} degrees. ${ratioText} ${verdict}`);
+    };
+    input.addEventListener("input", update);
+    update();
+
+    return el("section", { class: "lab no-print", "aria-labelledby": "ladder-title" },
+      el("h2", { id: "ladder-title" }, "Try it: set the ladder angle"),
+      el("p", {}, "Move the slider until the ladder leans at the safe angle."),
+      el("div", { class: "lab-grid" },
+        stage,
+        el("div", {},
+          el("label", { for: "ladder-angle" }, "Ladder angle"),
+          el("p", { class: "hint", id: "ladder-help" }, "Drag the slider, or use the arrow keys."),
+          input,
+          readout)));
+  }
+
+  function checkYourself(section) {
+    const check = section.check;
+    if (!check) return null;
+    const base = `check-${section.id}`;
+    const feedback = el("div", { class: "check-feedback", id: `${base}-feedback`, "aria-live": "polite" });
+    const showResult = answer => {
+      const right = answer === check.correct;
+      feedback.className = `check-feedback feedback ${right ? "is-correct" : "is-incorrect"}`;
+      feedback.replaceChildren(statusSign(right),
+        el("div", {}, el("p", {}, el("span", { class: "status" }, right ? "Correct. " : "Not quite. "), check.explanation)));
+    };
+    // A plain button, not a form submission, so it works in frames that block forms.
+    const form = el("div", { class: "check no-print" },
+      el("fieldset", {},
+        el("legend", {}, el("span", { class: "label" }, "Check yourself"), el("span", { class: "check-q" }, check.prompt)),
+        el("p", { class: "hint" }, "This doesn't count towards your score."),
+        el("div", { class: "options" }, check.options.map(option => {
+          const inputId = `${base}-${option.id}`;
+          return el("label", { class: "option", for: inputId },
+            el("input", { type: "radio", id: inputId, name: base, value: option.id, checked: state.checks[section.id] === option.id }),
+            el("span", {}, option.text));
+        }))
+      ),
+      el("div", { class: "btn-row" }, el("button", { type: "button", class: "btn btn-secondary", onclick: () => checkAnswer() }, "Check my answer")),
+      feedback
+    );
+    const checkAnswer = () => {
+      const picked = form.querySelector(`input[name="${base}"]:checked`);
+      if (!picked) {
+        feedback.className = "check-feedback feedback is-incorrect";
+        feedback.replaceChildren(sign("warning", "sign-sm"), el("div", {}, el("p", {}, "Choose an answer first.")));
+        return;
+      }
+      state.checks[section.id] = picked.value;
+      save();
+      showResult(picked.value);
+    };
+    if (state.checks[section.id]) showResult(state.checks[section.id]);
+    return form;
+  }
+
+  /* ---------- Assess ---------- */
+
+  function viewAssess() {
+    const questions = orderedQuestions();
+    const total = questions.length;
+    const attemptNumber = state.submitted ? state.attempts : state.attempts + 1;
+
+    const wrap = el("div", { class: "assess" },
+      el("div", { class: "assess-head" },
+        el("p", { class: "label" }, "Assess"),
+        el("h1", { tabindex: "-1" }, "Assessment"),
+        el("p", { class: "lead" }, `Answer all ${total} questions. To pass, every answer must be right. If any are wrong, read the feedback and try again. You can try as many times as you need.`),
+        el("p", { class: "facts" },
+          el("span", { class: "meta" }, `Attempt ${attemptNumber}`),
+          el("span", {}, `${total} questions`),
+          el("span", {}, "Pass mark 100%"))
+      )
+    );
+
+    if (state.submitted) wrap.append(resultsPanel(questions));
+
+    // A section with a plain Submit button, not a form, so it works in frames that block forms.
+    const form = el("section", { id: "assess-form", class: "assess-form", "aria-label": "Assessment questions" });
+    form.append(el("div", { id: "error-summary-slot" }));
+    questions.forEach((q, i) => form.append(questionCard(q, i, total)));
+
+    if (!state.submitted) {
+      form.append(el("div", { class: "sheet submit-bar" },
+        el("p", { class: "answered-count", id: "answered-count" }, answeredText()),
+        el("div", { class: "btn-row" },
+          el("button", { type: "button", class: "btn", onclick: submitAnswers }, "Submit answers"),
+          el("button", { type: "button", class: "btn btn-secondary", onclick: () => go("learn") }, "Back to the Learn section")
+        )
+      ));
+    } else {
+      form.append(el("div", { class: "btn-row" }, nextStepButton()));
+    }
+    wrap.append(form);
+    return wrap;
+  }
+
+  function nextStepButton() {
+    return state.passed
+      ? el("button", { type: "button", class: "btn btn-secondary", onclick: () => go("learn") }, "Look back over the course")
+      : el("button", { type: "button", class: "btn", onclick: retry }, "Try again");
+  }
+
+  function answeredText() {
+    const total = COURSE.questions.length;
+    const answered = COURSE.questions.filter(q => isAnswered(q, state.answers[q.id])).length;
+    return `${answered} of ${total} questions answered.`;
+  }
+
+  function questionCard(q, index, total) {
+    const base = `q-${q.id}`;
+    const locked = state.submitted;
+    const describedBy = [];
+
+    const fieldset = el("fieldset", { class: "question", id: base, disabled: locked });
+    fieldset.append(el("legend", {},
+      el("h2", { class: "q-title" },
+        el("span", { class: "q-num" }, `Question ${index + 1} of ${total}`),
+        el("span", { class: "q-prompt" }, q.prompt)
+      )
+    ));
+    if (q.scenario) {
+      fieldset.append(el("p", { class: "scenario", id: `${base}-scenario` }, q.scenario));
+      describedBy.push(`${base}-scenario`);
+    }
+    if (q.type === "hotspot") {
+      fieldset.append(el("p", { id: `${base}-scene` },
+        `${q.scene.description} There are ${q.hotspots.length} items you can select.`));
+      describedBy.push(`${base}-scene`);
+    }
+    fieldset.append(el("p", { class: "hint", id: `${base}-hint` }, TYPE_HINTS[q.type]));
+    describedBy.push(`${base}-hint`);
+    fieldset.append(el("p", { class: "error-msg", id: `${base}-error`, hidden: true },
+      icon("alert"), el("span", { class: "visually-hidden" }, "Error: "), "Answer this question before you submit."));
+
+    if (q.type === "hotspot") fieldset.append(hotspotControl(q));
+    else fieldset.append(choiceControl(q));
+
+    if (locked) {
+      const right = isCorrect(q, state.answers[q.id]);
+      const feedback = el("div", { class: `feedback ${right ? "is-correct" : "is-incorrect"}`, id: `${base}-feedback` },
+        statusSign(right),
+        el("div", {},
+          el("p", {}, el("span", { class: "status" }, right ? "Correct. " : "Incorrect. "), q.explanation),
+          q.type === "hotspot" ? hotspotReview(q) : null
+        )
+      );
+      fieldset.append(feedback);
+      describedBy.push(`${base}-feedback`);
+    }
+    fieldset.setAttribute("aria-describedby", describedBy.join(" "));
+    fieldset.append(...verifyComments(q.verify));
+    return el("div", { class: "q-card", id: `${base}-card` }, fieldset);
+  }
+
+  function choiceControl(q) {
+    const inputType = q.type === "multi" ? "checkbox" : "radio";
+    const name = `answer-${q.id}`;
+    const current = state.answers[q.id];
+    return el("div", { class: "options" }, orderedOptions(q).map(option => {
+      const inputId = `${name}-${option.id}`;
+      const checked = inputType === "checkbox"
+        ? Array.isArray(current) && current.includes(option.id)
+        : current === option.id;
+      const input = el("input", { type: inputType, id: inputId, name, value: option.id, checked });
+      input.addEventListener("change", () => {
+        const list = input.closest(".options");
+        if (inputType === "checkbox") {
+          const picked = [...list.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value);
+          if (picked.length) state.answers[q.id] = picked;
+          else delete state.answers[q.id];
+        } else {
+          state.answers[q.id] = input.value;
+        }
+        answerChanged(q);
+      });
+      return el("label", { class: "option", for: inputId }, input, el("span", {}, option.text));
+    }));
+  }
+
+  function hotspotControl(q) {
+    const width = q.scene.width;
+    const height = q.scene.height;
+    const selected = () => new Set(state.answers[q.id] || []);
+    const picked = selected();
+    const locked = state.submitted;
+    const scene = el("div", { class: "scene" });
+    const template = document.getElementById(q.scene.template);
+    scene.append(template.content.cloneNode(true));
+
+    const buttons = {};
+    const boxes = {};
+
+    const setSelected = (id, on) => {
+      const set = selected();
+      if (on) set.add(id); else set.delete(id);
+      const list = q.hotspots.map(h => h.id).filter(hid => set.has(hid));
+      if (list.length) state.answers[q.id] = list;
+      else delete state.answers[q.id];
+      buttons[id].setAttribute("aria-pressed", String(on));
+      boxes[id].checked = on;
+      answerChanged(q);
+    };
+
+    for (const spot of q.hotspots) {
+      let resultClass = "";
+      let badge = "tick";
+      if (locked) {
+        const isHazard = q.correct.includes(spot.id);
+        const chosen = picked.has(spot.id);
+        if (isHazard && chosen) resultClass = " is-found";
+        else if (isHazard) { resultClass = " is-missed"; badge = "alert"; }
+        else if (chosen) { resultClass = " is-wrong"; badge = "cross"; }
+      }
+      const button = el("button", {
+        type: "button",
+        class: `hotspot${resultClass}`,
+        "aria-pressed": String(picked.has(spot.id)),
+        "aria-label": spot.label,
+        "aria-describedby": `hs-${q.id}-${spot.id}-desc`,
+        style: `left:${(spot.x / width) * 100}%;top:${(spot.y / height) * 100}%;width:${(spot.w / width) * 100}%;height:${(spot.h / height) * 100}%`
+      }, el("span", { class: "hotspot-badge" }, icon(badge)));
+      button.addEventListener("click", event => {
+        event.stopPropagation();
+        setSelected(spot.id, button.getAttribute("aria-pressed") !== "true");
+      });
+      buttons[spot.id] = button;
+      scene.append(button);
+    }
+
+    scene.addEventListener("click", event => {
+      if (state.submitted || event.target.closest(".hotspot")) return;
+      const rect = scene.getBoundingClientRect();
+      const x = Math.min(Math.max(event.clientX - rect.left, 60), rect.width - 60);
+      const y = Math.min(Math.max(event.clientY - rect.top, 16), rect.height - 16);
+      const marker = el("span", { class: "miss", "aria-hidden": "true", style: `left:${x}px;top:${y}px` }, icon("cross"), "Not a hazard");
+      scene.append(marker);
+      setTimeout(() => marker.remove(), 1800);
+      announce("Not a hazard. There is nothing to select there.");
+    });
+
+    const checklist = el("details", { class: "checklist" },
+      el("summary", {}, "Use a checklist instead of the picture"),
+      el("div", { class: "options", role: "group", "aria-label": "Items in the picture" }, q.hotspots.map(spot => {
+        const inputId = `hs-${q.id}-${spot.id}`;
+        const box = el("input", { type: "checkbox", id: inputId, value: spot.id, checked: picked.has(spot.id) });
+        box.addEventListener("change", () => setSelected(spot.id, box.checked));
+        boxes[spot.id] = box;
+        return el("label", { class: "option", for: inputId }, box,
+          el("span", {}, el("strong", {}, spot.label),
+            el("span", { class: "option-desc", id: `${inputId}-desc` }, spot.description)));
+      }))
+    );
+
+    return el("div", {}, scene, checklist);
+  }
+
+  function hotspotReview(q) {
+    const picked = new Set(state.answers[q.id] || []);
+    const items = q.hotspots.map(spot => {
+      const isHazard = q.correct.includes(spot.id);
+      const chosen = picked.has(spot.id);
+      let status, good;
+      if (isHazard && chosen) { status = "you found this hazard."; good = true; }
+      else if (isHazard) { status = "you missed this hazard."; good = false; }
+      else if (chosen) { status = "you selected this, but it isn't a hazard."; good = false; }
+      else { status = "not a hazard, and you left it alone."; good = true; }
+      return el("li", { class: good ? "is-correct" : "is-incorrect" },
+        icon(good ? "tick" : "cross"),
+        el("span", {}, el("strong", {}, `${spot.label}: `), status, " ", spot.feedback));
+    });
+    return el("ul", { class: "hs-review" }, items);
+  }
+
+  function answerChanged(q) {
+    save();
+    const counter = document.getElementById("answered-count");
+    if (counter) counter.textContent = answeredText();
+    if (isAnswered(q, state.answers[q.id])) clearQuestionError(q);
+  }
+
+  function clearQuestionError(q) {
+    const error = document.getElementById(`q-${q.id}-error`);
+    const card = document.getElementById(`q-${q.id}-card`);
+    const fieldset = document.getElementById(`q-${q.id}`);
+    if (!error || error.hidden) return;
+    error.hidden = true;
+    card.classList.remove("has-error");
+    const ids = fieldset.getAttribute("aria-describedby").split(" ").filter(id => id !== error.id);
+    fieldset.setAttribute("aria-describedby", ids.join(" "));
+  }
+
+  function submitAnswers() {
+    if (state.submitted) return;
+    const questions = orderedQuestions();
+    const missing = questions.filter(q => !isAnswered(q, state.answers[q.id]));
+    if (missing.length) {
+      showMissing(questions, missing);
+      return;
+    }
+
+    state.submitted = true;
+    state.attempts += 1;
+    const correctCount = questions.filter(q => isCorrect(q, state.answers[q.id])).length;
+    if (correctCount === questions.length) {
+      state.passed = true;
+      state.passedAnswers = clone(state.answers);
+    }
+    save();
+    render();
+    document.getElementById("results-heading").focus();
+    announce(state.passed
+      ? `Passed. You answered all ${questions.length} questions correctly on attempt ${state.attempts}. You have completed the course.`
+      : `Not passed. You answered ${correctCount} of ${questions.length} questions correctly. Read the feedback under each question, then try again.`);
+  }
+
+  function showMissing(questions, missing) {
+    const slot = document.getElementById("error-summary-slot");
+    for (const q of missing) {
+      const error = document.getElementById(`q-${q.id}-error`);
+      const fieldset = document.getElementById(`q-${q.id}`);
+      if (error.hidden) {
+        error.hidden = false;
+        document.getElementById(`q-${q.id}-card`).classList.add("has-error");
+        const ids = fieldset.getAttribute("aria-describedby").split(" ");
+        ids.splice(1, 0, error.id);
+        fieldset.setAttribute("aria-describedby", ids.join(" "));
+      }
+    }
+    const summary = el("div", { class: "error-summary", tabindex: "-1", "aria-labelledby": "error-summary-title" },
+      el("h2", { id: "error-summary-title" }, sign("warning", "sign-sm"), "There is a problem"),
+      el("p", {}, missing.length === 1
+        ? "Answer every question before you submit. 1 question still needs an answer:"
+        : `Answer every question before you submit. ${missing.length} questions still need an answer:`),
+      el("ul", {}, missing.map(q => {
+        const number = questions.indexOf(q) + 1;
+        const link = el("a", { href: `#q-${q.id}` }, `Question ${number}`);
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          const first = document.getElementById(`q-${q.id}`).querySelector("input, button");
+          first.focus();
+          first.scrollIntoView({ block: "center" });
+        });
+        return el("li", {}, link);
+      }))
+    );
+    slot.replaceChildren(summary);
+    summary.focus();
+    announce(`There is a problem. ${missing.length} ${missing.length === 1 ? "question still needs" : "questions still need"} an answer.`);
+  }
+
+  function resultsPanel(questions) {
+    const correctCount = questions.filter(q => isCorrect(q, state.answers[q.id])).length;
+    const percent = Math.round((correctCount / questions.length) * 100);
+    const passed = state.passed;
+    return el("section", { class: `sheet results ${passed ? "is-pass" : "is-fail"}`, "aria-labelledby": "results-heading" },
+      el("div", { class: "results-head" },
+        statusSign(passed, "lg"),
+        el("div", {},
+          el("h2", { id: "results-heading", tabindex: "-1" }, passed ? "Results: passed" : "Results: not passed"),
+          el("p", { class: "score" }, el("strong", {}, `${correctCount} of ${questions.length}`), ` correct (${percent}%)`)
+        )
+      ),
+      passed
+        ? el("p", {}, `You passed on attempt ${state.attempts}. You have completed ${COURSE.title}. You can now go back to your training platform.`)
+        : el("p", {}, `This was attempt ${state.attempts}. You need every answer right to pass. Read the feedback under each question, then try again. The questions will be in a new order.`),
+      el("ol", { class: "result-grid", "aria-label": "Your answers, question by question" }, questions.map((q, i) => {
+        const right = isCorrect(q, state.answers[q.id]);
+        return el("li", { class: right ? "is-correct" : "is-incorrect" },
+          el("a", { href: `#q-${q.id}` },
+            el("span", { "aria-hidden": "true" }, `Q${i + 1}`),
+            icon(right ? "tick" : "cross"),
+            el("span", { class: "visually-hidden" }, `Question ${i + 1}: ${right ? "correct" : "incorrect"}`)));
+      })),
+      el("div", { class: "btn-row" }, nextStepButton())
+    );
+  }
+
+  function retry() {
+    const ids = COURSE.questions.map(q => q.id);
+    let order = shuffle(ids);
+    for (let tries = 0; ids.length > 1 && sameList(order, state.questionOrder) && tries < 20; tries++) order = shuffle(ids);
+    state.questionOrder = order;
+    state.optionOrder = {};
+    for (const q of COURSE.questions) {
+      if (hasShuffledOptions(q)) state.optionOrder[q.id] = shuffle(q.options.map(o => o.id));
+    }
+    state.answers = {};
+    state.submitted = false;
+    save();
+    render({ focus: true });
+    announce(`Attempt ${state.attempts + 1}. The questions and answers are in a new order.`);
+  }
+
+  /* ---------- Reset ---------- */
+
+  function resetProgress() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (error) { /* nothing saved to remove */ }
+    state = normalise(freshState());
+    render({ focus: true });
+    announce("Your progress has been reset.");
+  }
+
+  const dialog = document.getElementById("reset-dialog");
+  document.getElementById("reset-button").addEventListener("click", () => {
+    if (typeof dialog.showModal === "function") dialog.showModal();
+    else resetProgress();
+  });
+  document.getElementById("reset-cancel").addEventListener("click", () => dialog.close());
+  document.getElementById("reset-confirm").addEventListener("click", () => {
+    dialog.close();
+    resetProgress();
+  });
+
+  /* ---------- Start ---------- */
+
+  document.getElementById("brand-course").textContent = COURSE.title;
+  document.getElementById("brand-org").textContent = COURSE.organisation;
+  document.getElementById("footer-notes").append(el("p", {}, COURSE.notes.scope), el("p", {}, COURSE.notes.notice));
+  save();
+  render();
+})();
+</script>
+</body>
+</html>
